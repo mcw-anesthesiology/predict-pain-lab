@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	{% include head.html %}
+	<body>
+		<div class="site-hero-image-container"></div>
+		<div class="site-hero-header-container">
+			{% include header.html %}
+		</div>
+
+		<main>
+			<div class="wrapper">
+				{{ content }}
+			</div>
+		</main>
+
+		{% include footer.html %}
+		<script src="/js/bundle.js"></script>
+	</body>
+</html>

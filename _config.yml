@@ -1,0 +1,30 @@
+# Site settings
+title: PREDICT Pain Lab at MCW
+email: predict@mcw.edu # FIXME
+description: TODO # FIXME
+baseurl: ""
+url: "http://mcwpaincare.org" # FIXME
+# twitter_username: jekyllrb
+# github_username:  jekyll
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+exclude:
+  - node_modules
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+  - webpack.config.js
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "page"
+
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"

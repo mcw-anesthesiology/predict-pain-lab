@@ -1,0 +1,17 @@
+<header class="site-header">
+	<a class="site-title expanded" href="{{ site.baseurl }}/">{{ site.title }}</a>
+	<nav class="site-nav">
+		<a href="#" class="menu-icon">
+    		{% include svgs/menu.svg %}
+		</a>
+
+		<div class="trigger">
+{% assign heading_pages = site.pages | sort: 'page_order' %}
+{% for my_page in heading_pages %}
+	{% if my_page.title %}
+			<a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
+	{% endif %}
+{% endfor %}
+		</div>
+	</nav>
+</header>

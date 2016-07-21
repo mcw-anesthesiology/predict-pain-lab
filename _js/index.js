@@ -1,0 +1,1 @@
+import './hero-layout.js';
