@@ -17,7 +17,7 @@
 			background-image: url("{{ page.hero_image }}");
 			background-size: cover;
 			background-repeat: no-repeat;
-			background-position: 0 center;
+			background-position: {{ page.hero_position | default: "center" }};
 		}
 	</style>
 {% endif %}
