@@ -5,6 +5,10 @@
 		<div class="site-hero-image-container"></div>
 		<div class="site-hero-header-container">
 			{% include header.html %}
+
+{% if page.hero_desc %}
+			<p class="hero-desc">{{ page.hero_desc }}</p>
+{% endif %}
 		</div>
 
 		<main>

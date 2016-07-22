@@ -1,5 +1,5 @@
 <header class="site-header">
-	<a class="site-title expanded" href="{{ site.baseurl }}/">{{ site.title }}</a>
+	<a class="site-title expanded" href="{{ site.baseurl }}/">{{ page.title | default: site.title }}</a>
 	<nav class="site-nav">
 		<a href="#" class="menu-icon">
     		{% include svgs/menu.svg %}

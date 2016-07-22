@@ -22,13 +22,15 @@ $grey-color:       #828282;
 $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
 
-$hero-header-color: rgba($grey-color-dark, 0.5);
+$hero-header-color: rgba($grey-color, 0.5);
 
 // Width of the content area
 $content-width:    800px;
 
 $on-palm:          600px;
 $on-laptop:        800px;
+
+$mobile: 768px;
 
 .notransition {
 	transition: none !important;

@@ -59,21 +59,33 @@
 	var title = document.querySelector('.site-title');
 	var collapseMargin = 20;
 	var expandMargin = 30;
-	var expandedTitleYTranslation = 10;
 	
-	var headerHeight = 50;
+	var heroBackgroundColor = window.getComputedStyle(hero).getPropertyValue('background-color');
+	var heroRgba = heroBackgroundColor.substring(5, heroBackgroundColor.length - 1) // 5 = 'rgba('
+	.split(',');
+	for (var i in heroRgba) {
+		heroRgba[i] = parseFloat(heroRgba[i]);
+	}var expandedTitleTranslation = window.getComputedStyle(title).getPropertyValue('transform');
+	expandedTitleTranslation = expandedTitleTranslation.substring(10, expandedTitleTranslation.length - 1) // 7 = 'matrix('
+	.split(',');
+	
+	for (var _i in expandedTitleTranslation) {
+		expandedTitleTranslation[_i] = parseFloat(expandedTitleTranslation[_i]);
+	}var heroStartingAlpha = heroRgba[heroRgba.length - 1];
 	
 	// FIXME: How broken will this be with js disabled?
 	
 	if (title.classList.contains('expanded') && hero.getBoundingClientRect().bottom < title.getBoundingClientRect().bottom + collapseMargin) {
 		title.classList.add('notransition');
 		title.classList.remove('expanded');
+		header.classList.add('collapsed');
 		title.offsetHeight; // Trigger reflow, this is filthy
 		title.classList.remove('notransition');
 	}
 	
 	function step() {
 		var heroRect = hero.getBoundingClientRect();
+		var headerHeight = header.getBoundingClientRect().height;
 	
 		if (title.classList.contains('expanded')) {
 			if (heroRect.bottom < title.getBoundingClientRect().bottom + collapseMargin) {
@@ -81,7 +93,7 @@
 				title.classList.remove('expanded');
 			}
 		} else {
-			if (heroRect.bottom > document.documentElement.clientHeight / 100 * expandedTitleYTranslation + title.getBoundingClientRect().height + expandMargin) {
+			if (heroRect.bottom > expandedTitleTranslation[expandedTitleTranslation.length - 1] + title.getBoundingClientRect().height + expandMargin) {
 	
 				title.classList.add('expanded');
 			}
@@ -96,6 +108,12 @@
 				header.classList.add('collapsed');
 			}
 		}
+	
+		var newHeroAlpha = (heroRect.height - (heroRect.bottom - headerHeight)) / heroRect.height;
+		newHeroAlpha > 0 ? newHeroAlpha : 0;
+		newHeroAlpha = heroStartingAlpha + Math.pow(newHeroAlpha, 2) * (1 - heroStartingAlpha);
+		heroRgba[heroRgba.length - 1] = newHeroAlpha;
+		hero.style.backgroundColor = 'rgba(' + heroRgba.join(',') + ')';
 	
 		window.requestAnimationFrame(step);
 	}
