@@ -7,18 +7,23 @@
 
 		.land {
 
-			&:hover {
-				fill: orange;
-			}
-
 			&.has-partner {
 				fill: red;
+
+				&:hover {
+					fill: orange;
+				}
 			}
 		}
 	}
 
-	.map-pin {
+	.map-star {
 		position: absolute;
-		cursor: pointer;
+		width: 20px;
+		height: 20px;
+		transform: translate(-50%, -50%);
+		// pointer-events: none;
+
+		transition: top 0.5s, left 0.5s;
 	}
 }

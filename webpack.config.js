@@ -19,6 +19,10 @@ module.exports = {
 			{
 				test: /\.yaml$/,
 				loader: 'json!yaml'
+			},
+			{
+				test: /\.svg/,
+				loader: 'raw'
 			}
 		]
 	},

@@ -1,16 +1,45 @@
+import debounce from 'lodash/debounce';
+
 import PARTNERS from '../_data/research-partners.yaml';
+import STAR from '../_includes/svgs/star.svg';
 
 const map = document.getElementById('us-map');
+const mapContainer = document.getElementById('map-container');
+const starContainer = document.getElementById('star-container');
 
+let mapContainerRect  = mapContainer.getBoundingClientRect();
 let partnerStates = [];
 
 for(let partner of PARTNERS){
 	let state = document.getElementById(partner.state);
 	state.classList.add('has-partner');
 	partnerStates.push(state);
-	// let convert = makeContext(state, map);
 
+	starContainer.insertAdjacentHTML('beforeend', STAR);
+	let stars = starContainer.querySelectorAll('.map-star');
+	let newStar = stars[stars.length - 1];
+	newStar.setAttribute('data-partner-name', partner.name);
+	newStar.classList.add('notransition');
+	let starPos = convertStateCoordsToPixels(state, partner.coordinates.x, partner.coordinates.y);
+	newStar.style.left = `${starPos.x - mapContainerRect.left}px`;
+	newStar.style.top = `${starPos.y - mapContainerRect.top}px`;
+	newStar.offsetHeight; // force reflow
+	newStar.classList.remove('notransition');
 }
+
+window.addEventListener('resize', debounce(adjustPartnerCoordinates, 100));
+
+function adjustPartnerCoordinates(){
+	mapContainerRect  = mapContainer.getBoundingClientRect();
+	for(let partner of PARTNERS){
+		let state = document.getElementById(partner.state);
+		let star = document.querySelector(`.map-star[data-partner-name="${partner.name}"]`);
+		let starPos = convertStateCoordsToPixels(state, partner.coordinates.x, partner.coordinates.y);
+		star.style.left = `${starPos.x - mapContainerRect.left}px`;
+		star.style.top = `${starPos.y - mapContainerRect.top}px`;
+	}
+}
+
 
 function makeContext(element, svgDocument, absolute = true){
 	return function(x, y){
@@ -24,24 +53,36 @@ function makeContext(element, svgDocument, absolute = true){
 }
 
 function getStateCoords(event){
-	let clientRect = this.getBoundingClientRect();
-	let bbox = this.getBBox();
+	let stateCoords = convertPixelsToStateCoords(this, event.clientX, event.clientY);
+	console.log(event.clientX, event.clientY);
+	console.log(stateCoords);
+	console.log(convertStateCoordsToPixels(this, stateCoords.x, stateCoords.y));
+}
+
+function convertPixelsToStateCoords(state, x, y){
+	let clientRect = state.getBoundingClientRect();
+	let bbox = state.getBBox();
 	let percentageLocation = {
-		x: (event.clientX - clientRect.left) / clientRect.width,
-		y: (event.clientY - clientRect.top) / clientRect.height
+		x: (x - clientRect.left) / clientRect.width,
+		y: (y - clientRect.top) / clientRect.height
 	};
 	let svgLocation = {
 		x: (percentageLocation.x * bbox.width),
 		y: (percentageLocation.y * bbox.height)
 	};
-	console.log(svgLocation);
+	return svgLocation;
 }
 
 function convertStateCoordsToPixels(state, x, y){
 	let mapRect = map.getBoundingClientRect();
+	let stateBox = state.getBBox();
 	let convert = makeContext(state, map);
 
-	return convert(x + mapRect.left, y + mapRect.top);
+	let statePixels = convert(stateBox.x + x, stateBox.y + y);
+	return {
+		x: mapRect.left + statePixels.x,
+		y: mapRect.top + statePixels.y
+	};
 }
 
 for(let state of partnerStates){
