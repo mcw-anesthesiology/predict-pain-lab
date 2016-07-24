@@ -1,6 +1,6 @@
 import debounce from 'lodash/debounce';
 
-import PARTNERS from '../_data/research-partners.yaml';
+import PARTNERS from '../_data/research_partners.yaml';
 import STAR from '../_includes/svgs/star.svg';
 
 const map = document.getElementById('us-map');
@@ -15,11 +15,11 @@ for(let partner of PARTNERS){
 	state.classList.add('has-partner');
 	partnerStates.push(state);
 
-	starContainer.insertAdjacentHTML('beforeend', STAR);
+	starContainer.insertAdjacentHTML('beforeend',
+		`<a href="${partner.url}" class="map-star notransition"
+		data-partner-name="${partner.name}">${STAR}</a>`);
 	let stars = starContainer.querySelectorAll('.map-star');
 	let newStar = stars[stars.length - 1];
-	newStar.setAttribute('data-partner-name', partner.name);
-	newStar.classList.add('notransition');
 	let starPos = convertStateCoordsToPixels(state, partner.coordinates.x, partner.coordinates.y);
 	newStar.style.left = `${starPos.x - mapContainerRect.left}px`;
 	newStar.style.top = `${starPos.y - mapContainerRect.top}px`;
@@ -28,6 +28,35 @@ for(let partner of PARTNERS){
 }
 
 window.addEventListener('resize', debounce(adjustPartnerCoordinates, 100));
+
+let stars = document.querySelectorAll('.map-star');
+for(let star of stars){
+	star.addEventListener('mouseenter', function(){
+		let partnerListItem = document.querySelector(`.partners-list-item[data-partner-name="${this.getAttribute('data-partner-name')}"]`);
+		let partnerRect = partnerListItem.getBoundingClientRect();
+		let starRect = this.getBoundingClientRect();
+
+		// TODO: Make sure it's on screen afterward, only do it on big screens
+		let translation = {
+			x: (starRect.left - partnerRect.left) - (partnerRect.width / 2 - starRect.width / 2),
+			y: (starRect.top - partnerRect.top) - partnerRect.height
+		};
+
+		window.requestAnimationFrame(() => {
+			partnerListItem.classList.add('active');
+			partnerListItem.style.transform = `translate(${translation.x}px, ${translation.y}px)`;
+		});
+	});
+
+	star.addEventListener('mouseout', function(){
+		let partnerListItem = document.querySelector(`.partners-list-item[data-partner-name="${this.getAttribute('data-partner-name')}"]`);
+
+		window.requestAnimationFrame(() => {
+			partnerListItem.classList.remove('active');
+			partnerListItem.style.transform = null;
+		});
+	});
+}
 
 function adjustPartnerCoordinates(){
 	mapContainerRect  = mapContainer.getBoundingClientRect();

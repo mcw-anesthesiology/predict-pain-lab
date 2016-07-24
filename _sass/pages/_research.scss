@@ -19,11 +19,62 @@
 
 	.map-star {
 		position: absolute;
-		width: 20px;
-		height: 20px;
 		transform: translate(-50%, -50%);
 		// pointer-events: none;
 
 		transition: top 0.5s, left 0.5s;
+
+		&:hover {
+			transform: translate(-50%, -50%) scale(2);
+			z-index: 1;
+		}
+
+		svg {
+			pointer-events: none;
+			width: 20px;
+			height: 20px;
+		}
+	}
+}
+
+#partners-list {
+
+	h2 {
+
+	}
+
+	h3 {
+
+	}
+
+	ul.partners-list-group {
+		display: flex;
+		list-style: none;
+
+		li.partners-list-item {
+			padding: 10px;
+			text-align: center;
+
+			transition: transform 0.25s, background-color 0.25s, border 0.25s;
+
+			&.active {
+				background-color: white;
+				border: 1px black solid;
+			}
+
+			h4 {
+
+			}
+
+			figure {
+				display: block;
+				margin: auto;
+
+				img {
+					display: block;
+					margin: auto;
+				}
+			}
+		}
 	}
 }

@@ -1,0 +1,21 @@
+ul#choose-mke-attraction-list {
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+
+	li {
+		margin: 5px;
+
+		figure {
+
+			img {
+				width: 200px;
+				height: 200px;
+			}
+
+			figcaption {
+				text-align: center;
+			}
+		}
+	}
+}

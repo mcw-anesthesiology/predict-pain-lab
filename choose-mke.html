@@ -1,0 +1,34 @@
+---
+title: Choose MKE
+page_order: 7
+---
+
+<ul id="choose-mke-attraction-list">
+{% for attraction in site.data.milwaukee_attractions %}
+	<li>
+		<a href="#{{ attraction.name | slugify }}" class="internal-link">
+			<figure>
+				<img src="{{ attraction.image }}" alt="" />
+				<figcaption>{{ attraction.name }}</figcaption>
+			</figure>
+		</a>
+	</li>
+{% endfor %}
+</ul>
+
+<section>
+{% for attraction in site.data.milwaukee_attractions %}
+	<h2 id="{{ attraction.name | slugify }}">{{ attraction.name }}</h2>
+	<figure>
+		<img src="{{ attraction.image }}" alt="" />
+	{% if attraction.image_caption %}
+		<figcaption>{{ attraction.image_caption }}</figcaption>
+	{% endif %}
+	</figure>
+	{% if attraction.content %}
+		{{ attraction.content }}
+	{% endif %}
+{% endfor %}
+</section>
+
+<a href="#choose-mke-attraction-list" class="internal-link">Back to top</a>

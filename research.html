@@ -7,7 +7,24 @@ scripts:
   - research-map.js
 ---
 
-<div id="map-container">
+<section id="map-container">
 	{% include svgs/usa.svg %}
 	<div id="star-container"></div>
-</div>
+</section>
+<section id="partners-list">
+	<h2>Partners</h2>
+{% assign state_partners = site.data.research_partners | group_by: "state" %}
+{% for state_group in state_partners %}
+	<h3 class="partners-list-group-title">{{ site.data.state_names[state_group.name] }}</h3>
+	<ul class="partners-list-group" data-state="{{ state_group.name }}">
+	{% for partner in state_group.items %}
+		<li class="partners-list-item" data-partner-name="{{ partner.name }}">
+			<h4>{{ partner.name }}</h4>
+			<figure>
+				<img src="{{ partner.image | default: "http://placehold.it/300x300" }}" alt="" />
+			</figure>
+		</li>
+	{% endfor %}
+	</ul>
+{% endfor %}
+</section>
