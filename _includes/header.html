@@ -1,5 +1,11 @@
 <header class="site-header">
-	<a class="site-title expanded" href="{{ site.baseurl }}/">{{ page.title | default: site.title }}</a>
+	<a class="site-title expanded" href="{{ site.baseurl }}/">
+{% if page.title and page.title != "Home" %}
+	{{ page.title }}
+{% else %}
+	{{ site.title }}
+{% endif %}
+	</a>
 	<nav class="site-nav">
 		<a href="#" class="menu-icon">
     		{% include svgs/menu.svg %}

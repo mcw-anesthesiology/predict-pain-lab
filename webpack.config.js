@@ -2,11 +2,13 @@
 module.exports = {
 	entry: {
 		bundle: './_js/bundle.js',
-		'research-map': './_js/research-map.js'
+		'research-map': './_js/research-map.js',
+		'choose-mke': './_js/choose-mke.js'
 	},
 	output: {
-		path: './js/',
-		filename: '[name].js'
+		path: './resources/',
+		publicPath: '/resources/',
+		filename: '../js/[name].js' // I guess this works but it's gross
 	},
 	target: 'web',
 	module: {
@@ -18,11 +20,27 @@ module.exports = {
 			},
 			{
 				test: /\.yaml$/,
-				loader: 'json!yaml'
+				loaders: [
+					'json',
+					'yaml'
+				]
 			},
 			{
 				test: /\.svg/,
+				include: /_includes/,
 				loader: 'raw'
+			},
+			{
+				test: /\.css$/,
+				loaders: [
+					'style',
+					'css'
+				]
+			},
+			{
+				test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
+				include: /node_modules/,
+				loader: 'file'
 			}
 		]
 	},

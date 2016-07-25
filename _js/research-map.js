@@ -32,7 +32,7 @@ window.addEventListener('resize', debounce(adjustPartnerCoordinates, 100));
 let stars = document.querySelectorAll('.map-star');
 for(let star of stars){
 	star.addEventListener('mouseenter', function(){
-		let partnerListItem = document.querySelector(`.partners-list-item[data-partner-name="${this.getAttribute('data-partner-name')}"]`);
+		let partnerListItem = document.querySelector(`.partners-list-item[data-partner-name="${this.dataset.partnerName}"]`);
 		let partnerRect = partnerListItem.getBoundingClientRect();
 		let starRect = this.getBoundingClientRect();
 
@@ -49,7 +49,7 @@ for(let star of stars){
 	});
 
 	star.addEventListener('mouseout', function(){
-		let partnerListItem = document.querySelector(`.partners-list-item[data-partner-name="${this.getAttribute('data-partner-name')}"]`);
+		let partnerListItem = document.querySelector(`.partners-list-item[data-partner-name="${this.dataset.partnerName}"]`);
 
 		window.requestAnimationFrame(() => {
 			partnerListItem.classList.remove('active');

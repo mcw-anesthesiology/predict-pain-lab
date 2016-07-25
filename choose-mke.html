@@ -1,12 +1,14 @@
 ---
 title: Choose MKE
 page_order: 7
+scripts:
+  - choose-mke.js
 ---
 
 <ul id="choose-mke-attraction-list">
 {% for attraction in site.data.milwaukee_attractions %}
 	<li>
-		<a href="#{{ attraction.name | slugify }}" class="internal-link">
+		<a href="#{{ attraction.name | slugify }}" class="internal-link slick-slide-link" data-slide-index="{{ forloop.index0 }}">
 			<figure>
 				<img src="{{ attraction.image }}" alt="" />
 				<figcaption>{{ attraction.name }}</figcaption>
@@ -16,18 +18,20 @@ page_order: 7
 {% endfor %}
 </ul>
 
-<section>
+<section id="choose-mke-attractions">
 {% for attraction in site.data.milwaukee_attractions %}
-	<h2 id="{{ attraction.name | slugify }}">{{ attraction.name }}</h2>
-	<figure>
-		<img src="{{ attraction.image }}" alt="" />
+	<section>
+		<h2 id="{{ attraction.name | slugify }}">{{ attraction.name }}</h2>
+		<figure>
+			<img src="{{ attraction.image }}" alt="" />
 	{% if attraction.image_caption %}
-		<figcaption>{{ attraction.image_caption }}</figcaption>
+			<figcaption>{{ attraction.image_caption }}</figcaption>
 	{% endif %}
-	</figure>
+		</figure>
 	{% if attraction.content %}
 		{{ attraction.content }}
 	{% endif %}
+	</section>
 {% endfor %}
 </section>
 

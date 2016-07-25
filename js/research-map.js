@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "/resources/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -46,15 +46,15 @@
 
 	'use strict';
 	
-	var _debounce = __webpack_require__(2);
+	var _debounce = __webpack_require__(16);
 	
 	var _debounce2 = _interopRequireDefault(_debounce);
 	
-	var _research_partners = __webpack_require__(11);
+	var _research_partners = __webpack_require__(23);
 	
 	var _research_partners2 = _interopRequireDefault(_research_partners);
 	
-	var _star = __webpack_require__(10);
+	var _star = __webpack_require__(24);
 	
 	var _star2 = _interopRequireDefault(_star);
 	
@@ -115,7 +115,7 @@
 			var star = _step2.value;
 	
 			star.addEventListener('mouseenter', function () {
-				var partnerListItem = document.querySelector('.partners-list-item[data-partner-name="' + this.getAttribute('data-partner-name') + '"]');
+				var partnerListItem = document.querySelector('.partners-list-item[data-partner-name="' + this.dataset.partnerName + '"]');
 				var partnerRect = partnerListItem.getBoundingClientRect();
 				var starRect = this.getBoundingClientRect();
 	
@@ -132,7 +132,7 @@
 			});
 	
 			star.addEventListener('mouseout', function () {
-				var partnerListItem = document.querySelector('.partners-list-item[data-partner-name="' + this.getAttribute('data-partner-name') + '"]');
+				var partnerListItem = document.querySelector('.partners-list-item[data-partner-name="' + this.dataset.partnerName + '"]');
 	
 				window.requestAnimationFrame(function () {
 					partnerListItem.classList.remove('active');
@@ -260,12 +260,26 @@
 
 /***/ },
 /* 1 */,
-/* 2 */
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(3),
-	    now = __webpack_require__(4),
-	    toNumber = __webpack_require__(5);
+	var isObject = __webpack_require__(17),
+	    now = __webpack_require__(18),
+	    toNumber = __webpack_require__(19);
 	
 	/** Used as the `TypeError` message for "Functions" methods. */
 	var FUNC_ERROR_TEXT = 'Expected a function';
@@ -447,7 +461,7 @@
 
 
 /***/ },
-/* 3 */
+/* 17 */
 /***/ function(module, exports) {
 
 	/**
@@ -484,7 +498,7 @@
 
 
 /***/ },
-/* 4 */
+/* 18 */
 /***/ function(module, exports) {
 
 	/**
@@ -511,12 +525,12 @@
 
 
 /***/ },
-/* 5 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isFunction = __webpack_require__(6),
-	    isObject = __webpack_require__(3),
-	    isSymbol = __webpack_require__(7);
+	var isFunction = __webpack_require__(20),
+	    isObject = __webpack_require__(17),
+	    isSymbol = __webpack_require__(21);
 	
 	/** Used as references for various `Number` constants. */
 	var NAN = 0 / 0;
@@ -584,10 +598,10 @@
 
 
 /***/ },
-/* 6 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(3);
+	var isObject = __webpack_require__(17);
 	
 	/** `Object#toString` result references. */
 	var funcTag = '[object Function]',
@@ -633,10 +647,10 @@
 
 
 /***/ },
-/* 7 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObjectLike = __webpack_require__(8);
+	var isObjectLike = __webpack_require__(22);
 	
 	/** `Object#toString` result references. */
 	var symbolTag = '[object Symbol]';
@@ -678,7 +692,7 @@
 
 
 /***/ },
-/* 8 */
+/* 22 */
 /***/ function(module, exports) {
 
 	/**
@@ -713,14 +727,7 @@
 
 
 /***/ },
-/* 9 */,
-/* 10 */
-/***/ function(module, exports) {
-
-	module.exports = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"240\" height=\"240\" viewBox=\"0 0 240 240\">\n\t<path fill=\"#F8D64E\" d=\"m48,234 73-226 73,226-192-140h238z\"/>\n</svg>\n"
-
-/***/ },
-/* 11 */
+/* 23 */
 /***/ function(module, exports) {
 
 	module.exports = [
@@ -887,6 +894,12 @@
 			}
 		}
 	];
+
+/***/ },
+/* 24 */
+/***/ function(module, exports) {
+
+	module.exports = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"240\" height=\"240\" viewBox=\"0 0 240 240\">\n\t<path fill=\"#F8D64E\" d=\"m48,234 73-226 73,226-192-140h238z\"/>\n</svg>\n"
 
 /***/ }
 /******/ ]);

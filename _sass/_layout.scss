@@ -151,6 +151,15 @@
 	}
 }
 
+.sidebar {
+	float: left;
+	width: 300px; // FIXME: Breakpoints
+
+	ul.internal-page-nav {
+		list-style: none;
+	}
+}
+
 
 /**
  * Page content
