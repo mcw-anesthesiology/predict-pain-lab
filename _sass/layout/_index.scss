@@ -1,0 +1,12 @@
+@import
+	"header",
+	"hero",
+	"footer",
+	"main";
+
+@import "../pages/index";
+
+.sticky.stuck {
+	position: fixed !important;
+	top: 0px;
+}

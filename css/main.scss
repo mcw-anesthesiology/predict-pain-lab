@@ -3,6 +3,8 @@
 ---
 @charset "utf-8";
 
+@import "colors";
+
 
 
 // Our variables
@@ -31,7 +33,9 @@ $content-width:    800px;
 $on-palm:          600px;
 $on-laptop:        800px;
 
-$mobile: 768px;
+$small-desktop: 768px;
+$medium-desktop: 992px;
+$large-desktop: 1200px;
 
 .notransition {
 	transition: none !important;
@@ -56,6 +60,6 @@ $mobile: 768px;
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
         "base",
-        "layout",
+        "layout/index",
         "syntax-highlighting"
 ;

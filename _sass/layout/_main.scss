@@ -1,0 +1,149 @@
+$small-sidebar-width: 150px;
+$large-sidebar-width: 200px;
+
+main {
+	position: relative;
+    padding: $spacing-unit 10px;
+	background-color: white;
+	box-shadow: 0px -5px 20px -5px rgba(0,0,0,0.5);
+	min-height: 100vh;
+	z-index: 3;
+
+	article {
+
+		@media (min-width: $small-desktop) {
+			margin: auto;
+			width: 750px;
+		}
+
+		@media (min-width: $medium-desktop) {
+			width: 970px;
+		}
+
+		@media (min-width: $large-desktop) {
+			width: 1170px;
+		}
+	}
+
+	&::after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+
+	.sidebar {
+		display: block;
+		// position: sticky :(
+		margin: 20px;
+
+		@media (min-width: $small-desktop) {
+			float: left;
+		}
+
+		&,
+		ul.page-nav {
+
+			@media (min-width: $small-desktop) {
+				width: $small-sidebar-width;
+			}
+
+			@media (min-width: $medium-desktop) {
+				width: $large-sidebar-width;
+			}
+		}
+
+		ul.page-nav {
+			list-style: none;
+		}
+	}
+}
+
+.page {
+
+	.page-header {
+		clear: both;
+
+		.page-heading {
+			font-size: 20px;
+		}
+	}
+
+	.page-content {
+
+		@media (min-width: $small-desktop) {
+			float: right;
+			width: calc(100% - #{$small-sidebar-width});
+		}
+
+		@media (min-width: $medium-desktop) {
+			width: calc(100% - #{$large-sidebar-width});
+		}
+	}
+}
+
+
+.post-list {
+    margin-left: 0;
+    list-style: none;
+
+    > li {
+        margin-bottom: $spacing-unit;
+    }
+}
+
+.post-meta {
+    font-size: $small-font-size;
+    color: $grey-color;
+}
+
+.post-link {
+    display: block;
+    font-size: 24px;
+}
+
+
+
+/**
+ * Posts
+ */
+.post-header {
+    margin-bottom: $spacing-unit;
+}
+
+.post-title {
+    font-size: 42px;
+    letter-spacing: -1px;
+    line-height: 1;
+
+    @include media-query($on-laptop) {
+        font-size: 36px;
+    }
+}
+
+.post-content {
+    margin-bottom: $spacing-unit;
+
+    h2 {
+        font-size: 32px;
+
+        @include media-query($on-laptop) {
+            font-size: 28px;
+        }
+    }
+
+    h3 {
+        font-size: 26px;
+
+        @include media-query($on-laptop) {
+            font-size: 22px;
+        }
+    }
+
+    h4 {
+        font-size: 20px;
+
+        @include media-query($on-laptop) {
+            font-size: 18px;
+        }
+    }
+}

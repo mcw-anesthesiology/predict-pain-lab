@@ -36,7 +36,7 @@ for(let star of stars){
 		let partnerRect = partnerListItem.getBoundingClientRect();
 		let starRect = this.getBoundingClientRect();
 
-		// TODO: Make sure it's on screen afterward, only do it on big screens
+		// FIXME: Make sure it's on screen afterward, only do it on big screens
 		let translation = {
 			x: (starRect.left - partnerRect.left) - (partnerRect.width / 2 - starRect.width / 2),
 			y: (starRect.top - partnerRect.top) - partnerRect.height
@@ -81,7 +81,7 @@ function makeContext(element, svgDocument, absolute = true){
 	};
 }
 
-function getStateCoords(event){
+function getStateCoords(event){ // eslint-disable-line
 	let stateCoords = convertPixelsToStateCoords(this, event.clientX, event.clientY);
 	console.log(event.clientX, event.clientY);
 	console.log(stateCoords);
@@ -112,8 +112,4 @@ function convertStateCoordsToPixels(state, x, y){
 		x: mapRect.left + statePixels.x,
 		y: mapRect.top + statePixels.y
 	};
-}
-
-for(let state of partnerStates){
-	state.addEventListener('click', getStateCoords);
 }

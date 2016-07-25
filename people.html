@@ -3,10 +3,21 @@ title: People
 page_order: 5
 ---
 {% assign people_groups = site.data.people | group_by: "position" %}
-<aside class="sidebar">
-	<ul class="internal-page-nav">
+
+<header class="page-header">
+	
+</header>
+
+<aside class="sidebar sticky">
+	<ul class="page-nav">
 {% for people_group in people_groups %}
 		<li><a href="#{{ people_group.name | slugify }}" class="internal-link">{{ people_group.name }}</a></li>
 {% endfor %}
 	</ul>
 </aside>
+
+<div class="page-content">
+	<p>
+		wat
+	</p>
+</div>

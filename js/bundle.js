@@ -86,6 +86,52 @@
 			}
 		}
 	}
+	
+	var header = document.querySelector('.site-header');
+	
+	var stickyElements = document.querySelectorAll('.sticky');
+	if (stickyElements.length > 0) {
+		window.addEventListener('DOMContentLoaded load resize scroll', window.requestAnimationFrame(function () {
+			var _iteratorNormalCompletion2 = true;
+			var _didIteratorError2 = false;
+			var _iteratorError2 = undefined;
+	
+			try {
+				for (var _iterator2 = stickyElements[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+					var stickyElement = _step2.value;
+	
+					stickSticky.bind(stickyElement)();
+				}
+			} catch (err) {
+				_didIteratorError2 = true;
+				_iteratorError2 = err;
+			} finally {
+				try {
+					if (!_iteratorNormalCompletion2 && _iterator2.return) {
+						_iterator2.return();
+					}
+				} finally {
+					if (_didIteratorError2) {
+						throw _iteratorError2;
+					}
+				}
+			}
+		}));
+	}
+	
+	function stickSticky() {
+		var rect = this.getBoundingClientRect();
+		var headerRect = header.getBoundingClientRect();
+		if (this.classList.contains('stuck')) {
+			this.classList.remove('stuck');
+			var unstuckRect = this.getBoundingClientRect();
+			if (rect.top > unstuckRect.top) this.classList.add('stuck');
+		} else {
+			if (rect.top < headerRect.height) {
+				this.classList.add('stuck');
+			}
+		}
+	}
 
 /***/ },
 /* 1 */

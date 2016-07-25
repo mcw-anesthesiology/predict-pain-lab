@@ -1,0 +1,40 @@
+.site-hero-image-container {
+	width: 100vw;
+	height: $hero-height;
+	top: 0;
+	left: 0;
+	position: fixed;
+	z-index: -1;
+}
+
+.site-hero-header-container {
+	width: 100%;
+	height: $hero-height;
+	background-color: $hero-header-color;
+	overflow: hidden;
+	z-index: 1;
+
+	.hero-desc {
+		position: fixed;
+		background-color: rgba($grey-color-light, 0.6);
+		border-radius: 5px;
+		z-index: 2;
+
+		right: 10vw;
+		top: 30vh;
+		padding: 5px;
+		width: calc(100% - 20vw - 10px);
+
+		@media (min-width: $small-desktop) {
+			width: calc(70% - 10px);
+		}
+
+		@media (min-width: $medium-desktop) {
+			width: calc(60% - 10px);
+		}
+
+		@media (min-width: $large-desktop) {
+			width: calc(50% - 10px);
+		}
+	}
+}
