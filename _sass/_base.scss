@@ -37,6 +37,13 @@ ul, ol, dl, figure,
     margin-bottom: $spacing-unit / 2;
 }
 
+hr {
+	width: 75%;
+	margin: ($spacing-unit / 2) auto;
+	height: 0;
+	border: 0;
+	border-bottom: 1px rgba($md-grey-700, 0.25) solid;
+}
 
 
 /**
@@ -82,8 +89,13 @@ li {
  * Headings
  */
 h1, h2, h3, h4, h5, h6 {
+	color: $heading-color;
 	font-family: $heading-font-family;
     font-weight: $base-font-weight;
+}
+
+small {
+	color: $small-text-color;
 }
 
 

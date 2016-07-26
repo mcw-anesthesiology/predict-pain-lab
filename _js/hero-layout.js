@@ -1,15 +1,27 @@
+import Color from 'color';
+
 let hero = document.querySelector('.site-hero-header-container');
 let header = document.querySelector('header.site-header');
 let title = document.querySelector('.site-title');
 const collapseMargin = 20;
 const expandMargin = 30;
 
-let heroBackgroundColor = window.getComputedStyle(hero)
-	.getPropertyValue('background-color');
-let heroRgba = heroBackgroundColor.substring(5, heroBackgroundColor.length - 1) // 5 = 'rgba('
-	.split(',');
-for(let i in heroRgba)
-	heroRgba[i] = parseFloat(heroRgba[i]);
+let initialHeroBackgroundColor = hero.style.backgroundColor;
+hero.style.backgroundColor = null;
+let heroBackgroundColor = new Color(window.getComputedStyle(hero)
+	.getPropertyValue('background-color'));
+if(initialHeroBackgroundColor)
+	hero.style.backgroundColor = initialHeroBackgroundColor;
+
+let isCollapsed = header.classList.contains('collapsed');
+if(!isCollapsed)
+	header.classList.add('collapsed');
+let headerBackgroundColor = new Color(window.getComputedStyle(header)
+	.getPropertyValue('background-color'));
+if(!isCollapsed)
+	header.classList.remove('collapsed');
+
+console.log(heroBackgroundColor, headerBackgroundColor);
 
 let expandedTitleTranslation = window.getComputedStyle(title)
 	.getPropertyValue('transform');
@@ -19,8 +31,6 @@ expandedTitleTranslation = expandedTitleTranslation
 
 for(let i in expandedTitleTranslation)
 	expandedTitleTranslation[i] = parseFloat(expandedTitleTranslation[i]);
-
-const heroStartingAlpha = heroRgba[heroRgba.length - 1];
 
 // FIXME: How broken will this be with js disabled?
 
@@ -43,6 +53,7 @@ for(let event of ['resize', 'scroll']){
 function step(){
 	let heroRect = hero.getBoundingClientRect();
 	let headerHeight = header.getBoundingClientRect().height;
+	let newHeroColor = heroBackgroundColor.clone();
 
 	if(title.classList.contains('expanded')){
 		if(heroRect.bottom
@@ -71,9 +82,14 @@ function step(){
 		}
 	}
 
-	let newHeroAlpha = ((heroRect.height - (heroRect.bottom - headerHeight)) / heroRect.height);
-	newHeroAlpha > 0 ? newHeroAlpha : 0;
-	newHeroAlpha = heroStartingAlpha + (Math.pow(newHeroAlpha, 2) * (1 - heroStartingAlpha));
-	heroRgba[heroRgba.length - 1] = newHeroAlpha;
-	hero.style.backgroundColor = `rgba(${heroRgba.join(',')})`;
+	let scrolledValue = ((heroRect.height - (heroRect.bottom - headerHeight)) / heroRect.height);
+	scrolledValue > 0 ? scrolledValue : 0;
+	scrolledValue < 1 ? scrolledValue : 1;
+
+	newHeroColor.red(heroBackgroundColor.red() + (Math.pow(scrolledValue, 2) * (headerBackgroundColor.red() - heroBackgroundColor.red())));
+	newHeroColor.green(heroBackgroundColor.green() + (Math.pow(scrolledValue, 2) * (headerBackgroundColor.green() - heroBackgroundColor.green())));
+	newHeroColor.blue(heroBackgroundColor.blue() + (Math.pow(scrolledValue, 2) * (headerBackgroundColor.blue() - heroBackgroundColor.blue())));
+	newHeroColor.alpha(heroBackgroundColor.alpha() + (Math.pow(scrolledValue, 2) * (headerBackgroundColor.alpha() - heroBackgroundColor.alpha())));
+
+	hero.style.backgroundColor = newHeroColor.rgbString();
 }

@@ -18,6 +18,8 @@ scripts:
 {% endfor %}
 </ul>
 
+<hr />
+
 <section id="choose-mke-attractions">
 {% for attraction in site.data.milwaukee_attractions %}
 	<section>
@@ -29,10 +31,12 @@ scripts:
 	{% endif %}
 		</figure>
 	{% if attraction.content %}
-		{{ attraction.content }}
+		<div class="attraction-content">
+			{{ attraction.content }}
+		</div>
 	{% endif %}
 	</section>
 {% endfor %}
 </section>
 
-<a href="#choose-mke-attraction-list" class="internal-link">Back to top</a>
+<a href="#choose-mke-attraction-list" class="internal-link">Back to attraction list</a>

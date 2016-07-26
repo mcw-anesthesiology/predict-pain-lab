@@ -19,3 +19,38 @@ ul#choose-mke-attraction-list {
 		}
 	}
 }
+
+#choose-mke-attractions {
+
+	section {
+
+		h2 {
+
+		}
+
+		figure {
+			width: 100%;
+
+			img {
+				width: 100%;
+			}
+
+			figcaption {
+				color: $small-text-color;
+				font-style: italic;
+			}
+		}
+
+		.attraction-content {
+
+		}
+	}
+}
+
+.slick-prev,
+.slick-next {
+
+	&::before {
+		color: $accent-color !important;
+	}
+}

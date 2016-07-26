@@ -11,22 +11,23 @@
 .site-hero-header-container {
 	width: 100%;
 	height: $hero-height;
-	background-color: $hero-header-color;
+	background-color: rgba($hero-background-color, 0.5);
 	overflow: hidden;
 	z-index: 1;
 	transition: height 0.25s;
 
 	.hero-desc {
 		position: fixed;
-		background-color: rgba($grey-color-light, 0.6);
+		background-color: rgba($background-color, 0.6);
 		border-radius: 5px;
 		z-index: 2;
 
 		right: 10vw;
 		top: 30vh;
-		padding: 5px;
-		width: calc(100% - 20vw - 10px);
-		max-height: calc(#{$hero-height} - 30vh - 10px - 20px);
+		padding: 20px;
+		box-sizing: border-box;
+		width: calc(100% - 20vw);
+		max-height: calc(#{$hero-height} - 30vh - 20px);
 		overflow-y: auto;
 		transition: height 0.25s;
 
@@ -40,6 +41,14 @@
 
 		@media (min-width: $large-desktop) {
 			width: calc(50% - 10px);
+		}
+
+		p {
+			margin-bottom: 0;
+
+			& + p {
+				margin-top: $spacing-unit / 2;
+			}
 		}
 	}
 }
