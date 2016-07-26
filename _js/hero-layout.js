@@ -21,8 +21,6 @@ let headerBackgroundColor = new Color(window.getComputedStyle(header)
 if(!isCollapsed)
 	header.classList.remove('collapsed');
 
-console.log(heroBackgroundColor, headerBackgroundColor);
-
 let expandedTitleTranslation = window.getComputedStyle(title)
 	.getPropertyValue('transform');
 expandedTitleTranslation = expandedTitleTranslation

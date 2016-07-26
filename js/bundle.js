@@ -4063,8 +4063,6 @@
 	var headerBackgroundColor = new _color2.default(window.getComputedStyle(header).getPropertyValue('background-color'));
 	if (!isCollapsed) header.classList.remove('collapsed');
 	
-	console.log(heroBackgroundColor, headerBackgroundColor);
-	
 	var expandedTitleTranslation = window.getComputedStyle(title).getPropertyValue('transform');
 	expandedTitleTranslation = expandedTitleTranslation.substring(10, expandedTitleTranslation.length - 1) // 7 = 'matrix('
 	.split(',');
