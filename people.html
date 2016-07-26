@@ -1,23 +1,65 @@
 ---
 title: People
 page_order: 5
+group_names:
+  Faculty: Faculty
+  Fellow: Fellows
+  Psychology Graduate Student: Psychology graduate students
+  "": Other research team members
 ---
-{% assign people_groups = site.data.people | group_by: "position" %}
-
-<header class="page-header">
-	
-</header>
+{% assign people_groups = site.data.people | shift | group_by: "position" %}
+{% assign director = site.data.people | where: "director", "true" | first %}
 
 <aside class="sidebar sticky">
 	<ul class="page-nav">
+		<li class="back-to-top">
+			<a href="#director" class="internal-link">
+				{{ director.name }}
+			</a>
+		</li>
 {% for people_group in people_groups %}
-		<li><a href="#{{ people_group.name | slugify }}" class="internal-link">{{ people_group.name }}</a></li>
+		<li>
+			<a href="#{{ page.group_names[people_group.name] | slugify }}" class="internal-link">
+				{{ page.group_names[people_group.name] }}
+			</a>
+		</li>
 {% endfor %}
 	</ul>
 </aside>
 
 <div class="page-content">
-	<p>
-		wat
-	</p>
+	<section id="director">
+		<h2>
+			{{ director.name }}
+			<span class="person-titles">{{ director.titles | join: ", " }}</span>
+		</h2>
+		<figure>
+			<img src="{{ director.image | default: "http://placehold.it/500x500" }}" alt="" />
+		</figure>
+		<p>
+			{{ director.position }}
+		</p>
+	</section>
+
+{% for people_group in people_groups %}
+	<h2 id="{{ page.group_names[people_group.name] | slugify }}">
+		{{ page.group_names[people_group.name] }}
+	</h2>
+	<ul class="people-group">
+	{% comment %}
+		TODO: Sort by last name somehow
+	{% endcomment %}
+	{% assign people = people_group.items %}
+	{% for person in people %}
+		<li class="person">
+			<figure>
+				<img src="{{ person.image | default: "http://placehold.it/250x250" }}" alt="" />
+				<figcaption>
+					{{ person.name }}
+				</figcaption>
+			</figure>
+		</li>
+	{% endfor %}
+	</ul>
+{% endfor %}
 </div>

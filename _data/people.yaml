@@ -2,6 +2,7 @@
   name: Robert W. Hurley
   titles: [MD, PhD]
   position: Vice Chair of Pain Medicine
+  director: true
   additional_positions:
     - Faculty
 

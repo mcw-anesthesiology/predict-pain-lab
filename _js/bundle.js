@@ -19,26 +19,30 @@ const header = document.querySelector('.site-header');
 
 let stickyElements = document.querySelectorAll('.sticky');
 if(stickyElements.length > 0){
-	window.addEventListener('DOMContentLoaded load resize scroll',
-		window.requestAnimationFrame(() => {			
-			for(let stickyElement of stickyElements){
-				stickSticky.bind(stickyElement)();
-			}
-		}));
+	for(let event of ['load', 'resize', 'scroll']){
+		window.addEventListener(event, () => {
+			window.requestAnimationFrame(() => {
+				for(let stickyElement of stickyElements){
+					stickSticky(stickyElement);
+				}
+			});
+		});
+	}
 }
 
-function stickSticky(){
-	let rect = this.getBoundingClientRect();
-	let headerRect = header.getBoundingClientRect();
-	if(this.classList.contains('stuck')){
-		this.classList.remove('stuck');
-		let unstuckRect = this.getBoundingClientRect();
-		if(rect.top > unstuckRect.top)
-			this.classList.add('stuck');
+function stickSticky(element){
+	const stickyMargin = 10;
+
+	if(element.classList.contains('stuck')){
+		element.classList.remove('stuck');
+		element.style.top = null;
 	}
-	else {
-		if(rect.top < headerRect.height){
-			this.classList.add('stuck');
-		}
+
+	let rect = element.getBoundingClientRect();
+	let headerRect = header.getBoundingClientRect();
+
+	if(rect.top < headerRect.height + stickyMargin){
+		element.classList.add('stuck');
+		element.style.top = `${headerRect.height + stickyMargin}px`;
 	}
 }

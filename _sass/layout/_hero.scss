@@ -24,6 +24,8 @@
 		top: 30vh;
 		padding: 5px;
 		width: calc(100% - 20vw - 10px);
+		max-height: calc(#{$hero-height} - 30vh - 10px - 20px);
+		overflow-y: auto;
 
 		@media (min-width: $small-desktop) {
 			width: calc(70% - 10px);

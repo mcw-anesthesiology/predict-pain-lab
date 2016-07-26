@@ -1,5 +1,6 @@
 $small-sidebar-width: 150px;
-$large-sidebar-width: 200px;
+$medium-sidebar-width: 225px;
+$large-sidebar-width: 300px;
 
 main {
 	position: relative;
@@ -34,7 +35,6 @@ main {
 	.sidebar {
 		display: block;
 		// position: sticky :(
-		margin: 20px;
 
 		@media (min-width: $small-desktop) {
 			float: left;
@@ -48,12 +48,25 @@ main {
 			}
 
 			@media (min-width: $medium-desktop) {
+				width: $medium-sidebar-width;
+			}
+
+			@media (min-width: $large-desktop) {
 				width: $large-sidebar-width;
 			}
 		}
 
 		ul.page-nav {
 			list-style: none;
+			margin: 0;
+
+			li + li.back-to-top {
+				margin-top: 1em;
+			}
+
+			li.back-to-top {
+				font-size: 1.25em;
+			}
 		}
 	}
 }
@@ -72,11 +85,15 @@ main {
 
 		@media (min-width: $small-desktop) {
 			float: right;
-			width: calc(100% - #{$small-sidebar-width});
+			width: calc(100% - #{$small-sidebar-width} - 20px);
 		}
 
 		@media (min-width: $medium-desktop) {
-			width: calc(100% - #{$large-sidebar-width});
+			width: calc(100% - #{$medium-sidebar-width} - 30px);
+		}
+
+		@media (min-width: $large-desktop) {
+			width: calc(100% - #{$large-sidebar-width} - 40px);
 		}
 	}
 }

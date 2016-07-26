@@ -34,6 +34,12 @@ if(title.classList.contains('expanded')
 	title.classList.remove('notransition');
 }
 
+for(let event of ['resize', 'scroll']){
+	window.addEventListener(event, () => {
+		window.requestAnimationFrame(step);
+	});
+}
+
 function step(){
 	let heroRect = hero.getBoundingClientRect();
 	let headerHeight = header.getBoundingClientRect().height;
@@ -70,8 +76,4 @@ function step(){
 	newHeroAlpha = heroStartingAlpha + (Math.pow(newHeroAlpha, 2) * (1 - heroStartingAlpha));
 	heroRgba[heroRgba.length - 1] = newHeroAlpha;
 	hero.style.backgroundColor = `rgba(${heroRgba.join(',')})`;
-
-	window.requestAnimationFrame(step);
 }
-
-window.requestAnimationFrame(step);
