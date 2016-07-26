@@ -1,7 +1,9 @@
 .site-footer {
+	position: relative;
 	background-color: $grey-color-dark;
     border-top: 1px solid $grey-color-light;
     padding: $spacing-unit 0;
+	z-index: 2;
 }
 
 .footer-heading {

@@ -42,9 +42,9 @@ scripts:
 		<ul class="partners-list-group" data-state="{{ state_group.name }}">
 	{% for partner in state_group.items %}
 			<li class="partners-list-item" data-partner-name="{{ partner.name }}">
-				<h4><a href="{{ partner.url }}">{{ partner.name }}</a></h4>
+				<h4><a href="{{ partner.url }}" rel="external" title="View partner website">{{ partner.name }}</a></h4>
 				<figure>
-					<a href="{{ partner.url }}">
+					<a href="{{ partner.url }}" rel="external" title="View partner website">
 						<img src="{{ partner.image | default: "http://placehold.it/300x300" }}" alt="" />
 					</a>
 				</figure>

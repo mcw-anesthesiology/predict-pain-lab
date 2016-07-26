@@ -10,6 +10,8 @@ for(let link of internalLinks){
 	link.addEventListener('click', function(event){
 		event.preventDefault();
 		let target = this.getAttribute('href');
+		if(target === '#')
+			target = 'body';
 		let targetElement = document.querySelector(target);
 		velocity(targetElement, 'scroll', { offset: headingHeight * -1 });
 	});

@@ -6,9 +6,11 @@
 	<title>{% if page.title and page.title != "Home" %}{{ page.title | escape | append: " - "}}{% endif %}{{ site.title | escape }}</title>
 	<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
-	<link rel="stylesheet" href="{{ " /css/main.css " | prepend: site.baseurl }}">
+	<link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
 	<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 	<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ " /feed.xml " | prepend: site.baseurl | prepend: site.url }}">
+	<link rel="author" href="http://www.mischka.me" />
+	<link rel="icon" href="/favicon.ico" />
 
 {% if page.hero_image %}
 	<style>

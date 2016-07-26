@@ -17,7 +17,8 @@ for(let partner of PARTNERS){
 
 	starContainer.insertAdjacentHTML('beforeend',
 		`<a href="${partner.url}" class="map-star notransition"
-		data-partner-name="${partner.name}">${STAR}</a>`);
+		data-partner-name="${partner.name}" rel="external"
+		title="View partner website">${STAR}</a>`);
 	let stars = starContainer.querySelectorAll('.map-star');
 	let newStar = stars[stars.length - 1];
 	let starPos = convertStateCoordsToPixels(state, partner.coordinates.x, partner.coordinates.y);
@@ -35,11 +36,64 @@ for(let star of stars){
 		let partnerListItem = document.querySelector(`.partners-list-item[data-partner-name="${this.dataset.partnerName}"]`);
 		let partnerRect = partnerListItem.getBoundingClientRect();
 		let starRect = this.getBoundingClientRect();
+		let mainRect = document.querySelector('main').getBoundingClientRect();
+		let headerRect = document.querySelector('.site-header').getBoundingClientRect();
 
-		// FIXME: Make sure it's on screen afterward, only do it on big screens
-		let translation = {
-			x: (starRect.left - partnerRect.left) - (partnerRect.width / 2 - starRect.width / 2),
-			y: (starRect.top - partnerRect.top) - partnerRect.height
+		let canFitAbove = partnerRect.height < (starRect.top - headerRect.bottom);
+		let canFitBelow = partnerRect.height < (mainRect.bottom - starRect.bottom);
+		let canFitRight = partnerRect.width < (mainRect.right - starRect.right);
+		let canFitLeft = partnerRect.width < (starRect.left - mainRect.left);
+
+		if(!(canFitAbove || canFitBelow || canFitLeft || canFitRight))
+			return;
+
+		let translation;
+
+		if(canFitAbove)
+			translation = {
+				x: (starRect.left - partnerRect.left) - (partnerRect.width / 2 - starRect.width / 2),
+				y: (starRect.top - partnerRect.top) - partnerRect.height
+			};
+		else if(canFitLeft)
+			translation = {
+				x: (starRect.left - partnerRect.left) - partnerRect.width,
+				y: (starRect.top - partnerRect.top) - (partnerRect.height / 2 - starRect.height / 2)
+			};
+		else if(canFitRight)
+			translation = {
+				x: starRect.right - partnerRect.left,
+				y: (starRect.top - partnerRect.top) - (partnerRect.height / 2 - starRect.height / 2)
+			};
+		else
+			translation = {
+				x: (starRect.left - partnerRect.left) - (partnerRect.width / 2 - starRect.width / 2),
+				y: starRect.bottom - partnerRect.top
+			};
+
+		let translatedRect = {
+			left: partnerRect.left + translation.x,
+			right: partnerRect.right + translation.x,
+			top: partnerRect.top + translation.y,
+			bottom: partnerRect.bottom + translation.y
+		};
+
+		if(translatedRect.left < mainRect.left)
+			translation.x = mainRect.left - partnerRect.left;
+
+		if(translatedRect.right > mainRect.right)
+			translation.x = mainRect.right - partnerRect.right;
+
+		if(translatedRect.top < headerRect.bottom)
+			translation.y = headerRect.bottom - partnerRect.top;
+
+		if(translatedRect.bottom > mainRect.bottom)
+			translation.y = mainRect.bottom - partnerRect.bottom;
+
+		translatedRect = {
+			left: partnerRect.left + translation.x,
+			right: partnerRect.right + translation.x,
+			top: partnerRect.top + translation.y,
+			bottom: partnerRect.bottom + translation.y
 		};
 
 		window.requestAnimationFrame(() => {

@@ -79,7 +79,7 @@
 			state.classList.add('has-partner');
 			partnerStates.push(state);
 	
-			starContainer.insertAdjacentHTML('beforeend', '<a href="' + partner.url + '" class="map-star notransition"\n\t\tdata-partner-name="' + partner.name + '">' + _star2.default + '</a>');
+			starContainer.insertAdjacentHTML('beforeend', '<a href="' + partner.url + '" class="map-star notransition"\n\t\tdata-partner-name="' + partner.name + '" rel="external"\n\t\ttitle="View partner website">' + _star2.default + '</a>');
 			var _stars = starContainer.querySelectorAll('.map-star');
 			var newStar = _stars[_stars.length - 1];
 			var starPos = convertStateCoordsToPixels(state, partner.coordinates.x, partner.coordinates.y);
@@ -118,11 +118,52 @@
 				var partnerListItem = document.querySelector('.partners-list-item[data-partner-name="' + this.dataset.partnerName + '"]');
 				var partnerRect = partnerListItem.getBoundingClientRect();
 				var starRect = this.getBoundingClientRect();
+				var mainRect = document.querySelector('main').getBoundingClientRect();
+				var headerRect = document.querySelector('.site-header').getBoundingClientRect();
 	
-				// FIXME: Make sure it's on screen afterward, only do it on big screens
-				var translation = {
+				var canFitAbove = partnerRect.height < starRect.top - headerRect.bottom;
+				var canFitBelow = partnerRect.height < mainRect.bottom - starRect.bottom;
+				var canFitRight = partnerRect.width < mainRect.right - starRect.right;
+				var canFitLeft = partnerRect.width < starRect.left - mainRect.left;
+	
+				if (!(canFitAbove || canFitBelow || canFitLeft || canFitRight)) return;
+	
+				var translation = void 0;
+	
+				if (canFitAbove) translation = {
 					x: starRect.left - partnerRect.left - (partnerRect.width / 2 - starRect.width / 2),
 					y: starRect.top - partnerRect.top - partnerRect.height
+				};else if (canFitLeft) translation = {
+					x: starRect.left - partnerRect.left - partnerRect.width,
+					y: starRect.top - partnerRect.top - (partnerRect.height / 2 - starRect.height / 2)
+				};else if (canFitRight) translation = {
+					x: starRect.right - partnerRect.left,
+					y: starRect.top - partnerRect.top - (partnerRect.height / 2 - starRect.height / 2)
+				};else translation = {
+					x: starRect.left - partnerRect.left - (partnerRect.width / 2 - starRect.width / 2),
+					y: starRect.bottom - partnerRect.top
+				};
+	
+				var translatedRect = {
+					left: partnerRect.left + translation.x,
+					right: partnerRect.right + translation.x,
+					top: partnerRect.top + translation.y,
+					bottom: partnerRect.bottom + translation.y
+				};
+	
+				if (translatedRect.left < mainRect.left) translation.x = mainRect.left - partnerRect.left;
+	
+				if (translatedRect.right > mainRect.right) translation.x = mainRect.right - partnerRect.right;
+	
+				if (translatedRect.top < headerRect.bottom) translation.y = headerRect.bottom - partnerRect.top;
+	
+				if (translatedRect.bottom > mainRect.bottom) translation.y = mainRect.bottom - partnerRect.bottom;
+	
+				translatedRect = {
+					left: partnerRect.left + translation.x,
+					right: partnerRect.right + translation.x,
+					top: partnerRect.top + translation.y,
+					bottom: partnerRect.bottom + translation.y
 				};
 	
 				window.requestAnimationFrame(function () {

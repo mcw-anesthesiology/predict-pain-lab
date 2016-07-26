@@ -26,7 +26,6 @@
 		flex-shrink: 0;
 		flex-grow: 1000;
 		padding: 10px;
-		color: $grey-color-dark;
 
 		@media (max-width: $small-desktop) {
 			transform: translateX(calc(50vw - 50%));
@@ -49,9 +48,18 @@
 				transform: translate(15vw, 15vh);
 			}
 		}
+
+		a {
+			color: $grey-color-dark;
+
+			&:visited {
+				color: $grey-color-dark;
+			}
+		}
 	}
 
 	.site-nav {
+		font-family: $site-nav-font-family;
 		text-align: center;
 	    line-height: 56px;
 		flex-shrink: 0;

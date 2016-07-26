@@ -59,7 +59,7 @@
 			padding: 10px;
 			text-align: center;
 
-			transition: transform 0.25s, background-color 0.25s, border 0.25s;
+			transition: transform 0.25s, background-color 0.25s, border 0.25s, box-shadow 0.25s;
 
 			&.active {
 				background-color: white;

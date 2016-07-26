@@ -68,6 +68,7 @@
 			link.addEventListener('click', function (event) {
 				event.preventDefault();
 				var target = this.getAttribute('href');
+				if (target === '#') target = 'body';
 				var targetElement = document.querySelector(target);
 				(0, _velocityAnimate2.default)(targetElement, 'scroll', { offset: headingHeight * -1 });
 			});
