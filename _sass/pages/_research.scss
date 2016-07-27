@@ -8,10 +8,10 @@
 		.land {
 
 			&.has-partner {
-				fill: $brand-color;
+				fill: $primary-color;
 
 				&:hover {
-					fill: darken($brand-color, 10%);
+					fill: $primary-color-dark;
 				}
 			}
 		}
@@ -51,6 +51,7 @@
 	ul.partners-list-group {
 		display: flex;
 		flex-wrap: wrap;
+		align-items: flex-end;
 		list-style: none;
 		margin: 0;
 

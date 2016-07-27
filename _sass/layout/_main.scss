@@ -38,6 +38,7 @@ main {
 
 		@media (min-width: $small-desktop) {
 			float: left;
+			border-right: 1px solid rgba($primary-color, $active-icon);
 		}
 
 		&,
@@ -110,7 +111,7 @@ main {
 
 .post-meta {
     font-size: $small-font-size;
-    color: $small-text-color;
+    color: rgba($text-color, $secondary-text);
 }
 
 .post-link {

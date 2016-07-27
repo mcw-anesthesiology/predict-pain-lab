@@ -36,7 +36,7 @@ ul#choose-mke-attraction-list {
 			}
 
 			figcaption {
-				color: $small-text-color;
+				color: rgba($text-color, $secondary-text);
 				font-style: italic;
 			}
 		}

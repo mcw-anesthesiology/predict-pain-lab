@@ -11,31 +11,53 @@
 $base-font-family: "Open Sans", Helvetica, Arial, sans-serif;
 $heading-font-family: "Lato", Helvetica, Arial, sans-serif;
 $site-nav-font-family: "Roboto", Helvetica, Arial, sans-serif;
-$base-font-size:   16px;
+$base-font-size:   18px;
 $base-font-weight: 400;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
 
 $spacing-unit:     30px;
 
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
+$grey-color:       				#828282;
+$grey-color-light: 				lighten($grey-color, 40%);
+$grey-color-dark:  				darken($grey-color, 25%);
 
-$header-color:			#272f32;
-$hero-background-color:	$md-grey-800;
-$background-color: 		#fdfdfd;
-$brand-color:      		#2a7ae2;
-$accent-color:	 		#ff3d2e;
-$footer-color:			$grey-color-dark;
+$hero-background-color:			$md-grey-800;
+$background-color: 				#fafafa;
+$primary-color:					#2a7ae2;
+$primary-color-dark:			darken($primary-color, 10%);
+$primary-color-light:			lighten($primary-color, 10%);
 
-$text-color:       		#111;
-$alt-text-color:		#daeaef;
-$small-text-color:		$grey-color;
-$heading-color:			$md-grey-800;
-$footer-text-color:		$grey-color;
+$accent-color:	 				#ff3d2e;
+$accent-color-dark:				darken($accent-color, 10%);
+$accent-color-light:			lighten($accent-color, 10%);
 
-$shadow-color:			rgba(0, 0, 0, 0.5);
+$footer-color:					$grey-color-dark;
+$header-color:					$primary-color;
+
+$text-color:	  				#000;
+$light-text-color:				#fff;
+
+$primary-text: 0.87;
+$secondary-text: 0.54;
+$disabled-text: 0.38;
+
+$active-icon: 0.54;
+$inactive-icon: 0.38;
+
+$primary-light-text: 1;
+$secondary-light-text: 0.7;
+$disabled-light-text: 0.5;
+
+$active-light-icon: 1;
+$inactive-light-icon: 0.5;
+
+$divider: 0.12;
+
+$heading-color:					$md-grey-800;
+$footer-text-color:				$grey-color;
+
+$shadow-color:					rgba(0, 0, 0, 0.5);
 
 $hero-height: 75vh;
 

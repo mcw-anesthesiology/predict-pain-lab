@@ -18,7 +18,6 @@
 
 	.site-title {
 		display: inline-block;
-		font-size: 26px;
 		font-weight: 300;
 		line-height: 56px;
 		letter-spacing: -1px;
@@ -51,7 +50,7 @@
 
 		a,
 		a:visited {
-			color: $heading-color;
+			color: rgba($light-text-color, $primary-light-text);
 		}
 	}
 
@@ -69,7 +68,7 @@
 
 	    .page-link {
 			text-transform: uppercase;
-	        color: $alt-text-color;
+	        color: rgba($light-text-color, $secondary-light-text);
 	        line-height: $base-line-height;
 
 	        // Gaps between nav items, but not on the last one
@@ -119,7 +118,7 @@
 	        .page-link {
 	            display: block;
 	            padding: 5px 10px;
-				color: $text-color;
+				color: rgba($text-color, $primary-text);
 
 	            &:not(:last-child) {
 	                margin-right: 0;
