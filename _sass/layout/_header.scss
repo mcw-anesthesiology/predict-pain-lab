@@ -1,6 +1,6 @@
 .site-header {
 	width: 100%;
-    min-height: 75px;
+	min-height: 75px;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
@@ -57,74 +57,75 @@
 	.site-nav {
 		font-family: $site-nav-font-family;
 		text-align: center;
-	    line-height: 56px;
+		line-height: 56px;
 		flex-shrink: 0;
 		flex-grow: 1;
 		padding: 10px;
 
-	    .menu-icon {
-	        display: none;
-	    }
+		.menu-icon {
+			display: none;
+		}
 
-	    .page-link {
+		.page-link {
 			text-transform: uppercase;
-	        color: rgba($light-text-color, $secondary-light-text);
-	        line-height: $base-line-height;
+			color: rgba($light-text-color, $secondary-light-text);
+			line-height: $base-line-height;
 
-	        // Gaps between nav items, but not on the last one
-	        &:not(:last-child) {
-	            margin-right: 20px;
-	        }
-	    }
+			// Gaps between nav items, but not on the last one
 
-	    @media (max-width: $small-desktop) {
-	        position: absolute;
-	        top: 9px;
-	        right: $spacing-unit / 2;
-	        background-color: $background-color;
-	        border: 1px solid darken($background-color, 5%);
-	        border-radius: 5px;
-	        text-align: right;
+			&:not(:last-child) {
+				margin-right: 20px;
+			}
+		}
 
-	        .menu-icon {
-	            display: block;
-	            float: right;
-	            width: 36px;
-	            height: 26px;
-	            line-height: 0;
-	            padding-top: 10px;
-	            text-align: center;
+		@media (max-width: $small-desktop) {
+			position: absolute;
+			top: 9px;
+			right: $spacing-unit / 2;
+			background-color: $background-color;
+			border: 1px solid darken($background-color, 5%);
+			border-radius: 5px;
+			text-align: right;
 
-	            > svg {
-	                width: 18px;
-	                height: 15px;
+			.menu-icon {
+				display: block;
+				float: right;
+				width: 36px;
+				height: 26px;
+				line-height: 0;
+				padding-top: 10px;
+				text-align: center;
 
-	                path {
-	                    fill: $grey-color-dark;
-	                }
-	            }
-	        }
+				> svg {
+					width: 18px;
+					height: 15px;
 
-	        .trigger {
-	            clear: both;
-	            display: none;
-	        }
+					path {
+						fill: $grey-color-dark;
+					}
+				}
+			}
 
-	        &:hover .trigger {
-	            display: block;
-	            padding-bottom: 5px;
-	        }
+			.trigger {
+				clear: both;
+				display: none;
+			}
 
-	        .page-link {
-	            display: block;
-	            padding: 5px 10px;
+			&:hover .trigger {
+				display: block;
+				padding-bottom: 5px;
+			}
+
+			.page-link {
+				display: block;
+				padding: 5px 10px;
 				color: rgba($text-color, $primary-text);
 
-	            &:not(:last-child) {
-	                margin-right: 0;
-	            }
-	            margin-left: 20px;
-	        }
-	    }
+				&:not(:last-child) {
+					margin-right: 0;
+				}
+				margin-left: 20px;
+			}
+		}
 	}
 }
