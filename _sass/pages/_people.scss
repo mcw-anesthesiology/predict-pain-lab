@@ -59,10 +59,10 @@ ul.people-group {
 			border: 1px $grey-color solid;
 			outline: none;
 			border-bottom: 0;
-			border-radius: 2px;
+			border-radius: 2px 2px 0 0;
 
 			p {
-				border-radius: 2px;
+				border-radius: 0 0 2px 2px;
 				position: absolute;
 				z-index: 1000;
 				border: 1px $grey-color solid;
