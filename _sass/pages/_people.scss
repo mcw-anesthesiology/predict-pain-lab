@@ -52,13 +52,17 @@ ul.people-group {
 			transition-duration: $people-transition-duration;
 		}
 
-		&.active {
+		&:hover,
+		&:active,
+		&:focus {
 			background-color: $background-color;
 			border: 1px $grey-color solid;
+			outline: none;
 			border-bottom: 0;
 			border-radius: 2px;
 
 			p {
+				border-radius: 2px;
 				position: absolute;
 				z-index: 1000;
 				border: 1px $grey-color solid;

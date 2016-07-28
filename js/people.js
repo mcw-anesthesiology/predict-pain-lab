@@ -44,47 +44,7 @@
 /* 0 */
 /***/ function(module, exports) {
 
-	'use strict';
-	
-	var people = document.querySelectorAll('.person');
-	var _iteratorNormalCompletion = true;
-	var _didIteratorError = false;
-	var _iteratorError = undefined;
-	
-	try {
-		for (var _iterator = people[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-			var person = _step.value;
-	
-			person.addEventListener('mouseenter', function () {
-				var _this = this;
-	
-				window.requestAnimationFrame(function () {
-					_this.classList.add('active');
-				});
-			});
-	
-			person.addEventListener('mouseleave', function () {
-				var _this2 = this;
-	
-				window.requestAnimationFrame(function () {
-					_this2.classList.remove('active');
-				});
-			});
-		}
-	} catch (err) {
-		_didIteratorError = true;
-		_iteratorError = err;
-	} finally {
-		try {
-			if (!_iteratorNormalCompletion && _iterator.return) {
-				_iterator.return();
-			}
-		} finally {
-			if (_didIteratorError) {
-				throw _iteratorError;
-			}
-		}
-	}
+	"use strict";
 
 /***/ }
 /******/ ]);
