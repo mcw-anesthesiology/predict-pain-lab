@@ -2,15 +2,26 @@
 
 }
 
+$people-transition-duration: 0.2s;
+
 ul.people-group {
+	position: relative;
 	display: flex;
 	flex-wrap: wrap;
 	list-style: none;
 	margin: 0;
 
 	li.person {
+		position: relative;
+		width: 250px;
 		flex-shrink: 0;
 		padding: 10px;
+
+		border: 1px $background-color solid;
+		border-bottom: 0;
+
+		transition-property: border, background;
+		transition-duration: $people-transition-duration;
 
 		figure {
 
@@ -20,6 +31,39 @@ ul.people-group {
 
 			figcaption {
 
+			}
+		}
+
+		p {
+			position: absolute;
+			z-index: 1000;
+			overflow: hidden;
+			width: 250px;
+			left: -1px;
+			background-color: $background-color;
+
+			margin: 0;
+			padding: 0 10px;
+			max-height: 0;
+			border: 1px $background-color solid;
+			border-top: 0;
+
+			transition-property: opacity, max-height, border;
+			transition-duration: $people-transition-duration;
+		}
+
+		&.active {
+			background-color: $background-color;
+			border: 1px $grey-color solid;
+			border-bottom: 0;
+			border-radius: 2px;
+
+			p {
+				position: absolute;
+				z-index: 1000;
+				border: 1px $grey-color solid;
+				border-top: 0;
+				max-height: 250px;
 			}
 		}
 	}

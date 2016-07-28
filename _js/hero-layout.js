@@ -3,6 +3,7 @@ import Color from 'color';
 let hero = document.querySelector('.site-hero-header-container');
 let header = document.querySelector('header.site-header');
 let title = document.querySelector('.site-title');
+let logo = document.querySelector('.site-logo');
 const collapseMargin = 20;
 const expandMargin = 30;
 
@@ -32,15 +33,21 @@ for(let i in expandedTitleTranslation)
 
 // FIXME: How broken will this be with js disabled?
 
-if(title.classList.contains('expanded')
-		&& (hero.getBoundingClientRect().bottom
-		< title.getBoundingClientRect().bottom + collapseMargin)){
-	title.classList.add('notransition');
-	title.classList.remove('expanded');
-	header.classList.add('collapsed');
-	title.offsetHeight; // Trigger reflow, this is filthy
-	title.classList.remove('notransition');
-}
+window.requestAnimationFrame(() => {
+	if(title.classList.contains('expanded')
+			&& (hero.getBoundingClientRect().bottom
+			< title.getBoundingClientRect().bottom + collapseMargin)){
+		title.classList.add('notransition');
+		title.classList.remove('expanded');
+		title.offsetHeight; // Trigger reflow, this is filthy
+		logo.classList.add('notransition');
+		logo.classList.remove('expanded');
+		logo.offsetHeight;
+		header.classList.add('collapsed');
+		title.classList.remove('notransition');
+		logo.classList.remove('notransition');
+	}
+});
 
 for(let event of ['resize', 'scroll']){
 	window.addEventListener(event, () => {
@@ -58,6 +65,7 @@ function step(){
 				< title.getBoundingClientRect().bottom + collapseMargin){
 
 			title.classList.remove('expanded');
+			logo.classList.remove('expanded');
 		}
 	}
 	else {
@@ -66,6 +74,7 @@ function step(){
 				+ title.getBoundingClientRect().height + expandMargin){
 
 			title.classList.add('expanded');
+			logo.classList.add('expanded');
 		}
 	}
 

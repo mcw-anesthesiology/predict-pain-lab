@@ -34,6 +34,8 @@ main {
 
 	.sidebar {
 		display: block;
+		padding-right: 20px;
+		padding-bottom: 40px;
 		// position: sticky :(
 
 		@media (min-width: $small-desktop) {
@@ -45,28 +47,39 @@ main {
 		ul.page-nav {
 
 			@media (min-width: $small-desktop) {
-				width: $small-sidebar-width;
+				max-width: $small-sidebar-width;
+				min-width: calc(#{$small-sidebar-width} - 70px);
 			}
 
 			@media (min-width: $medium-desktop) {
-				width: $medium-sidebar-width;
+				max-width: $medium-sidebar-width;
+				min-width: calc(#{$medium-sidebar-width} - 70px);
 			}
 
 			@media (min-width: $large-desktop) {
-				width: $large-sidebar-width;
+				max-width: $large-sidebar-width;
+				min-width: calc(#{$large-sidebar-width} - 70px);
 			}
 		}
 
 		ul.page-nav {
 			list-style: none;
+			line-height: 1em;
 			margin: 0;
 
-			li + li.back-to-top {
-				margin-top: 1em;
-			}
+			li {
 
-			li.back-to-top {
-				font-size: 1.25em;
+				& + li {
+					margin-top: 0.75em;
+				}
+
+				& + li.back-to-top {
+					margin-top: 1.25em;
+				}
+
+				&.back-to-top {
+					font-size: 1.25em;
+				}
 			}
 		}
 	}
@@ -83,6 +96,7 @@ main {
 	}
 
 	.page-content {
+		padding-left: 20px;
 
 		@media (min-width: $small-desktop) {
 			float: right;

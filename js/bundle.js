@@ -4041,7 +4041,7 @@
 
 	'use strict';
 	
-	var _color = __webpack_require__(26);
+	var _color = __webpack_require__(3);
 	
 	var _color2 = _interopRequireDefault(_color);
 	
@@ -4050,6 +4050,7 @@
 	var hero = document.querySelector('.site-hero-header-container');
 	var header = document.querySelector('header.site-header');
 	var title = document.querySelector('.site-title');
+	var logo = document.querySelector('.site-logo');
 	var collapseMargin = 20;
 	var expandMargin = 30;
 	
@@ -4071,13 +4072,19 @@
 		expandedTitleTranslation[i] = parseFloat(expandedTitleTranslation[i]);
 	} // FIXME: How broken will this be with js disabled?
 	
-	if (title.classList.contains('expanded') && hero.getBoundingClientRect().bottom < title.getBoundingClientRect().bottom + collapseMargin) {
-		title.classList.add('notransition');
-		title.classList.remove('expanded');
-		header.classList.add('collapsed');
-		title.offsetHeight; // Trigger reflow, this is filthy
-		title.classList.remove('notransition');
-	}
+	window.requestAnimationFrame(function () {
+		if (title.classList.contains('expanded') && hero.getBoundingClientRect().bottom < title.getBoundingClientRect().bottom + collapseMargin) {
+			title.classList.add('notransition');
+			title.classList.remove('expanded');
+			title.offsetHeight; // Trigger reflow, this is filthy
+			logo.classList.add('notransition');
+			logo.classList.remove('expanded');
+			logo.offsetHeight;
+			header.classList.add('collapsed');
+			title.classList.remove('notransition');
+			logo.classList.remove('notransition');
+		}
+	});
 	
 	var _arr = ['resize', 'scroll'];
 	for (var _i = 0; _i < _arr.length; _i++) {
@@ -4096,11 +4103,13 @@
 			if (heroRect.bottom < title.getBoundingClientRect().bottom + collapseMargin) {
 	
 				title.classList.remove('expanded');
+				logo.classList.remove('expanded');
 			}
 		} else {
 			if (heroRect.bottom > expandedTitleTranslation[expandedTitleTranslation.length - 1] + title.getBoundingClientRect().height + expandMargin) {
 	
 				title.classList.add('expanded');
+				logo.classList.add('expanded');
 			}
 		}
 	
@@ -4127,36 +4136,13 @@
 	}
 
 /***/ },
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */,
-/* 15 */,
-/* 16 */,
-/* 17 */,
-/* 18 */,
-/* 19 */,
-/* 20 */,
-/* 21 */,
-/* 22 */,
-/* 23 */,
-/* 24 */,
-/* 25 */,
-/* 26 */
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* MIT license */
-	var clone = __webpack_require__(27);
-	var convert = __webpack_require__(32);
-	var string = __webpack_require__(36);
+	var clone = __webpack_require__(4);
+	var convert = __webpack_require__(9);
+	var string = __webpack_require__(13);
 	
 	var Color = function (obj) {
 		if (obj instanceof Color) {
@@ -4606,7 +4592,7 @@
 
 
 /***/ },
-/* 27 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(Buffer) {var clone = (function() {
@@ -4770,10 +4756,10 @@
 	  module.exports = clone;
 	}
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(28).Buffer))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5).Buffer))
 
 /***/ },
-/* 28 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(Buffer, global) {/*!
@@ -4786,9 +4772,9 @@
 	
 	'use strict'
 	
-	var base64 = __webpack_require__(29)
-	var ieee754 = __webpack_require__(30)
-	var isArray = __webpack_require__(31)
+	var base64 = __webpack_require__(6)
+	var ieee754 = __webpack_require__(7)
+	var isArray = __webpack_require__(8)
 	
 	exports.Buffer = Buffer
 	exports.SlowBuffer = SlowBuffer
@@ -6325,10 +6311,10 @@
 	  return i
 	}
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(28).Buffer, (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5).Buffer, (function() { return this; }())))
 
 /***/ },
-/* 29 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
@@ -6458,7 +6444,7 @@
 
 
 /***/ },
-/* 30 */
+/* 7 */
 /***/ function(module, exports) {
 
 	exports.read = function (buffer, offset, isLE, mLen, nBytes) {
@@ -6548,7 +6534,7 @@
 
 
 /***/ },
-/* 31 */
+/* 8 */
 /***/ function(module, exports) {
 
 	var toString = {}.toString;
@@ -6559,11 +6545,11 @@
 
 
 /***/ },
-/* 32 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var conversions = __webpack_require__(33);
-	var route = __webpack_require__(35);
+	var conversions = __webpack_require__(10);
+	var route = __webpack_require__(12);
 	
 	var convert = {};
 	
@@ -6642,11 +6628,11 @@
 
 
 /***/ },
-/* 33 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* MIT license */
-	var cssKeywords = __webpack_require__(34);
+	var cssKeywords = __webpack_require__(11);
 	
 	// NOTE: conversions should only return primitive values (i.e. arrays, or
 	//       values that give correct `typeof` results).
@@ -7423,7 +7409,7 @@
 
 
 /***/ },
-/* 34 */
+/* 11 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -7580,10 +7566,10 @@
 
 
 /***/ },
-/* 35 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var conversions = __webpack_require__(33);
+	var conversions = __webpack_require__(10);
 	
 	/*
 		this function routes a model to all other models.
@@ -7684,11 +7670,11 @@
 
 
 /***/ },
-/* 36 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* MIT license */
-	var colorNames = __webpack_require__(37);
+	var colorNames = __webpack_require__(14);
 	
 	module.exports = {
 	   getRgba: getRgba,
@@ -7911,7 +7897,7 @@
 
 
 /***/ },
-/* 37 */
+/* 14 */
 /***/ function(module, exports) {
 
 	module.exports = {
