@@ -1,11 +1,17 @@
 <header class="site-header">
+{% comment %}
 	<div class="site-logo expanded">
 		{% include svgs/pain-medicine.svg %}
 	</div>
+{% endcomment %}
 	<h1 class="site-title expanded">
 		<a href="#" class="internal-link" title="Go to top of page">
 {% if page.title and page.title != "Home" %}
+	{% if page.layout == "post" %}
+			Blog
+	{% else %}
 			{{ page.title }}
+	{% endif %}
 {% else %}
 			{{ site.title }}
 {% endif %}
@@ -19,9 +25,11 @@
 		<div class="trigger">
 {% assign heading_pages = site.pages | sort: 'page_order' %}
 {% for my_page in heading_pages %}
-	{% if my_page.title %}
+	{% unless my_page.url contains "page" %}
+		{% if my_page.title %}
 			<a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
-	{% endif %}
+		{% endif %}
+	{% endunless %}
 {% endfor %}
 		</div>
 	</nav>

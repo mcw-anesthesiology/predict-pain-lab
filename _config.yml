@@ -3,9 +3,12 @@ title: PREDICT Pain Lab at MCW
 email: predict@mcw.edu # FIXME
 description: TODO # FIXME
 baseurl: ""
-url: "http://mcwpaincare.org" # FIXME
+url: "http://predict.mcw-anesthesiology.tech" # FIXME
 # twitter_username: jekyllrb
 # github_username:  jekyll
+
+paginate: 5
+paginate_path: "/blog/page:num/"
 
 # Build settings
 markdown: kramdown
@@ -16,6 +19,23 @@ exclude:
   - Gemfile.lock
   - package.json
   - webpack.config.js
+gems:
+  - jekyll-paginate
+
+prose:
+  rooturl: "_posts"
+  siteurl: "http://predict.mcw-anesthesiology.tech"
+  media: "resources/posts"
+  metadata:
+    _posts:
+      - name: "layout"
+        field:
+          element: "hidden"
+          value: "post"
+      - name: "title"
+        field:
+          element: "text"
+          label: "Title"
 
 defaults:
   - scope:
@@ -28,3 +48,4 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+      hero_image: /images/hero/blog.jpg

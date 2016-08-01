@@ -1,0 +1,27 @@
+---
+no_header: true
+---
+<!DOCTYPE html>
+<html>
+	{% include head.html %}
+	<body>
+		<div class="site-hero-header-container">
+{% comment %}
+	TODO: Make this actually work
+{% endcomment %}
+			{% include header.html %}
+		</div>
+
+		<main>
+			{{ content }}
+		</main>
+
+		{% include footer.html %}
+		<script src="/js/bundle.js"></script>
+{% if page.scripts %}
+	{% for script_src in page.scripts %}
+		<script src="/js/{{ script_src }}"></script>
+	{% endfor %}
+{% endif %}
+	</body>
+</html>
