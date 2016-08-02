@@ -4,11 +4,11 @@ let hero = document.querySelector('.site-hero-header-container');
 let heroImageContainer = document.querySelector('.site-hero-image-container');
 let header = document.querySelector('header.site-header');
 let title = document.querySelector('.site-title');
-let logo = document.querySelector('.site-logo');
-const collapseMargin = 20;
+// let logo = document.querySelector('.site-logo');
+// const collapseMargin = 20;
 // const expandMargin = 30;
-const defaultHeroImageBackgroundPositionY = parseFloat(window.getComputedStyle(heroImageContainer).getPropertyValue('background-position-y'));
-const heroParallaxScrollMultiplier = 8;
+const defaultHeroImageBackgroundPositionY = window.getComputedStyle(heroImageContainer).getPropertyValue('background-position-y');
+const heroParallaxScrollMultiplier = 10;
 
 let initialHeroBackgroundColor = hero.style.backgroundColor;
 hero.style.backgroundColor = null;
@@ -28,7 +28,7 @@ if(!isCollapsed)
 let expandedTitleTranslation = window.getComputedStyle(title)
 	.getPropertyValue('transform');
 expandedTitleTranslation = expandedTitleTranslation
-	.substring(10, expandedTitleTranslation.length -1) // 7 = 'matrix('
+	.substring(10, expandedTitleTranslation.length -1)
 	.split(',');
 
 for(let i in expandedTitleTranslation)
@@ -36,21 +36,21 @@ for(let i in expandedTitleTranslation)
 
 // FIXME: How broken will this be with js disabled?
 
-window.requestAnimationFrame(() => {
-	if(title.classList.contains('expanded')
-			&& (hero.getBoundingClientRect().bottom
-			< title.getBoundingClientRect().bottom + collapseMargin)){
-		title.classList.add('notransition');
-		title.classList.remove('expanded');
-		title.offsetHeight; // Trigger reflow, this is filthy
-		logo.classList.add('notransition');
-		logo.classList.remove('expanded');
-		logo.offsetHeight;
-		header.classList.add('collapsed');
-		title.classList.remove('notransition');
-		logo.classList.remove('notransition');
-	}
-});
+// window.requestAnimationFrame(() => {
+// 	if(title.classList.contains('expanded')
+// 			&& (hero.getBoundingClientRect().bottom
+// 			< title.getBoundingClientRect().bottom + collapseMargin)){
+// 		title.classList.add('notransition');
+// 		title.classList.remove('expanded');
+// 		title.offsetHeight; // Trigger reflow, this is filthy
+// 		logo.classList.add('notransition');
+// 		logo.classList.remove('expanded');
+// 		logo.offsetHeight;
+// 		header.classList.add('collapsed');
+// 		title.classList.remove('notransition');
+// 		logo.classList.remove('notransition');
+// 	}
+// });
 
 for(let event of ['resize', 'scroll']){
 	window.addEventListener(event, () => {
@@ -103,7 +103,7 @@ function step(){
 
 	hero.style.backgroundColor = newHeroColor.rgbString();
 
-	heroImageContainer.style.setProperty('background-position-y', `${defaultHeroImageBackgroundPositionY + (scrolledValue * heroParallaxScrollMultiplier)}%`);
+	heroImageContainer.style.setProperty('background-position-y', `calc(${defaultHeroImageBackgroundPositionY} - ${(scrolledValue * heroParallaxScrollMultiplier)}px)`);
 }
 
 function getColorMultiplier(scrolledValue){
