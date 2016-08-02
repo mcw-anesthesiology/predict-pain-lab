@@ -4048,11 +4048,14 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var hero = document.querySelector('.site-hero-header-container');
+	var heroImageContainer = document.querySelector('.site-hero-image-container');
 	var header = document.querySelector('header.site-header');
 	var title = document.querySelector('.site-title');
 	var logo = document.querySelector('.site-logo');
 	var collapseMargin = 20;
-	var expandMargin = 30;
+	// const expandMargin = 30;
+	var defaultHeroImageBackgroundPositionY = parseFloat(window.getComputedStyle(heroImageContainer).getPropertyValue('background-position-y'));
+	var heroParallaxScrollMultiplier = 8;
 	
 	var initialHeroBackgroundColor = hero.style.backgroundColor;
 	hero.style.backgroundColor = null;
@@ -4099,19 +4102,23 @@
 		var headerHeight = header.getBoundingClientRect().height;
 		var newHeroColor = heroBackgroundColor.clone();
 	
-		if (title.classList.contains('expanded')) {
-			if (heroRect.bottom < title.getBoundingClientRect().bottom + collapseMargin) {
-	
-				title.classList.remove('expanded');
-				logo.classList.remove('expanded');
-			}
-		} else {
-			if (heroRect.bottom > expandedTitleTranslation[expandedTitleTranslation.length - 1] + title.getBoundingClientRect().height + expandMargin) {
-	
-				title.classList.add('expanded');
-				logo.classList.add('expanded');
-			}
-		}
+		// if(title.classList.contains('expanded')){
+		// 	if(heroRect.bottom
+		// 			< title.getBoundingClientRect().bottom + collapseMargin){
+		//
+		// 		title.classList.remove('expanded');
+		// 		logo.classList.remove('expanded');
+		// 	}
+		// }
+		// else {
+		// 	if(heroRect.bottom
+		// 			> expandedTitleTranslation[expandedTitleTranslation.length - 1]
+		// 			+ title.getBoundingClientRect().height + expandMargin){
+		//
+		// 		title.classList.add('expanded');
+		// 		logo.classList.add('expanded');
+		// 	}
+		// }
 	
 		if (header.classList.contains('collapsed')) {
 			if (heroRect.bottom > headerHeight) {
@@ -4123,16 +4130,24 @@
 			}
 		}
 	
-		var scrolledValue = (heroRect.height - (heroRect.bottom - headerHeight)) / heroRect.height;
-		scrolledValue > 0 ? scrolledValue : 0;
-		scrolledValue < 1 ? scrolledValue : 1;
+		var scrolledValue = (heroRect.height - heroRect.bottom) / (heroRect.height - headerHeight);
+		scrolledValue = scrolledValue > 0 ? scrolledValue : 0;
+		scrolledValue = scrolledValue < 1 ? scrolledValue : 1;
 	
-		newHeroColor.red(heroBackgroundColor.red() + Math.pow(scrolledValue, 2) * (headerBackgroundColor.red() - heroBackgroundColor.red()));
-		newHeroColor.green(heroBackgroundColor.green() + Math.pow(scrolledValue, 2) * (headerBackgroundColor.green() - heroBackgroundColor.green()));
-		newHeroColor.blue(heroBackgroundColor.blue() + Math.pow(scrolledValue, 2) * (headerBackgroundColor.blue() - heroBackgroundColor.blue()));
-		newHeroColor.alpha(heroBackgroundColor.alpha() + Math.pow(scrolledValue, 2) * (headerBackgroundColor.alpha() - heroBackgroundColor.alpha()));
+		newHeroColor.red(heroBackgroundColor.red() + getColorMultiplier(scrolledValue) * (headerBackgroundColor.red() - heroBackgroundColor.red()));
+		newHeroColor.green(heroBackgroundColor.green() + getColorMultiplier(scrolledValue) * (headerBackgroundColor.green() - heroBackgroundColor.green()));
+		newHeroColor.blue(heroBackgroundColor.blue() + getColorMultiplier(scrolledValue) * (headerBackgroundColor.blue() - heroBackgroundColor.blue()));
+		newHeroColor.alpha(heroBackgroundColor.alpha() + getColorMultiplier(scrolledValue) * (headerBackgroundColor.alpha() - heroBackgroundColor.alpha()));
 	
 		hero.style.backgroundColor = newHeroColor.rgbString();
+	
+		heroImageContainer.style.setProperty('background-position-y', defaultHeroImageBackgroundPositionY + scrolledValue * heroParallaxScrollMultiplier + '%');
+	}
+	
+	function getColorMultiplier(scrolledValue) {
+		if (scrolledValue < 0.75) return 0;
+	
+		return Math.pow((scrolledValue - 0.75) * 4, 2);
 	}
 
 /***/ },

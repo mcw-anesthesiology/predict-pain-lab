@@ -1,11 +1,14 @@
 import Color from 'color';
 
 let hero = document.querySelector('.site-hero-header-container');
+let heroImageContainer = document.querySelector('.site-hero-image-container');
 let header = document.querySelector('header.site-header');
 let title = document.querySelector('.site-title');
 let logo = document.querySelector('.site-logo');
 const collapseMargin = 20;
-const expandMargin = 30;
+// const expandMargin = 30;
+const defaultHeroImageBackgroundPositionY = parseFloat(window.getComputedStyle(heroImageContainer).getPropertyValue('background-position-y'));
+const heroParallaxScrollMultiplier = 8;
 
 let initialHeroBackgroundColor = hero.style.backgroundColor;
 hero.style.backgroundColor = null;
@@ -60,23 +63,23 @@ function step(){
 	let headerHeight = header.getBoundingClientRect().height;
 	let newHeroColor = heroBackgroundColor.clone();
 
-	if(title.classList.contains('expanded')){
-		if(heroRect.bottom
-				< title.getBoundingClientRect().bottom + collapseMargin){
-
-			title.classList.remove('expanded');
-			logo.classList.remove('expanded');
-		}
-	}
-	else {
-		if(heroRect.bottom
-				> expandedTitleTranslation[expandedTitleTranslation.length - 1]
-				+ title.getBoundingClientRect().height + expandMargin){
-
-			title.classList.add('expanded');
-			logo.classList.add('expanded');
-		}
-	}
+	// if(title.classList.contains('expanded')){
+	// 	if(heroRect.bottom
+	// 			< title.getBoundingClientRect().bottom + collapseMargin){
+	//
+	// 		title.classList.remove('expanded');
+	// 		logo.classList.remove('expanded');
+	// 	}
+	// }
+	// else {
+	// 	if(heroRect.bottom
+	// 			> expandedTitleTranslation[expandedTitleTranslation.length - 1]
+	// 			+ title.getBoundingClientRect().height + expandMargin){
+	//
+	// 		title.classList.add('expanded');
+	// 		logo.classList.add('expanded');
+	// 	}
+	// }
 
 	if(header.classList.contains('collapsed')){
 		if(heroRect.bottom > headerHeight){
@@ -89,14 +92,23 @@ function step(){
 		}
 	}
 
-	let scrolledValue = ((heroRect.height - (heroRect.bottom - headerHeight)) / heroRect.height);
-	scrolledValue > 0 ? scrolledValue : 0;
-	scrolledValue < 1 ? scrolledValue : 1;
+	let scrolledValue = (heroRect.height - heroRect.bottom) / (heroRect.height - headerHeight);
+	scrolledValue = scrolledValue > 0 ? scrolledValue : 0;
+	scrolledValue = scrolledValue < 1 ? scrolledValue : 1;
 
-	newHeroColor.red(heroBackgroundColor.red() + (Math.pow(scrolledValue, 2) * (headerBackgroundColor.red() - heroBackgroundColor.red())));
-	newHeroColor.green(heroBackgroundColor.green() + (Math.pow(scrolledValue, 2) * (headerBackgroundColor.green() - heroBackgroundColor.green())));
-	newHeroColor.blue(heroBackgroundColor.blue() + (Math.pow(scrolledValue, 2) * (headerBackgroundColor.blue() - heroBackgroundColor.blue())));
-	newHeroColor.alpha(heroBackgroundColor.alpha() + (Math.pow(scrolledValue, 2) * (headerBackgroundColor.alpha() - heroBackgroundColor.alpha())));
+	newHeroColor.red(heroBackgroundColor.red() + (getColorMultiplier(scrolledValue) * (headerBackgroundColor.red() - heroBackgroundColor.red())));
+	newHeroColor.green(heroBackgroundColor.green() + (getColorMultiplier(scrolledValue) * (headerBackgroundColor.green() - heroBackgroundColor.green())));
+	newHeroColor.blue(heroBackgroundColor.blue() + (getColorMultiplier(scrolledValue) * (headerBackgroundColor.blue() - heroBackgroundColor.blue())));
+	newHeroColor.alpha(heroBackgroundColor.alpha() + (getColorMultiplier(scrolledValue) * (headerBackgroundColor.alpha() - heroBackgroundColor.alpha())));
 
 	hero.style.backgroundColor = newHeroColor.rgbString();
+
+	heroImageContainer.style.setProperty('background-position-y', `${defaultHeroImageBackgroundPositionY + (scrolledValue * heroParallaxScrollMultiplier)}%`);
+}
+
+function getColorMultiplier(scrolledValue){
+	if(scrolledValue < 0.75)
+		return 0;
+
+	return Math.pow((scrolledValue - 0.75) * 4, 2);
 }

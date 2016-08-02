@@ -1,10 +1,8 @@
 <header class="site-header">
-{% comment %}
-	<div class="site-logo expanded">
+	<div class="site-logo">
 		{% include svgs/pain-medicine.svg %}
 	</div>
-{% endcomment %}
-	<h1 class="site-title expanded">
+	<h1 class="site-title">
 		<a href="#" class="internal-link" title="Go to top of page">
 {% if page.title and page.title != "Home" %}
 	{% if page.layout == "post" %}
@@ -12,8 +10,6 @@
 	{% else %}
 			{{ page.title }}
 	{% endif %}
-{% else %}
-			{{ site.title }}
 {% endif %}
 		</a>
 	</h1>

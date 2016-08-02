@@ -1,4 +1,5 @@
 .site-hero-image-container {
+	background: grey;
 	width: 100vw;
 	height: $hero-height;
 	top: 0;
@@ -11,7 +12,7 @@
 .site-hero-header-container {
 	width: 100%;
 	height: $hero-height;
-	background-color: rgba($hero-background-color, 0.5);
+	background-color: rgba($hero-background-color, 0.2);
 	overflow: hidden;
 	z-index: 1;
 	transition: height 0.25s;

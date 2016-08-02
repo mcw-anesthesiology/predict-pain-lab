@@ -4,13 +4,12 @@ $large-sidebar-width: 300px;
 
 main {
 	position: relative;
-	padding: $spacing-unit 10px;
 	background-color: $background-color;
 	box-shadow: 0 -5px 20px -5px $shadow-color;
-	min-height: 100vh;
 	z-index: 3;
 
 	article {
+		padding: $spacing-unit 10px;
 
 		@media (min-width: $small-desktop) {
 			margin: auto;

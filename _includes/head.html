@@ -22,5 +22,20 @@
 			background-position: {{ page.hero_position | default: "center" }};
 		}
 	</style>
+	{% if page.layout == "default" %}
+	<style>
+		.site-hero-image-container {
+			height: 100vh;
+		}
+
+		.site-hero-header-container {
+			height: 100vh;
+		}
+
+		.site-hero-header-container .hero-desc {
+			max-height: calc(70vh - 20px);
+		}
+	</style>
+	{% endif %}
 {% endif %}
 </head>
