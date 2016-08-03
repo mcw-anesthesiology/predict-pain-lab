@@ -1,0 +1,25 @@
+.sidebar {
+
+	#search-posts {
+
+	}
+
+	#search-posts-results {
+		max-height: 400px;
+		overflow-y: auto;
+		font-size: 12px;
+		margin: 0;
+
+		li {
+			h3 {
+				margin-bottom: 0.5em;
+			}
+
+			p {
+				text-overflow: ellipsis;
+				overflow: hidden;
+				max-height: $base-line-height * 1em * 3;
+			}
+		}
+	}
+}

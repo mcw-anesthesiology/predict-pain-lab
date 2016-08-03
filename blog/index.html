@@ -3,20 +3,27 @@ title: Blog
 hero_image: /images/hero/blog.jpg
 page_order: 6
 permalink: null
+scripts:
+  - blog.js
 ---
 <aside class="sidebar sticky">
+	<h2>Search</h2>
+	<input type="search" id="search-posts" placeholder="search" />
+	<ul id="search-posts-results">
 
+	</ul>
 </aside>
 
 <div class="page-content">
+	<h2>Posts</h2>
 	<ul class="post-list">
 {% for post in paginator.posts %}
 		<li>
 			<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
-			<h2>
+			<h3>
 				<a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-			</h2>
+			</h3>
 		</li>
 {% endfor %}
 	</ul>
@@ -47,3 +54,8 @@ permalink: null
 	</div>
 {% endif %}
 </div>
+
+{% assign site_posts = site.posts %}
+<script id="site-posts" type="application/json">
+	{{ site.posts | jsonify | strip_html }}
+</script>

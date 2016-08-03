@@ -3,7 +3,6 @@
 ---
 @charset "utf-8";
 
-@import "colors";
 @import 'https://fonts.googleapis.com/css?family=Lato|Open+Sans|Roboto';
 // FIXME: Fonts need to be reviewed
 
@@ -22,7 +21,7 @@ $grey-color:       				#828282;
 $grey-color-light: 				lighten($grey-color, 40%);
 $grey-color-dark:  				darken($grey-color, 25%);
 
-$hero-background-color:			$md-grey-800;
+$hero-background-color:			$grey-color;
 $background-color: 				#fafafa;
 $primary-color:					#2a7ae2;
 $primary-color-dark:			darken($primary-color, 10%);
@@ -54,7 +53,7 @@ $inactive-light-icon: 0.5;
 
 $divider: 0.12;
 
-$heading-color:					$md-grey-800;
+$heading-color:					$grey-color;
 $footer-text-color:				$grey-color;
 
 $shadow-color:					rgba(0, 0, 0, 0.5);

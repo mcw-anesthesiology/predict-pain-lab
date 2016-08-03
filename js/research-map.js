@@ -46,15 +46,15 @@
 
 	'use strict';
 	
-	var _debounce = __webpack_require__(28);
+	var _debounce = __webpack_require__(29);
 	
 	var _debounce2 = _interopRequireDefault(_debounce);
 	
-	var _research_partners = __webpack_require__(35);
+	var _research_partners = __webpack_require__(36);
 	
 	var _research_partners2 = _interopRequireDefault(_research_partners);
 	
-	var _star = __webpack_require__(36);
+	var _star = __webpack_require__(37);
 	
 	var _star2 = _interopRequireDefault(_star);
 	
@@ -303,12 +303,13 @@
 /* 25 */,
 /* 26 */,
 /* 27 */,
-/* 28 */
+/* 28 */,
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(29),
-	    now = __webpack_require__(30),
-	    toNumber = __webpack_require__(31);
+	var isObject = __webpack_require__(30),
+	    now = __webpack_require__(31),
+	    toNumber = __webpack_require__(32);
 	
 	/** Used as the `TypeError` message for "Functions" methods. */
 	var FUNC_ERROR_TEXT = 'Expected a function';
@@ -490,7 +491,7 @@
 
 
 /***/ },
-/* 29 */
+/* 30 */
 /***/ function(module, exports) {
 
 	/**
@@ -527,7 +528,7 @@
 
 
 /***/ },
-/* 30 */
+/* 31 */
 /***/ function(module, exports) {
 
 	/**
@@ -554,12 +555,12 @@
 
 
 /***/ },
-/* 31 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isFunction = __webpack_require__(32),
-	    isObject = __webpack_require__(29),
-	    isSymbol = __webpack_require__(33);
+	var isFunction = __webpack_require__(33),
+	    isObject = __webpack_require__(30),
+	    isSymbol = __webpack_require__(34);
 	
 	/** Used as references for various `Number` constants. */
 	var NAN = 0 / 0;
@@ -627,10 +628,10 @@
 
 
 /***/ },
-/* 32 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(29);
+	var isObject = __webpack_require__(30);
 	
 	/** `Object#toString` result references. */
 	var funcTag = '[object Function]',
@@ -676,10 +677,10 @@
 
 
 /***/ },
-/* 33 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObjectLike = __webpack_require__(34);
+	var isObjectLike = __webpack_require__(35);
 	
 	/** `Object#toString` result references. */
 	var symbolTag = '[object Symbol]';
@@ -721,7 +722,7 @@
 
 
 /***/ },
-/* 34 */
+/* 35 */
 /***/ function(module, exports) {
 
 	/**
@@ -756,7 +757,7 @@
 
 
 /***/ },
-/* 35 */
+/* 36 */
 /***/ function(module, exports) {
 
 	module.exports = [
@@ -925,7 +926,7 @@
 	];
 
 /***/ },
-/* 36 */
+/* 37 */
 /***/ function(module, exports) {
 
 	module.exports = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"240\" height=\"240\" viewBox=\"0 0 240 240\">\n\t<path fill=\"#F8D64E\" d=\"m48,234 73-226 73,226-192-140h238z\"/>\n</svg>\n"
