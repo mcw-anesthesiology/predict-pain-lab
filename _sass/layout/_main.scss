@@ -23,13 +23,14 @@ main {
 		@media (min-width: $large-desktop) {
 			width: 1170px;
 		}
+
+		&::after {
+			content: "";
+			display: block;
+			clear: both;
+		}
 	}
 
-	&::after {
-		content: "";
-		display: block;
-		clear: both;
-	}
 
 	.sidebar {
 		box-sizing: border-box;

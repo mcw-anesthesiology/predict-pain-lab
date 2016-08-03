@@ -1,3 +1,5 @@
+// FIXME: Breaks on blog pages
+
 import Color from 'color';
 
 let hero = document.querySelector('.site-hero-header-container');

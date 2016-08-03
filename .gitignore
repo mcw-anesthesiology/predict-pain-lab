@@ -2,12 +2,4 @@ _site
 .sass-cache
 .jekyll-metadata
 npm-debug.log
-node_modules/*
-
-# To import with jekyll's sass compiler
-!node_modules/materialize-css
-node_modules/materialize-css/*
-!node_modules/materialize-css/sass
-node_modules/materialize-css/sass/*
-!node_modules/materialize-css/sass/materialize.scss
-!node_modules/materialize-css/sass/components/
+node_modules

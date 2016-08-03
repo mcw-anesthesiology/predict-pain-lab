@@ -22,6 +22,9 @@ exclude:
 gems:
   - jekyll-paginate
 
+collections:
+  - sections
+
 prose:
   rooturl: "_posts"
   siteurl: "http://predict.mcw-anesthesiology.tech"
@@ -42,6 +45,11 @@ defaults:
       path: ""
     values:
       layout: "page"
+  - scope:
+      path: ""
+      type: "sections"
+    values:
+      layout: "section"
 
   - scope:
       path: ""

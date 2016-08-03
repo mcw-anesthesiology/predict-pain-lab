@@ -4,3 +4,13 @@ title: Home
 page_order: 1
 hero_image: /images/hero/home.jpg # FIXME: Fix rotation
 ---
+{% assign sections = site.sections | sort: page_order %}
+{% for section in site.sections %}
+	<div class="parallax-separator" style="
+					background-image: url({{ section.hero_image }});
+					background-size: cover;
+					background-repeat: no-repeat;
+					background-position: center;"></div>
+	</div>
+	{{ section.output }}
+{% endfor %}

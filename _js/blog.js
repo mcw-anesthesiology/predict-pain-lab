@@ -4,22 +4,26 @@ import find from 'lodash/find';
 
 const search = document.getElementById('search-posts');
 const searchResults = document.getElementById('search-posts-results');
-const posts = JSON.parse(document.getElementById('site-posts').textContent)
+const sitePosts = document.getElementById('site-posts');
+let posts;
+
+if(sitePosts){
+	posts = JSON.parse(sitePosts.textContent)
 	.filter((post) => {
 		return !post.draft;
 	});
-console.log(posts);
 
-let index = lunr(function(){
-	this.field('title', { boost: 10 });
-	this.field('tags', { boost: 5 });
-	this.field('content');
-});
-for(let post of posts){
-	delete post.output;
-	delete post.previous;
-	delete post.next;
-	index.add(post);
+	let index = lunr(function(){
+		this.field('title', { boost: 10 });
+		this.field('tags', { boost: 5 });
+		this.field('content');
+	});
+	for(let post of posts){
+		delete post.output;
+		delete post.previous;
+		delete post.next;
+		index.add(post);
+	}
 }
 
 search.addEventListener('input', debounce(searchPosts, 200));

@@ -1,11 +1,7 @@
 /* eslint-env node */
 module.exports = {
 	entry: {
-		bundle: './_js/bundle.js',
-		'research-map': './_js/research-map.js',
-		'choose-mke': './_js/choose-mke.js',
-		people: './_js/people.js',
-		blog: './_js/blog.js'
+		bundle: './_js/bundle.js'
 	},
 	output: {
 		path: './resources/',

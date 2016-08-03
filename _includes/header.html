@@ -19,14 +19,17 @@
 		</a>
 
 		<div class="trigger">
-{% assign heading_pages = site.pages | sort: 'page_order' %}
-{% for my_page in heading_pages %}
-	{% unless my_page.url contains "page" %}
-		{% if my_page.title %}
-			<a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
-		{% endif %}
-	{% endunless %}
+
+{% if page.url != "/" %}
+	{% assign page_link_prepend = "/" %}
+{% endif %}
+			<a href="{{ page_link_prepend }}#" class="page-link internal-link">Home</a>
+{% for section in site.sections %}
+			<a href="{{ page_link_prepend }}#{{ section.title | slugify }}" class="page-link internal-link">{{ section.title }}</a>
 {% endfor %}
+
+			<a href="/blog" class="page-link">Blog</a>
+			<a href="/choose-mke" class="page-link">Choose MKE</a>
 		</div>
 	</nav>
 </header>
