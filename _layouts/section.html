@@ -1,6 +1,7 @@
+{% include parallax.html %}
 <article class="page">
-	<header>
-		<h2 id="{{ page.title | slugify }}">{{ page.title }}</h2>
+	<header class="page-header">
+		<h2 class="page-heading" id="{{ page.title | slugify }}">{{ page.title }}</h2>
 	</header>
 	{{ content }}
 </article>

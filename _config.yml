@@ -56,4 +56,3 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      hero_image: /images/hero/blog.jpg

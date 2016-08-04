@@ -1,10 +1,11 @@
 import velocity from 'velocity-animate';
 
-import './hero-layout.js';
+// import './hero-layout.js';
 // import './blog.js';
 import './choose-mke.js';
 import './home.js';
 import './people.js';
+import './parallax.js';
 import './research-map.js';
 
 let headingHeight = document.querySelector('.site-header')

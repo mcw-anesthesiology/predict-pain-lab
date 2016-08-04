@@ -1,6 +1,6 @@
 .site-header {
 	width: 100%;
-	min-height: 75px;
+	min-height: $header-height;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;

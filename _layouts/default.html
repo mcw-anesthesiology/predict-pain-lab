@@ -2,22 +2,17 @@
 <html>
 	{% include head.html %}
 	<body>
-		<div class="site-hero-image-container"></div>
-		<div class="site-hero-header-container">
-			{% include header.html %}
-
-{% if page.hero_desc %}
-			<section class="hero-desc">
-				{{ page.hero_desc | markdownify }}
-			</section>
-{% endif %}
-		</div>
+		{% include header.html %}
 
 		<main>
+{% if page.hero_image %}
+			{% include parallax.html %}
+{% endif %}
 			{{ content }}
 		</main>
 
 		{% include footer.html %}
+
 		<script src="/js/bundle.js"></script>
 {% if page.scripts %}
 	{% for script_src in page.scripts %}

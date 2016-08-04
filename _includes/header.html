@@ -1,4 +1,4 @@
-<header class="site-header">
+<header class="site-header collapsed">
 	<div class="site-logo">
 		{% include svgs/pain-medicine.svg %}
 	</div>
@@ -23,8 +23,8 @@
 {% if page.url != "/" %}
 	{% assign page_link_prepend = "/" %}
 {% endif %}
-			<a href="{{ page_link_prepend }}#" class="page-link internal-link">Home</a>
-{% for section in site.sections %}
+{% assign sections = site.sections | sort: "page_order" %}
+{% for section in sections %}
 			<a href="{{ page_link_prepend }}#{{ section.title | slugify }}" class="page-link internal-link">{{ section.title }}</a>
 {% endfor %}
 
