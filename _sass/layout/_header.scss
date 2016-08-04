@@ -93,6 +93,14 @@
 			&:not(:last-child) {
 				margin-right: 20px;
 			}
+
+			@media (min-width: $small-desktop) {
+
+				&.active {
+					pointer-events: none;
+					color: rgba($light-text-color, $disabled-text);
+				}
+			}
 		}
 
 		@media (max-width: $small-desktop) {

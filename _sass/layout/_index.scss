@@ -7,9 +7,19 @@
 
 @import "../pages/index";
 
-.sticky.stuck {
+.sticky {
 
-	@media (min-width: $small-desktop) {
-		position: fixed !important;
+	&.stuck {
+
+		@media (min-width: $small-desktop) {
+			position: fixed !important;
+		}
+	}
+
+	&.stuck-bottom {
+
+		@media (min-width: $small-desktop) {
+			position: absolute !important;
+		}
 	}
 }

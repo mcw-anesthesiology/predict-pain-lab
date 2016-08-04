@@ -3,7 +3,6 @@
 		{% include svgs/pain-medicine.svg %}
 	</div>
 	<h1 class="site-title">
-		<a href="#" class="internal-link" title="Go to top of page">
 {% if page.title and page.title != "Home" %}
 	{% if page.layout == "post" %}
 			Blog
@@ -24,12 +23,13 @@
 	{% assign page_link_prepend = "/" %}
 {% endif %}
 {% assign sections = site.sections | sort: "page_order" %}
+			<a href="{{ page_link_prepend }}#" class="page-link internal-link">Home</a>
 {% for section in sections %}
 			<a href="{{ page_link_prepend }}#{{ section.title | slugify }}" class="page-link internal-link">{{ section.title }}</a>
 {% endfor %}
-
-			<a href="/blog" class="page-link">Blog</a>
-			<a href="/choose-mke" class="page-link">Choose MKE</a>
+			<a href="/people" class="page-link {% if page.url == "/people" or page.url == "/people/" %} active {% endif %}">People</a>
+			<a href="/blog" class="page-link {% if page.url == "/blog" or page.url == "/blog/" %} active {% endif %}">Blog</a>
+			<a href="/choose-mke" class="page-link {% if page.url == "/choose-mke" or page.url == "/choose-mke/" %} active {% endif %}">Choose MKE</a>
 		</div>
 	</nav>
 </header>

@@ -1,5 +1,5 @@
 <div class="parallax-container">
 	<div class="parallax">
-		<img class="parallax-image" src="{{ page.hero_image | default: "http://placehold.it/1000x1000" }}" />
+		<img class="parallax-image" src="{{ include.image | default: page.hero_image | default: "http://placehold.it/1000x1000" }}" />
 	</div>
 </div>

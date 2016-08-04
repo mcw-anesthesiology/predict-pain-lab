@@ -11,42 +11,45 @@ page_order: 4
 
 {% assign state_partners = site.data.research_partners | sort: "state" | group_by: "state" %}
 
-<aside class="sidebar sticky">
-	<ul class="page-nav">
+<a href="#" class="expand-section-element" data-target="#research-partners-list">Show list</a>
+<div class="collapsable collapsed" id="research-partners-list">
+	<aside class="sidebar sticky">
+		<ul class="page-nav">
 {% for state_group in state_partners %}
-		<li>
-			<a href="#{{ site.data.state_names[state_group.name] | slugify }}" class="internal-link">
-				{{ site.data.state_names[state_group.name] }}
-			</a>
-		</li>
-{% endfor %}
-		<li class="back-to-top">
-			<a href="#us-map" class="internal-link">
-				↑ Back to map
-			</a>
-		</li>
-	</ul>
-</aside>
-
-<div class="page-content">
-	<section id="partners-list">
-		<h2>Partners</h2>
-{% for state_group in state_partners %}
-		<h3 class="partners-list-group-title" id="{{ site.data.state_names[state_group.name] | slugify }}">
-			{{ site.data.state_names[state_group.name] }}
-		</h3>
-		<ul class="partners-list-group" data-state="{{ state_group.name }}">
-	{% for partner in state_group.items %}
-			<li class="partners-list-item" data-partner-name="{{ partner.name }}">
-				<h4><a href="{{ partner.url }}" rel="external" title="View partner website">{{ partner.name }}</a></h4>
-				<figure>
-					<a href="{{ partner.url }}" rel="external" title="View partner website">
-						<img src="{{ partner.image | default: "http://placehold.it/300x300" }}" alt="" />
-					</a>
-				</figure>
+			<li>
+				<a href="#{{ site.data.state_names[state_group.name] | slugify }}" class="internal-link">
+					{{ site.data.state_names[state_group.name] }}
+				</a>
 			</li>
-	{% endfor %}
-		</ul>
 {% endfor %}
-	</section>
+			<li class="back-to-top">
+				<a href="#us-map" class="internal-link">
+					↑ Back to map
+				</a>
+			</li>
+		</ul>
+	</aside>
+
+	<div class="page-content">
+		<section id="partners-list">
+			<h2>Partners</h2>
+{% for state_group in state_partners %}
+			<h3 class="partners-list-group-title" id="{{ site.data.state_names[state_group.name] | slugify }}">
+				{{ site.data.state_names[state_group.name] }}
+			</h3>
+			<ul class="partners-list-group" data-state="{{ state_group.name }}">
+	{% for partner in state_group.items %}
+				<li class="partners-list-item" data-partner-name="{{ partner.name }}">
+					<h4><a href="{{ partner.url }}" rel="external" title="View partner website">{{ partner.name }}</a></h4>
+					<figure>
+						<a href="{{ partner.url }}" rel="external" title="View partner website">
+							<img src="{{ partner.image | default: "http://placehold.it/300x300" }}" alt="" />
+						</a>
+					</figure>
+				</li>
+	{% endfor %}
+			</ul>
+{% endfor %}
+		</section>
+	</div>
 </div>

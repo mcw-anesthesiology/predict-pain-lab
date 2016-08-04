@@ -1,7 +1,14 @@
 ---
 layout: default
+title: Home
+page_order: 1
+hero_image: /images/hero/home.jpg
 ---
 {% assign sections = site.sections | sort: "page_order" %}
 {% for section in sections %}
-{{ section.output }}
+	{{ section }}
+	{% include parallax.html image=section.hero_image %}
 {% endfor %}
+<article class="page">
+	<a href="/choose-mke">Choose Milwaukee</a>
+</article>
