@@ -50,15 +50,15 @@
 	
 	var _velocityAnimate2 = _interopRequireDefault(_velocityAnimate);
 	
-	__webpack_require__(15);
+	__webpack_require__(2);
 	
-	__webpack_require__(29);
+	__webpack_require__(16);
 	
-	__webpack_require__(30);
+	__webpack_require__(17);
 	
-	__webpack_require__(41);
+	__webpack_require__(18);
 	
-	__webpack_require__(31);
+	__webpack_require__(19);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -3994,33 +3994,20 @@
 	will produce an inaccurate conversion value. The same issue exists with the cx/cy attributes of SVG circles and ellipses. */
 
 /***/ },
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */,
-/* 15 */
+/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _jquery = __webpack_require__(16);
+	var _jquery = __webpack_require__(3);
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
-	__webpack_require__(17);
+	__webpack_require__(4);
 	
-	__webpack_require__(18);
+	__webpack_require__(5);
 	
-	__webpack_require__(22);
+	__webpack_require__(9);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -4055,7 +4042,7 @@
 	}
 
 /***/ },
-/* 16 */
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*eslint-disable no-unused-vars*/
@@ -14135,7 +14122,7 @@
 
 
 /***/ },
-/* 17 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
@@ -14158,7 +14145,7 @@
 	(function(factory) {
 	    'use strict';
 	    if (true) {
-	        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(16)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(3)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	    } else if (typeof exports !== 'undefined') {
 	        module.exports = factory(require('jquery'));
 	    } else {
@@ -17033,16 +17020,16 @@
 
 
 /***/ },
-/* 18 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(19);
+	var content = __webpack_require__(6);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(21)(content, {});
+	var update = __webpack_require__(8)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -17059,10 +17046,10 @@
 	}
 
 /***/ },
-/* 19 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(20)();
+	exports = module.exports = __webpack_require__(7)();
 	// imports
 	
 	
@@ -17073,7 +17060,7 @@
 
 
 /***/ },
-/* 20 */
+/* 7 */
 /***/ function(module, exports) {
 
 	/*
@@ -17129,7 +17116,7 @@
 
 
 /***/ },
-/* 21 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -17381,16 +17368,16 @@
 
 
 /***/ },
-/* 22 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(23);
+	var content = __webpack_require__(10);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(21)(content, {});
+	var update = __webpack_require__(8)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -17407,76 +17394,140 @@
 	}
 
 /***/ },
-/* 23 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(20)();
+	exports = module.exports = __webpack_require__(7)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, "@charset 'UTF-8';\n/* Slider */\n.slick-loading .slick-list\n{\n    background: #fff url(" + __webpack_require__(24) + ") center center no-repeat;\n}\n\n/* Icons */\n@font-face\n{\n    font-family: 'slick';\n    font-weight: normal;\n    font-style: normal;\n\n    src: url(" + __webpack_require__(25) + ");\n    src: url(" + __webpack_require__(25) + "?#iefix) format('embedded-opentype'), url(" + __webpack_require__(26) + ") format('woff'), url(" + __webpack_require__(27) + ") format('truetype'), url(" + __webpack_require__(28) + "#slick) format('svg');\n}\n/* Arrows */\n.slick-prev,\n.slick-next\n{\n    font-size: 0;\n    line-height: 0;\n\n    position: absolute;\n    top: 50%;\n\n    display: block;\n\n    width: 20px;\n    height: 20px;\n    padding: 0;\n    -webkit-transform: translate(0, -50%);\n    -ms-transform: translate(0, -50%);\n    transform: translate(0, -50%);\n\n    cursor: pointer;\n\n    color: transparent;\n    border: none;\n    outline: none;\n    background: transparent;\n}\n.slick-prev:hover,\n.slick-prev:focus,\n.slick-next:hover,\n.slick-next:focus\n{\n    color: transparent;\n    outline: none;\n    background: transparent;\n}\n.slick-prev:hover:before,\n.slick-prev:focus:before,\n.slick-next:hover:before,\n.slick-next:focus:before\n{\n    opacity: 1;\n}\n.slick-prev.slick-disabled:before,\n.slick-next.slick-disabled:before\n{\n    opacity: .25;\n}\n\n.slick-prev:before,\n.slick-next:before\n{\n    font-family: 'slick';\n    font-size: 20px;\n    line-height: 1;\n\n    opacity: .75;\n    color: white;\n\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n}\n\n.slick-prev\n{\n    left: -25px;\n}\n[dir='rtl'] .slick-prev\n{\n    right: -25px;\n    left: auto;\n}\n.slick-prev:before\n{\n    content: '\\2190';\n}\n[dir='rtl'] .slick-prev:before\n{\n    content: '\\2192';\n}\n\n.slick-next\n{\n    right: -25px;\n}\n[dir='rtl'] .slick-next\n{\n    right: auto;\n    left: -25px;\n}\n.slick-next:before\n{\n    content: '\\2192';\n}\n[dir='rtl'] .slick-next:before\n{\n    content: '\\2190';\n}\n\n/* Dots */\n.slick-dotted.slick-slider\n{\n    margin-bottom: 30px;\n}\n\n.slick-dots\n{\n    position: absolute;\n    bottom: -25px;\n\n    display: block;\n\n    width: 100%;\n    padding: 0;\n    margin: 0;\n\n    list-style: none;\n\n    text-align: center;\n}\n.slick-dots li\n{\n    position: relative;\n\n    display: inline-block;\n\n    width: 20px;\n    height: 20px;\n    margin: 0 5px;\n    padding: 0;\n\n    cursor: pointer;\n}\n.slick-dots li button\n{\n    font-size: 0;\n    line-height: 0;\n\n    display: block;\n\n    width: 20px;\n    height: 20px;\n    padding: 5px;\n\n    cursor: pointer;\n\n    color: transparent;\n    border: 0;\n    outline: none;\n    background: transparent;\n}\n.slick-dots li button:hover,\n.slick-dots li button:focus\n{\n    outline: none;\n}\n.slick-dots li button:hover:before,\n.slick-dots li button:focus:before\n{\n    opacity: 1;\n}\n.slick-dots li button:before\n{\n    font-family: 'slick';\n    font-size: 6px;\n    line-height: 20px;\n\n    position: absolute;\n    top: 0;\n    left: 0;\n\n    width: 20px;\n    height: 20px;\n\n    content: '\\2022';\n    text-align: center;\n\n    opacity: .25;\n    color: black;\n\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n}\n.slick-dots li.slick-active button:before\n{\n    opacity: .75;\n    color: black;\n}\n", ""]);
+	exports.push([module.id, "@charset 'UTF-8';\n/* Slider */\n.slick-loading .slick-list\n{\n    background: #fff url(" + __webpack_require__(11) + ") center center no-repeat;\n}\n\n/* Icons */\n@font-face\n{\n    font-family: 'slick';\n    font-weight: normal;\n    font-style: normal;\n\n    src: url(" + __webpack_require__(12) + ");\n    src: url(" + __webpack_require__(12) + "?#iefix) format('embedded-opentype'), url(" + __webpack_require__(13) + ") format('woff'), url(" + __webpack_require__(14) + ") format('truetype'), url(" + __webpack_require__(15) + "#slick) format('svg');\n}\n/* Arrows */\n.slick-prev,\n.slick-next\n{\n    font-size: 0;\n    line-height: 0;\n\n    position: absolute;\n    top: 50%;\n\n    display: block;\n\n    width: 20px;\n    height: 20px;\n    padding: 0;\n    -webkit-transform: translate(0, -50%);\n    -ms-transform: translate(0, -50%);\n    transform: translate(0, -50%);\n\n    cursor: pointer;\n\n    color: transparent;\n    border: none;\n    outline: none;\n    background: transparent;\n}\n.slick-prev:hover,\n.slick-prev:focus,\n.slick-next:hover,\n.slick-next:focus\n{\n    color: transparent;\n    outline: none;\n    background: transparent;\n}\n.slick-prev:hover:before,\n.slick-prev:focus:before,\n.slick-next:hover:before,\n.slick-next:focus:before\n{\n    opacity: 1;\n}\n.slick-prev.slick-disabled:before,\n.slick-next.slick-disabled:before\n{\n    opacity: .25;\n}\n\n.slick-prev:before,\n.slick-next:before\n{\n    font-family: 'slick';\n    font-size: 20px;\n    line-height: 1;\n\n    opacity: .75;\n    color: white;\n\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n}\n\n.slick-prev\n{\n    left: -25px;\n}\n[dir='rtl'] .slick-prev\n{\n    right: -25px;\n    left: auto;\n}\n.slick-prev:before\n{\n    content: '\\2190';\n}\n[dir='rtl'] .slick-prev:before\n{\n    content: '\\2192';\n}\n\n.slick-next\n{\n    right: -25px;\n}\n[dir='rtl'] .slick-next\n{\n    right: auto;\n    left: -25px;\n}\n.slick-next:before\n{\n    content: '\\2192';\n}\n[dir='rtl'] .slick-next:before\n{\n    content: '\\2190';\n}\n\n/* Dots */\n.slick-dotted.slick-slider\n{\n    margin-bottom: 30px;\n}\n\n.slick-dots\n{\n    position: absolute;\n    bottom: -25px;\n\n    display: block;\n\n    width: 100%;\n    padding: 0;\n    margin: 0;\n\n    list-style: none;\n\n    text-align: center;\n}\n.slick-dots li\n{\n    position: relative;\n\n    display: inline-block;\n\n    width: 20px;\n    height: 20px;\n    margin: 0 5px;\n    padding: 0;\n\n    cursor: pointer;\n}\n.slick-dots li button\n{\n    font-size: 0;\n    line-height: 0;\n\n    display: block;\n\n    width: 20px;\n    height: 20px;\n    padding: 5px;\n\n    cursor: pointer;\n\n    color: transparent;\n    border: 0;\n    outline: none;\n    background: transparent;\n}\n.slick-dots li button:hover,\n.slick-dots li button:focus\n{\n    outline: none;\n}\n.slick-dots li button:hover:before,\n.slick-dots li button:focus:before\n{\n    opacity: 1;\n}\n.slick-dots li button:before\n{\n    font-family: 'slick';\n    font-size: 6px;\n    line-height: 20px;\n\n    position: absolute;\n    top: 0;\n    left: 0;\n\n    width: 20px;\n    height: 20px;\n\n    content: '\\2022';\n    text-align: center;\n\n    opacity: .25;\n    color: black;\n\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n}\n.slick-dots li.slick-active button:before\n{\n    opacity: .75;\n    color: black;\n}\n", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 24 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "c5cd7f5300576ab4c88202b42f6ded62.gif";
 
 /***/ },
-/* 25 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "ced611daf7709cc778da928fec876475.eot";
 
 /***/ },
-/* 26 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "b7c9e1e479de3b53f1e4e30ebac2403a.woff";
 
 /***/ },
-/* 27 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "d41f55a78e6f49a5512878df1737e58a.ttf";
 
 /***/ },
-/* 28 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "f97e3bbf73254b0112091d0192f17aec.svg";
 
 /***/ },
-/* 29 */
+/* 16 */
 /***/ function(module, exports) {
 
 	"use strict";
 
 /***/ },
-/* 30 */
+/* 17 */
 /***/ function(module, exports) {
 
 	"use strict";
 
 /***/ },
-/* 31 */
+/* 18 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	var header = document.querySelector('.site-header');
+	var containers = document.querySelectorAll('.parallax-container');
+	
+	var _arr = ['resize', 'scroll'];
+	for (var _i = 0; _i < _arr.length; _i++) {
+		var event = _arr[_i];
+		window.addEventListener(event, function () {
+			window.requestAnimationFrame(parallaxStep);
+		});
+	}
+	
+	window.requestAnimationFrame(parallaxStep);
+	
+	function parallaxStep() {
+		var innerHeight = window.innerHeight;
+		var headerRect = header.getBoundingClientRect();
+	
+		var _iteratorNormalCompletion = true;
+		var _didIteratorError = false;
+		var _iteratorError = undefined;
+	
+		try {
+			for (var _iterator = containers[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+				var container = _step.value;
+	
+				var rect = container.getBoundingClientRect();
+	
+				var parallaxRect = {
+					top: 0 - rect.height + headerRect.height,
+					bottom: innerHeight
+				};
+				parallaxRect.height = parallaxRect.bottom - parallaxRect.top;
+	
+				if (rect.top >= parallaxRect.top && rect.top <= parallaxRect.bottom) {
+					var scrolledValue = (parallaxRect.bottom - rect.top) / parallaxRect.height;
+					var image = container.querySelector('.parallax-image');
+					var imageRect = image.getBoundingClientRect();
+					var parallaxScrollMultiplier = imageRect.height - rect.height;
+	
+					image.style.setProperty('transform', 'translate3d(-50%, ' + Math.round(parallaxScrollMultiplier * scrolledValue) + 'px, 0px)');
+				}
+			}
+		} catch (err) {
+			_didIteratorError = true;
+			_iteratorError = err;
+		} finally {
+			try {
+				if (!_iteratorNormalCompletion && _iterator.return) {
+					_iterator.return();
+				}
+			} finally {
+				if (_didIteratorError) {
+					throw _iteratorError;
+				}
+			}
+		}
+	}
+
+/***/ },
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _debounce = __webpack_require__(32);
+	var _debounce = __webpack_require__(20);
 	
 	var _debounce2 = _interopRequireDefault(_debounce);
 	
-	var _research_partners = __webpack_require__(39);
+	var _research_partners = __webpack_require__(27);
 	
 	var _research_partners2 = _interopRequireDefault(_research_partners);
 	
-	var _star2 = __webpack_require__(40);
+	var _star2 = __webpack_require__(28);
 	
 	var _star3 = _interopRequireDefault(_star2);
 	
@@ -17701,12 +17752,12 @@
 	}
 
 /***/ },
-/* 32 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(33),
-	    now = __webpack_require__(34),
-	    toNumber = __webpack_require__(35);
+	var isObject = __webpack_require__(21),
+	    now = __webpack_require__(22),
+	    toNumber = __webpack_require__(23);
 	
 	/** Used as the `TypeError` message for "Functions" methods. */
 	var FUNC_ERROR_TEXT = 'Expected a function';
@@ -17888,7 +17939,7 @@
 
 
 /***/ },
-/* 33 */
+/* 21 */
 /***/ function(module, exports) {
 
 	/**
@@ -17925,7 +17976,7 @@
 
 
 /***/ },
-/* 34 */
+/* 22 */
 /***/ function(module, exports) {
 
 	/**
@@ -17952,12 +18003,12 @@
 
 
 /***/ },
-/* 35 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isFunction = __webpack_require__(36),
-	    isObject = __webpack_require__(33),
-	    isSymbol = __webpack_require__(37);
+	var isFunction = __webpack_require__(24),
+	    isObject = __webpack_require__(21),
+	    isSymbol = __webpack_require__(25);
 	
 	/** Used as references for various `Number` constants. */
 	var NAN = 0 / 0;
@@ -18025,10 +18076,10 @@
 
 
 /***/ },
-/* 36 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(33);
+	var isObject = __webpack_require__(21);
 	
 	/** `Object#toString` result references. */
 	var funcTag = '[object Function]',
@@ -18074,10 +18125,10 @@
 
 
 /***/ },
-/* 37 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObjectLike = __webpack_require__(38);
+	var isObjectLike = __webpack_require__(26);
 	
 	/** `Object#toString` result references. */
 	var symbolTag = '[object Symbol]';
@@ -18119,7 +18170,7 @@
 
 
 /***/ },
-/* 38 */
+/* 26 */
 /***/ function(module, exports) {
 
 	/**
@@ -18154,7 +18205,7 @@
 
 
 /***/ },
-/* 39 */
+/* 27 */
 /***/ function(module, exports) {
 
 	module.exports = [
@@ -18323,73 +18374,10 @@
 	];
 
 /***/ },
-/* 40 */
+/* 28 */
 /***/ function(module, exports) {
 
 	module.exports = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"240\" height=\"240\" viewBox=\"0 0 240 240\">\n\t<path fill=\"#F8D64E\" d=\"m48,234 73-226 73,226-192-140h238z\"/>\n</svg>\n"
-
-/***/ },
-/* 41 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	var header = document.querySelector('.site-header');
-	var separators = document.querySelectorAll('.parallax-container');
-	
-	var _arr = ['resize', 'scroll'];
-	for (var _i = 0; _i < _arr.length; _i++) {
-		var event = _arr[_i];
-		window.addEventListener(event, function () {
-			window.requestAnimationFrame(parallaxStep);
-		});
-	}
-	
-	window.requestAnimationFrame(parallaxStep);
-	
-	function parallaxStep() {
-		var innerHeight = window.innerHeight;
-		var headerRect = header.getBoundingClientRect();
-	
-		var _iteratorNormalCompletion = true;
-		var _didIteratorError = false;
-		var _iteratorError = undefined;
-	
-		try {
-			for (var _iterator = separators[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-				var separator = _step.value;
-	
-				var rect = separator.getBoundingClientRect();
-	
-				var parallaxRect = {
-					top: 0 - rect.height + headerRect.height,
-					bottom: innerHeight
-				};
-				parallaxRect.height = parallaxRect.bottom - parallaxRect.top;
-	
-				if (rect.top >= parallaxRect.top && rect.top <= parallaxRect.bottom) {
-					var scrolledValue = (parallaxRect.bottom - rect.top) / parallaxRect.height;
-					var parallaxScrollMultiplier = 500 * 1.25;
-					var image = separator.querySelector('.parallax-image');
-	
-					image.style.setProperty('transform', 'translate3d(-50%, calc(-50% + ' + parallaxScrollMultiplier * scrolledValue + 'px), 0px)');
-				}
-			}
-		} catch (err) {
-			_didIteratorError = true;
-			_iteratorError = err;
-		} finally {
-			try {
-				if (!_iteratorNormalCompletion && _iterator.return) {
-					_iterator.return();
-				}
-			} finally {
-				if (_didIteratorError) {
-					throw _iteratorError;
-				}
-			}
-		}
-	}
 
 /***/ }
 /******/ ]);

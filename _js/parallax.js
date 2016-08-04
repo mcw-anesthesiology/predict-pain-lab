@@ -1,5 +1,5 @@
 const header = document.querySelector('.site-header');
-const separators = document.querySelectorAll('.parallax-container');
+const containers = document.querySelectorAll('.parallax-container');
 
 for(let event of ['resize', 'scroll']){
 	window.addEventListener(event, () => {
@@ -13,8 +13,8 @@ function parallaxStep(){
 	const innerHeight = window.innerHeight;
 	const headerRect = header.getBoundingClientRect();
 
-	for(let separator of separators){
-		const rect = separator.getBoundingClientRect();
+	for(let container of containers){
+		const rect = container.getBoundingClientRect();
 
 		let parallaxRect = {
 			top: 0 - rect.height + headerRect.height,
@@ -24,10 +24,11 @@ function parallaxStep(){
 
 		if(rect.top >= parallaxRect.top && rect.top <= parallaxRect.bottom){
 			let scrolledValue = (parallaxRect.bottom - rect.top) / parallaxRect.height;
-			let parallaxScrollMultiplier = 500 * 1.25;
-			let image = separator.querySelector('.parallax-image');
+			let image = container.querySelector('.parallax-image');
+			let imageRect = image.getBoundingClientRect();
+			let parallaxScrollMultiplier = imageRect.height - rect.height;
 
-			image.style.setProperty('transform', `translate3d(-50%, calc(-50% + ${parallaxScrollMultiplier * scrolledValue}px), 0px)`);
+			image.style.setProperty('transform', `translate3d(-50%, ${Math.round(parallaxScrollMultiplier * scrolledValue)}px, 0px)`);
 		}
 	}
 }
