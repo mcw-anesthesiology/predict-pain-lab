@@ -1,5 +1,6 @@
 ---
 title: Research
+long_title: Research Partners
 hero_image: /images/hero/research.jpg
 hero_position: bottom;
 page_order: 4
@@ -11,8 +12,9 @@ page_order: 4
 
 {% assign state_partners = site.data.research_partners | sort: "state" | group_by: "state" %}
 
-<a href="#" class="expand-section-element" data-target="#research-partners-list">Show list</a>
-<div class="collapsable collapsed" id="research-partners-list">
+<button class="expand-section-element accent-button outline center-block" data-target="#research-partners-list">Show list</button>
+
+<div class="collapsable collapsed hide-off-screen" id="research-partners-list">
 	<aside class="sidebar sticky">
 		<ul class="page-nav">
 {% for state_group in state_partners %}

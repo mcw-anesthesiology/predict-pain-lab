@@ -184,5 +184,12 @@ main {
 
 	&.collapsed {
 		display: none;
+
+		&.hide-off-screen {
+			display: block !important;
+			position: absolute !important;
+			right: calc(100% + 1000px);
+			bottom: calc(100% + 100px);
+		}
 	}
 }

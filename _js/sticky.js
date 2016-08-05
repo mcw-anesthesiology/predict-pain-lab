@@ -1,6 +1,12 @@
+import debounce from 'lodash/debounce';
 import { isInView } from './element-in-view.js';
 
 const header = document.querySelector('.site-header');
+let headerRect = header.getBoundingClientRect();
+
+window.addEventListener('resize', debounce(() => {
+	headerRect = header.getBoundingClientRect();
+}, 100));
 
 let stickyElements = document.querySelectorAll('.sticky');
 if(stickyElements.length > 0){
@@ -33,7 +39,6 @@ function stickSticky(element){
 
 	let rect = element.getBoundingClientRect();
 	let parentRect = parent.getBoundingClientRect();
-	let headerRect = header.getBoundingClientRect();
 
 	if(rect.top < headerRect.height + stickyMargin){
 		if(parentRect.bottom >= rect.height + headerRect.height + stickyMargin){

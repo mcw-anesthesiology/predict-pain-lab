@@ -1,4 +1,5 @@
 import velocity from 'velocity-animate';
+import debounce from 'lodash/debounce';
 
 import './blog.js';
 import './choose-mke.js';
@@ -9,8 +10,18 @@ import './parallax.js';
 import './research-map.js';
 import './sticky.js';
 
-let headingHeight = document.querySelector('.site-header')
-	.getBoundingClientRect().height;
+let headerHeight = document.querySelector('.site-header').clientHeight;
+
+window.addEventListener('resize', debounce(() => {
+	headerHeight = document.querySelector('.site-header').clientHeight;
+}, 100));
+
+if(window.location.hash.length > 1){
+	window.addEventListener('load', () => {
+		window.scrollBy(0, -1 * headerHeight);
+	});
+}
+
 
 let internalLinks = document.getElementsByClassName('internal-link');
 for(let link of internalLinks){ // FIXME: I don't think this works in IE
@@ -21,7 +32,7 @@ for(let link of internalLinks){ // FIXME: I don't think this works in IE
 			if(target === '#')
 			target = 'body';
 			let targetElement = document.querySelector(target);
-			velocity(targetElement, 'scroll', { offset: headingHeight * -1 });
+			velocity(targetElement, 'scroll', { offset: headerHeight * -1 });
 		}
 	});
 }
@@ -34,8 +45,8 @@ for(let element of expandSectionElements){ // FIXME: I don't think this works in
 		let target = element.dataset.target;
 		let targetElement = document.querySelector(target);
 		if(targetElement.classList.contains('collapsed')){
+			targetElement.classList.remove('collapsed');
 			velocity(targetElement, 'slideDown', () => {
-				targetElement.classList.remove('collapsed');
 				element.textContent = element.textContent
 					.replace('Show', 'Hide')
 					.replace('show', 'hide');

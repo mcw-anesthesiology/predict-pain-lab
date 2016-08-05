@@ -1,6 +1,6 @@
 <article class="page watch-in-view" data-id="{{ page.title | slugify }}">
 	<header class="page-header">
-		<h2 class="page-heading" id="{{ page.title | slugify }}">{{ page.title }}</h2>
+		<h2 class="page-heading" id="{{ page.title | slugify }}">{{ page.long_title | default: page.title }}</h2>
 	</header>
 	{{ content }}
 </article>

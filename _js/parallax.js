@@ -1,5 +1,13 @@
+import debounce from 'lodash/debounce';
+
 const header = document.querySelector('.site-header');
 const containers = document.querySelectorAll('.parallax-container');
+let headerHeight = header.clientHeight;
+
+window.addEventListener('resize', debounce(() => {
+	headerHeight = document.querySelector('.site-header').clientHeight;
+}, 100));
+
 
 for(let event of ['resize', 'scroll']){
 	window.addEventListener(event, () => {
@@ -11,13 +19,12 @@ window.requestAnimationFrame(parallaxStep);
 
 function parallaxStep(){
 	const innerHeight = window.innerHeight;
-	const headerRect = header.getBoundingClientRect();
 
 	for(let container of containers){
 		const rect = container.getBoundingClientRect();
 
 		let parallaxRect = {
-			top: 0 - rect.height + headerRect.height,
+			top: 0 - rect.height + headerHeight,
 			bottom: innerHeight
 		};
 		parallaxRect.height = parallaxRect.bottom - parallaxRect.top;

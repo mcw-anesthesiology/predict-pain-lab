@@ -2,4 +2,7 @@
 	<div class="parallax">
 		<img class="parallax-image" src="{{ include.image | default: page.hero_image | default: "http://placehold.it/1000x1000" }}" />
 	</div>
+{% if include.content or page.hero_content %}
+	{{ include.content | default: page.hero_content }}
+{% endif %}
 </div>

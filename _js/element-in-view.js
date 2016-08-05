@@ -51,8 +51,11 @@ function viewStep(){
 		if(id === '#')
 			id = '';
 		let link = document.querySelector(`a.page-link[href="#${id}"]`);
-		if(link)
+		if(link){
 			link.classList.add('active');
+			let href = id ? `#${id}` : window.location.pathname + window.location.search;
+			window.history.replaceState({}, '', href);
+		}
 
 		currentElement = newElement;
 	}
@@ -60,7 +63,8 @@ function viewStep(){
 
 export function isInView(element){
 	let rect = element.getBoundingClientRect();
-	return (rect.bottom > headerHeight && rect.top < window.innerHeight);
+	return (rect.bottom > headerHeight && rect.top < window.innerHeight
+		&& rect.right > 0 && rect.left < window.innerWidth);
 }
 
 function getAmountInView(element){
