@@ -1,4 +1,5 @@
 import debounce from 'lodash/debounce';
+import { isInView } from './element-in-view.js';
 
 const header = document.querySelector('.site-header');
 const containers = document.querySelectorAll('.parallax-container');
@@ -21,21 +22,23 @@ function parallaxStep(){
 	const innerHeight = window.innerHeight;
 
 	for(let container of containers){
-		const rect = container.getBoundingClientRect();
+		if(isInView(container)){			
+			const rect = container.getBoundingClientRect();
 
-		let parallaxRect = {
-			top: 0 - rect.height + headerHeight,
-			bottom: innerHeight
-		};
-		parallaxRect.height = parallaxRect.bottom - parallaxRect.top;
+			let parallaxRect = {
+				top: 0 - rect.height + headerHeight,
+				bottom: innerHeight
+			};
+			parallaxRect.height = parallaxRect.bottom - parallaxRect.top;
 
-		if(rect.top >= parallaxRect.top && rect.top <= parallaxRect.bottom){
-			let scrolledValue = (parallaxRect.bottom - rect.top) / parallaxRect.height;
-			let image = container.querySelector('.parallax-image');
-			let imageRect = image.getBoundingClientRect();
-			let parallaxScrollMultiplier = imageRect.height - rect.height;
+			if(rect.top >= parallaxRect.top && rect.top <= parallaxRect.bottom){
+				let scrolledValue = (parallaxRect.bottom - rect.top) / parallaxRect.height;
+				let image = container.querySelector('.parallax-image');
+				let imageRect = image.getBoundingClientRect();
+				let parallaxScrollMultiplier = imageRect.height - rect.height;
 
-			image.style.setProperty('transform', `translate3d(-50%, ${Math.round(parallaxScrollMultiplier * scrolledValue)}px, 0px)`);
+				image.style.setProperty('transform', `translate3d(-50%, ${Math.round(parallaxScrollMultiplier * scrolledValue)}px, 0px)`);
+			}
 		}
 	}
 }
