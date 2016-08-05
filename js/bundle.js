@@ -4563,14 +4563,19 @@
 		innerHeight = window.innerHeight;
 	}, 100));
 	
-	window.addEventListener('scroll', function () {
-		window.requestAnimationFrame(updateParallaxes);
-	});
+	// window.addEventListener('scroll', () => {
+	// 	window.requestAnimationFrame(updateParallaxes);
+	// });
 	
 	window.requestAnimationFrame(updateParallaxes);
 	
 	function updateParallaxes() {
 		var scrollDelta = window.scrollY - previousScroll;
+		if (scrollDelta === 0) {
+			window.requestAnimationFrame(updateParallaxes);
+			return;
+		}
+	
 		previousScroll = window.scrollY;
 	
 		var _iteratorNormalCompletion = true;
@@ -4615,6 +4620,8 @@
 				}
 			}
 		}
+	
+		window.requestAnimationFrame(updateParallaxes);
 	}
 
 /***/ },
@@ -4631,16 +4638,18 @@
 	var watchedElements = document.querySelectorAll('.watch-in-view'); // TODO this name sucks
 	var headerHeight = document.querySelector('.site-header').clientHeight;
 	
-	// if(watchedElements.length > 0){
-	// 	for(let event of ['resize', 'scroll']){
-	// 		window.addEventListener(event, () => {
-	// 			window.requestAnimationFrame(viewStep);
-	// 		});
-	// 	}
-	//
-	// 	window.requestAnimationFrame(viewStep);
-	// }
+	if (watchedElements.length > 0) {
+		var _arr = ['resize', 'scroll'];
 	
+		for (var _i = 0; _i < _arr.length; _i++) {
+			var event = _arr[_i];
+			window.addEventListener(event, function () {
+				window.requestAnimationFrame(viewStep);
+			});
+		}
+	
+		window.requestAnimationFrame(viewStep);
+	}
 	
 	function viewStep() {
 		headerHeight = document.querySelector('.site-header').clientHeight;
