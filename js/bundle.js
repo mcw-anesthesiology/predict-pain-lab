@@ -4631,18 +4631,16 @@
 	var watchedElements = document.querySelectorAll('.watch-in-view'); // TODO this name sucks
 	var headerHeight = document.querySelector('.site-header').clientHeight;
 	
-	if (watchedElements.length > 0) {
-		var _arr = ['resize', 'scroll'];
+	// if(watchedElements.length > 0){
+	// 	for(let event of ['resize', 'scroll']){
+	// 		window.addEventListener(event, () => {
+	// 			window.requestAnimationFrame(viewStep);
+	// 		});
+	// 	}
+	//
+	// 	window.requestAnimationFrame(viewStep);
+	// }
 	
-		for (var _i = 0; _i < _arr.length; _i++) {
-			var event = _arr[_i];
-			window.addEventListener(event, function () {
-				window.requestAnimationFrame(viewStep);
-			});
-		}
-	
-		window.requestAnimationFrame(viewStep);
-	}
 	
 	function viewStep() {
 		headerHeight = document.querySelector('.site-header').clientHeight;

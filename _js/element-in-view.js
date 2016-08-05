@@ -2,15 +2,15 @@ let currentElement = document.querySelector('.in-view');
 let watchedElements = document.querySelectorAll('.watch-in-view'); // TODO this name sucks
 let headerHeight = document.querySelector('.site-header').clientHeight;
 
-if(watchedElements.length > 0){
-	for(let event of ['resize', 'scroll']){
-		window.addEventListener(event, () => {
-			window.requestAnimationFrame(viewStep);
-		});
-	}
-
-	window.requestAnimationFrame(viewStep);
-}
+// if(watchedElements.length > 0){
+// 	for(let event of ['resize', 'scroll']){
+// 		window.addEventListener(event, () => {
+// 			window.requestAnimationFrame(viewStep);
+// 		});
+// 	}
+//
+// 	window.requestAnimationFrame(viewStep);
+// }
 
 
 function viewStep(){
