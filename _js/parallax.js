@@ -2,42 +2,74 @@ import debounce from 'lodash/debounce';
 import { isInView } from './element-in-view.js';
 
 const header = document.querySelector('.site-header');
-const containers = document.querySelectorAll('.parallax-container');
+const containers = Array.from(document.querySelectorAll('.parallax-container'));
 let headerHeight = header.clientHeight;
+let innerHeight = window.innerHeight;
+let previousScroll = window.scrollY;
+
+const parallaxes = containers.map((container) => {
+	let containerRect = container.getBoundingClientRect();
+	let image = container.querySelector('.parallax-image');
+	let imageRect = image.getBoundingClientRect();
+	return {
+		container: container,
+		containerRect: {
+			top: containerRect.top,
+			bottom: containerRect.bottom,
+			height: containerRect.height,
+			left: containerRect.left,
+			right: containerRect.right,
+			width: containerRect.width
+		},
+		image: image,
+		imageRect: {
+			top: imageRect.top,
+			bottom: imageRect.bottom,
+			height: imageRect.height,
+			left: imageRect.left,
+			right: imageRect.right,
+			width: imageRect.width
+		},
+		translateY: 0,
+		scrollMultiplier: imageRect.height - containerRect.height,
+		inView: false
+	};
+});
 
 window.addEventListener('resize', debounce(() => {
-	headerHeight = document.querySelector('.site-header').clientHeight;
+	headerHeight = header.clientHeight;
+	innerHeight = window.innerHeight;
 }, 100));
 
+window.addEventListener('scroll', () => {
+	window.requestAnimationFrame(updateParallaxes);
+});
 
-for(let event of ['resize', 'scroll']){
-	window.addEventListener(event, () => {
-		window.requestAnimationFrame(parallaxStep);
-	});
-}
+window.requestAnimationFrame(updateParallaxes);
 
-window.requestAnimationFrame(parallaxStep);
+function updateParallaxes(){
+	let scrollDelta = window.scrollY - previousScroll;
+	previousScroll = window.scrollY;
 
-function parallaxStep(){
-	const innerHeight = window.innerHeight;
+	for(let parallax of parallaxes){
+		parallax.containerRect.top -= scrollDelta;
+		parallax.containerRect.bottom -= scrollDelta;
+		parallax.imageRect.top -= scrollDelta;
+		parallax.imageRect.bottom -= scrollDelta;
 
-	for(let container of containers){
-		if(isInView(container)){			
-			const rect = container.getBoundingClientRect();
-
+		parallax.inView = isInView(parallax.container, parallax.containerRect);
+		if(parallax.inView){
 			let parallaxRect = {
-				top: 0 - rect.height + headerHeight,
+				top: 0 - parallax.containerRect.height + headerHeight,
 				bottom: innerHeight
 			};
 			parallaxRect.height = parallaxRect.bottom - parallaxRect.top;
 
-			if(rect.top >= parallaxRect.top && rect.top <= parallaxRect.bottom){
-				let scrolledValue = (parallaxRect.bottom - rect.top) / parallaxRect.height;
-				let image = container.querySelector('.parallax-image');
-				let imageRect = image.getBoundingClientRect();
-				let parallaxScrollMultiplier = imageRect.height - rect.height;
-
-				image.style.setProperty('transform', `translate3d(-50%, ${Math.round(parallaxScrollMultiplier * scrolledValue)}px, 0px)`);
+			if(parallax.containerRect.top >= parallaxRect.top && parallax.containerRect.top <= parallaxRect.bottom){
+				let scrolledValue = (parallaxRect.bottom - parallax.containerRect.top) / parallaxRect.height;
+				parallax.translateY = Math.round(scrolledValue * parallax.scrollMultiplier);
+				parallax.image.style.setProperty('transform',
+					`translate3d(-50%, ${parallax.translateY}px, 0px)`);
 			}
 		}
 	}

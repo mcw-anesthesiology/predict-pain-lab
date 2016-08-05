@@ -1,12 +1,14 @@
 import velocity from 'velocity-animate';
 import debounce from 'lodash/debounce';
 
+// Try to make these handlers fire first
+import './parallax.js';
+
 import './blog.js';
 import './choose-mke.js';
 import './element-in-view.js';
 import './home.js';
 import './people.js';
-import './parallax.js';
 import './research-map.js';
 import './sticky.js';
 
