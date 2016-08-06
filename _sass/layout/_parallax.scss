@@ -1,9 +1,12 @@
 .parallax-container {
 	position: relative;
 	overflow: hidden;
-	height: 500px;
+	min-height: 300px;
 	box-sizing: border-box;
 	padding: 10%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 
 	.parallax {
 		position: absolute;

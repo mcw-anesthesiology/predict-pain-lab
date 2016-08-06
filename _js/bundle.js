@@ -12,10 +12,14 @@ import './people.js';
 import './research-map.js';
 import './sticky.js';
 
-let headerHeight = document.querySelector('.site-header').clientHeight;
+const header = document.querySelector('.site-header');
+const main = document.querySelector('main');
+let headerHeight = header.clientHeight;
+main.style.setProperty('padding-top', `${headerHeight}px`);
 
 window.addEventListener('resize', debounce(() => {
-	headerHeight = document.querySelector('.site-header').clientHeight;
+	headerHeight = header.clientHeight;
+	main.style.setProperty('padding-top', `${headerHeight}px`);
 }, 100));
 
 if(window.location.hash.length > 1){

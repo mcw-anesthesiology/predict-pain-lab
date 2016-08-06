@@ -1,11 +1,14 @@
 .split-pane-section {
 	display: flex;
+	flex-wrap: wrap;
 
 	& > * {
 		box-sizing: border-box;
-		width: 50%;
+		flex-basis: 50%;
+		min-width: 350px;
+		flex-grow: 1;
 		flex-shrink: 0;
-		padding: 1em;
+		padding: 2em;
 	}
 
 	.split-pane-section-header {
@@ -14,7 +17,7 @@
 		justify-content: center;
 
 		.split-pane-section-heading {
-
+			text-align: center;
 		}
 	}
 

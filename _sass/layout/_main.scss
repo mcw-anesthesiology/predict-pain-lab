@@ -11,6 +11,16 @@ main {
 
 	article {
 		padding: $spacing-unit 10px;
+	}
+
+	.section,
+	.split-pane-section {
+		padding: (4 * $spacing-unit) 10px;
+	}
+
+	article,
+	.section,
+	.split-pane-section {
 
 		@media (min-width: $small-desktop) {
 			margin: auto;
@@ -87,23 +97,20 @@ main {
 	}
 }
 
-.page {
+.page-content {
+	padding-left: 20px;
 
-	.page-content {
-		padding-left: 20px;
+	@media (min-width: $small-desktop) {
+		float: right;
+		width: calc(100% - #{$small-sidebar-width} - 20px);
+	}
 
-		@media (min-width: $small-desktop) {
-			float: right;
-			width: calc(100% - #{$small-sidebar-width} - 20px);
-		}
+	@media (min-width: $medium-desktop) {
+		width: calc(100% - #{$medium-sidebar-width} - 30px);
+	}
 
-		@media (min-width: $medium-desktop) {
-			width: calc(100% - #{$medium-sidebar-width} - 30px);
-		}
-
-		@media (min-width: $large-desktop) {
-			width: calc(100% - #{$large-sidebar-width} - 40px);
-		}
+	@media (min-width: $large-desktop) {
+		width: calc(100% - #{$large-sidebar-width} - 40px);
 	}
 }
 

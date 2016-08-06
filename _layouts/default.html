@@ -7,7 +7,15 @@
 		<main>
 {% if page.hero_image %}
 			<div class="watch-in-view" data-id="#">
-				{% include parallax.html content=page.hero_content %}
+	{% if page.hero_content %}
+		{% capture hero_content %}
+			<div class="hero-content">
+				{{ page.hero_content }}
+			</div>
+		{% endcapture %}
+	{% endif %}
+
+				{% include parallax.html content=hero_content %}
 			</div>
 {% endif %}
 			{{ content }}

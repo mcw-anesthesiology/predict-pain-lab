@@ -1,9 +1,0 @@
-- A lot of these photos not very high res
-- Not sure about copyright.
-	- Dear MKE ones are probably fine but I don't think explicitly so
-	- Some I'm pretty sure aren't okay
-		- https://www.wisconsin.edu/for-wisconsin/story/uw-milwaukee-microbiologist-leads-lake-michigans-cleanup-crew/
-		- http://static.panoramio.com/photos/original/41595450.jpg
-		- http://milwaukee.brewers.mlb.com/mil/ballpark/brewersenterprises/images/index/BrewersSE-HP-2016-9.jpg
-		- https://www.fest300.com/festivals/summerfest
-		- http://www.alamy.com/stock-photo-the-milwaukee-public-market-offers-wisconsin-specialty-foods-in-the-23113393.html

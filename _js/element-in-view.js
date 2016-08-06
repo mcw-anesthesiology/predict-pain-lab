@@ -73,5 +73,5 @@ function getAmountInView(element){
 		top: Math.max(rect.top, headerHeight),
 		bottom: Math.min(rect.bottom, windowHeight)
 	};
-	return inViewRect.bottom - inViewRect.top;
+	return (inViewRect.bottom - inViewRect.top) / rect.height;
 }

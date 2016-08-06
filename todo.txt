@@ -1,0 +1,3 @@
+Flexbox polyfill
+Fix parallax
+Background-shading on parallax again

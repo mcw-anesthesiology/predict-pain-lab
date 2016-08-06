@@ -1,8 +1,8 @@
-<article class="split-pane-section watch-in-view" {% if page.show_in_nav %} id="{{ page.title | slugify }}" {% endif %} data-id="{{ page.title | slugify }}">
-	<header class="split-pane-section-header">
-		<h1 class="split-pane-section-heading">{{ page.heading | default: page.title }}</h1>
-	</header>
-	<section class="section-content">
+<section class="split-pane-section watch-in-view" {% if page.show_in_nav %} id="{{ page.title | slugify }}" {% endif %} data-id="{{ page.title | slugify }}">
+	<div class="split-pane-section-header">
+		<h2 class="split-pane-section-heading">{{ page.heading | default: page.title }}</h2>
+	</div>
+	<div class="section-content">
 		{{ content }}
-	</section>
-</article>
+	</div>
+</section>

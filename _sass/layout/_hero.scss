@@ -1,55 +1,9 @@
-.site-hero-image-container {
-	background: grey;
-	width: 100vw;
-	height: $hero-height;
-	top: 0;
-	left: 0;
-	position: fixed;
-	z-index: -1;
-	transition: height 0.25s;
-}
-
-.site-hero-header-container {
+.hero-content {
 	width: 100%;
-	height: $hero-height;
-	background-color: rgba($hero-background-color, 0.15);
-	overflow: hidden;
-	z-index: 1;
-	transition: height 0.25s;
+	text-align: center;
+	font-size: 2em;
 
-	.hero-desc {
-		position: fixed;
-		background-color: rgba($background-color, 0.65);
-		border-radius: 5px;
-		z-index: 2;
-
-		right: 10vw;
-		top: 30vh;
-		padding: 20px;
-		box-sizing: border-box;
-		width: calc(100% - 20vw);
-		max-height: calc(#{$hero-height} - 30vh - 20px);
-		overflow-y: auto;
-		transition: height 0.25s;
-
-		@media (min-width: $small-desktop) {
-			width: calc(70% - 10px);
-		}
-
-		@media (min-width: $medium-desktop) {
-			width: calc(60% - 10px);
-		}
-
-		@media (min-width: $large-desktop) {
-			width: calc(50% - 10px);
-		}
-
-		p {
-			margin-bottom: 0;
-
-			& + p {
-				margin-top: $spacing-unit / 2;
-			}
-		}
+	h1 {
+		color: rgba($light-text-color, $primary-light-text);
 	}
 }

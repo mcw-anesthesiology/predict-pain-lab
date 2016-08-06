@@ -73,10 +73,14 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	// Try to make these handlers fire first
-	var headerHeight = document.querySelector('.site-header').clientHeight;
+	var header = document.querySelector('.site-header');
+	var main = document.querySelector('main');
+	var headerHeight = header.clientHeight;
+	main.style.setProperty('padding-top', headerHeight + 'px');
 	
 	window.addEventListener('resize', (0, _debounce2.default)(function () {
-		headerHeight = document.querySelector('.site-header').clientHeight;
+		headerHeight = header.clientHeight;
+		main.style.setProperty('padding-top', headerHeight + 'px');
 	}, 100));
 	
 	if (window.location.hash.length > 1) {
@@ -4721,7 +4725,7 @@
 			top: Math.max(rect.top, headerHeight),
 			bottom: Math.min(rect.bottom, windowHeight)
 		};
-		return inViewRect.bottom - inViewRect.top;
+		return (inViewRect.bottom - inViewRect.top) / rect.height;
 	}
 
 /***/ },
