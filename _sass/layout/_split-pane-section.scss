@@ -1,0 +1,24 @@
+.split-pane-section {
+	display: flex;
+
+	& > * {
+		box-sizing: border-box;
+		width: 50%;
+		flex-shrink: 0;
+		padding: 1em;
+	}
+
+	.split-pane-section-header {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		.split-pane-section-heading {
+
+		}
+	}
+
+	.section-content {
+
+	}
+}

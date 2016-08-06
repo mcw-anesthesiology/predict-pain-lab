@@ -80,7 +80,7 @@
 	}, 100));
 	
 	if (window.location.hash.length > 1) {
-		window.addEventListener('load', function () {
+		window.requestAnimationFrame(function () {
 			window.scrollBy(0, -1 * headerHeight);
 		});
 	}
@@ -4563,19 +4563,14 @@
 		innerHeight = window.innerHeight;
 	}, 100));
 	
-	// window.addEventListener('scroll', () => {
-	// 	window.requestAnimationFrame(updateParallaxes);
-	// });
+	window.addEventListener('scroll', function () {
+		window.requestAnimationFrame(updateParallaxes);
+	});
 	
 	window.requestAnimationFrame(updateParallaxes);
 	
 	function updateParallaxes() {
 		var scrollDelta = window.scrollY - previousScroll;
-		if (scrollDelta === 0) {
-			window.requestAnimationFrame(updateParallaxes);
-			return;
-		}
-	
 		previousScroll = window.scrollY;
 	
 		var _iteratorNormalCompletion = true;
@@ -4620,8 +4615,6 @@
 				}
 			}
 		}
-	
-		window.requestAnimationFrame(updateParallaxes);
 	}
 
 /***/ },

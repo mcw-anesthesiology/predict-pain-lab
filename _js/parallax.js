@@ -41,19 +41,14 @@ window.addEventListener('resize', debounce(() => {
 	innerHeight = window.innerHeight;
 }, 100));
 
-// window.addEventListener('scroll', () => {
-// 	window.requestAnimationFrame(updateParallaxes);
-// });
+window.addEventListener('scroll', () => {
+	window.requestAnimationFrame(updateParallaxes);
+});
 
 window.requestAnimationFrame(updateParallaxes);
 
 function updateParallaxes(){
 	let scrollDelta = window.scrollY - previousScroll;
-	if(scrollDelta === 0){
-		window.requestAnimationFrame(updateParallaxes);
-		return;
-	}
-
 	previousScroll = window.scrollY;
 
 	for(let parallax of parallaxes){
@@ -78,6 +73,4 @@ function updateParallaxes(){
 			}
 		}
 	}
-
-	window.requestAnimationFrame(updateParallaxes);
 }

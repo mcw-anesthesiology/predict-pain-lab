@@ -13,16 +13,16 @@
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
 	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 
 	@media (min-width: $small-desktop) {
 		font-size: 2em;
 	}
 
 	a {
-		position: relative;
 		width: auto;
 		height: auto;
-		top: 50%;
-		transform: translateY(-50%);
 	}
 }

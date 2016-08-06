@@ -21,10 +21,12 @@
 {% if page.url != "/" %}
 	{% assign page_link_prepend = "/" %}
 {% endif %}
-{% assign sections = site.sections | sort: "page_order" %}
+{% assign sections = site.sections | sort: "order" %}
 			<a href="{{ page_link_prepend }}#" class="page-link internal-link">Home</a>
 {% for section in sections %}
+	{% if section.show_in_nav %}
 			<a href="{{ page_link_prepend }}#{{ section.title | slugify }}" class="page-link internal-link">{{ section.title }}</a>
+	{% endif %}
 {% endfor %}
 			<a href="/people" class="page-link {% if page.url == "/people" or page.url == "/people/" %} active {% endif %}">People</a>
 			<a href="/blog" class="page-link {% if page.url == "/blog" or page.url == "/blog/" %} active {% endif %}">Blog</a>

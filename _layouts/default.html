@@ -7,7 +7,7 @@
 		<main>
 {% if page.hero_image %}
 			<div class="watch-in-view" data-id="#">
-				{% include parallax.html %}
+				{% include parallax.html content=page.hero_content %}
 			</div>
 {% endif %}
 			{{ content }}

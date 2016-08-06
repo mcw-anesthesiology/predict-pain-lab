@@ -2,10 +2,11 @@
 layout: default
 title: Home
 long_title: PREDICT Pain Lab at MCW
-page_order: 1
+order: 1
 hero_image: /images/hero/home.jpg
+hero_content: We take pain from present to future
 ---
-{% assign sections = site.sections | sort: "page_order" %}
+{% assign sections = site.sections | sort: "order" %}
 {% for section in sections %}
 	{{ section }}
 	{% if forloop.last %}

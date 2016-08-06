@@ -19,7 +19,7 @@ window.addEventListener('resize', debounce(() => {
 }, 100));
 
 if(window.location.hash.length > 1){
-	window.addEventListener('load', () => {
+	window.requestAnimationFrame(() => {
 		window.scrollBy(0, -1 * headerHeight);
 	});
 }
