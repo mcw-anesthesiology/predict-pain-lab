@@ -15,7 +15,10 @@ import './sticky.js';
 const header = document.querySelector('.site-header');
 const main = document.querySelector('main');
 let headerHeight = header.clientHeight;
-main.style.setProperty('padding-top', `${headerHeight}px`);
+
+window.requestAnimationFrame(() => {
+	main.style.setProperty('padding-top', `${headerHeight}px`);
+});
 
 window.addEventListener('resize', debounce(() => {
 	headerHeight = header.clientHeight;

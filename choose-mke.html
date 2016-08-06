@@ -1,25 +1,10 @@
 ---
 title: Choose MKE
 order: 7
+show_in_nav: true
 ---
-
-<ul id="choose-mke-attraction-list">
-{% for attraction in site.data.milwaukee_attractions %}
-	<li>
-		<a href="#{{ attraction.name | slugify }}" class="internal-link slick-slide-link" data-slide-index="{{ forloop.index0 }}">
-			<figure>
-				<img src="{{ attraction.image }}" alt="" />
-				<figcaption>{{ attraction.name }}</figcaption>
-			</figure>
-		</a>
-	</li>
-{% endfor %}
-</ul>
-
-<hr />
-
 <section id="choose-mke-attractions">
-{% for attraction in site.data.milwaukee_attractions %}
+{% for attraction in site.milwaukee_attractions %}
 	<section>
 		<h2 id="{{ attraction.name | slugify }}">{{ attraction.name }}</h2>
 		<figure>
@@ -30,11 +15,24 @@ order: 7
 		</figure>
 	{% if attraction.content %}
 		<div class="attraction-content">
-			{{ attraction.content }}
+			{{ attraction.content | markdownify }}
 		</div>
 	{% endif %}
 	</section>
 {% endfor %}
 </section>
 
-<a href="#choose-mke-attraction-list" class="internal-link">Back to attraction list</a>
+<hr />
+
+<ul id="choose-mke-attraction-list">
+{% for attraction in site.milwaukee_attractions %}
+	<li>
+		<a href="#{{ attraction.name | slugify }}" class="internal-link slick-slide-link" data-slide-index="{{ forloop.index0 }}">
+			<figure>
+				<img src="{{ attraction.image }}" alt="" />
+				<figcaption>{{ attraction.name }}</figcaption>
+			</figure>
+		</a>
+	</li>
+{% endfor %}
+</ul>

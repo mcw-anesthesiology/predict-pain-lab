@@ -76,7 +76,10 @@
 	var header = document.querySelector('.site-header');
 	var main = document.querySelector('main');
 	var headerHeight = header.clientHeight;
-	main.style.setProperty('padding-top', headerHeight + 'px');
+	
+	window.requestAnimationFrame(function () {
+		main.style.setProperty('padding-top', headerHeight + 'px');
+	});
 	
 	window.addEventListener('resize', (0, _debounce2.default)(function () {
 		headerHeight = header.clientHeight;

@@ -24,6 +24,8 @@ gems:
 
 collections:
   - sections
+  - milwaukee_attractions
+  - people
 
 prose:
   rooturl: "_posts"

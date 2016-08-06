@@ -1,26 +1,27 @@
 ---
 title: People
 order: 5
+show_in_nav: true
+position_order:
+  - Vice Chair of Pain Medicine
+  - Faculty
+  - Fellow
+  - Psychology Graduate Student
+  - ""
 group_names:
-  Faculty: Faculty
   Fellow: Fellows
   Psychology Graduate Student: Psychology graduate students
   "": Other research team members
 ---
-{% assign people_groups = site.data.people | shift | group_by: "position" %}
-{% assign director = site.data.people | where: "director", "true" | first %}
+{% assign people_groups = site.people | group_by: "position" %}
 
 <aside class="sidebar sticky">
 	<ul class="page-nav">
-		<li class="back-to-top">
-			<a href="#director" class="internal-link">
-				{{ director.name }}
-			</a>
-		</li>
-{% for people_group in people_groups %}
-		<li>
-			<a href="#{{ page.group_names[people_group.name] | slugify }}" class="internal-link">
-				{{ page.group_names[people_group.name] }}
+{% for position in page.position_order %}
+	{% assign people_group = people_groups | where: "name",position | first %}
+		<li {% if forloop.first %} class="back-to-top" {% endif %}>
+			<a href="#{{ page.group_names[people_group.name] | default: people_group.name | slugify }}" class="internal-link">
+				{{ page.group_names[people_group.name] | default: people_group.name }}
 			</a>
 		</li>
 {% endfor %}
@@ -28,40 +29,30 @@ group_names:
 </aside>
 
 <div class="page-content">
-	<section id="director">
-		<h2>
-			{{ director.name }}
-			<span class="person-titles">{{ director.titles | join: ", " }}</span>
-		</h2>
-		<figure>
-			<img src="{{ director.image | default: "http://placehold.it/500x500" }}" alt="" />
-		</figure>
-		<p>
-			{{ director.position }}
-		</p>
-	</section>
-
-{% for people_group in people_groups %}
-	<h2 id="{{ page.group_names[people_group.name] | slugify }}">
-		{{ page.group_names[people_group.name] }}
+{% for position in page.position_order %}
+	{% assign people_group = people_groups | where: "name",position | first %}
+	<h2 id="{{ page.group_names[people_group.name] | default: people_group.name | slugify }}">
+		{{ page.group_names[people_group.name] | default: people_group.name }}
 	</h2>
 	<ul class="people-group">
-	{% comment %}
-		TODO: Sort by last name somehow
-	{% endcomment %}
 	{% assign people = people_group.items %}
 	{% for person in people %}
-		<li class="person" tabindex="1">
+		{% unless person.hide %}
+		<li class="{% if person.director %} director {% else %} person {% endif %}" tabindex="1">
 			<figure>
 				<img src="{{ person.image | default: "http://placehold.it/250x250" }}" alt="" />
 				<figcaption>
 					{{ person.name }}
+		{% if person.titles %}
+					<span class="person-titles">{{ person.titles | join: ", " }}</span>
+		{% endif %}
 				</figcaption>
 			</figure>
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-			</p>
+			<div class="bio">
+				{{ person.content }}
+			</div>
 		</li>
+		{% endunless %}
 	{% endfor %}
 	</ul>
 {% endfor %}

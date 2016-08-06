@@ -4,6 +4,7 @@
 			{% include svgs/pain-medicine.svg %}
 		</a>
 	</div>
+{% comment %}
 	<h1 class="site-title">
 {% if page.layout == "post" %}
 		Blog
@@ -11,6 +12,7 @@
 		{{ page.long_title | default: page.title }}
 {% endif %}
 	</h1>
+{% endcomment %}
 	<nav class="site-nav">
 		<a href="#" class="menu-icon">
     		{% include svgs/menu.svg %}
@@ -28,9 +30,13 @@
 			<a href="{{ page_link_prepend }}#{{ section.title | slugify }}" class="page-link internal-link">{{ section.title }}</a>
 	{% endif %}
 {% endfor %}
-			<a href="/people" class="page-link {% if page.url == "/people" or page.url == "/people/" %} active {% endif %}">People</a>
-			<a href="/blog" class="page-link {% if page.url == "/blog" or page.url == "/blog/" %} active {% endif %}">Blog</a>
-			<a href="/choose-mke" class="page-link {% if page.url == "/choose-mke" or page.url == "/choose-mke/" %} active {% endif %}">Choose MKE</a>
+{% assign nav_pages = site.pages | sort: "order" %}
+{% for nav_page in nav_pages %}
+	{% if nav_page.show_in_nav %}
+			<a href="{{ nav_page.url }}" class="page-link {% if page.url == nav_page.url %} active {% endif %}">{{ nav_page.title }}</a>
+	{% endif %}
+{% endfor %}
+			<a href="/blog" class="page-link {% if page.url contains "/blog" %} active {% endif %}">Blog</a>
 		</div>
 	</nav>
 </header>
