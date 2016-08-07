@@ -145,11 +145,11 @@
 				display: block;
 				padding: 5px 10px;
 				color: rgba($text-color, $primary-text);
+				margin-left: 20px;
 
 				&:not(:last-child) {
 					margin-right: 0;
 				}
-				margin-left: 20px;
 			}
 		}
 	}

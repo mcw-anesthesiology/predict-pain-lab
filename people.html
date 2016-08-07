@@ -15,7 +15,7 @@ group_names:
 ---
 {% assign people_groups = site.people | group_by: "position" %}
 
-<aside class="sidebar sticky">
+<aside class="sidebar narrow-sidebar sticky">
 	<ul class="page-nav">
 {% for position in page.position_order %}
 	{% assign people_group = people_groups | where: "name",position | first %}

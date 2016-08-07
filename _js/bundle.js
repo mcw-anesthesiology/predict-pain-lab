@@ -14,6 +14,7 @@ import './sticky.js';
 
 const header = document.querySelector('.site-header');
 const main = document.querySelector('main');
+// const sidebar = document.querySelector('.sidebar');
 let headerHeight = header.clientHeight;
 
 window.requestAnimationFrame(() => {
@@ -30,6 +31,13 @@ if(window.location.hash.length > 1){
 		window.scrollBy(0, -1 * headerHeight);
 	});
 }
+
+// collapsedSidebarHandle.addEventListener('click', () => {
+// 	if(collapsedSidebarHandle.classList.contains('active'))
+// 		collapsedSidebarHandle.classList.remove('active');
+// 	else
+// 		collapsedSidebarHandle.classList.add('active');
+// });
 
 
 let internalLinks = document.getElementsByClassName('internal-link');

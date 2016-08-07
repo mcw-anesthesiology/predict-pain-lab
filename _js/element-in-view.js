@@ -1,3 +1,5 @@
+import { isInView } from './utils.js';
+
 let currentElement = document.querySelector('.in-view');
 let watchedElements = document.querySelectorAll('.watch-in-view'); // TODO this name sucks
 let headerHeight = document.querySelector('.site-header').clientHeight;
@@ -61,10 +63,6 @@ function viewStep(){
 	}
 }
 
-export function isInView(element, rect = element.getBoundingClientRect()){
-	return (rect.bottom > headerHeight && rect.top < window.innerHeight
-		&& rect.right > 0 && rect.left < window.innerWidth);
-}
 
 function getAmountInView(element){
 	let rect = element.getBoundingClientRect();

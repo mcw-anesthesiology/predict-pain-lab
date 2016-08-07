@@ -1,6 +1,6 @@
 ---
 layout: section
-# top_separator_image:
+top_separator_image: /images/hero/philosophy.jpg
 order: 3
 show_in_nav: true
 ---
@@ -46,11 +46,14 @@ show_in_nav: true
 	{% for partner in state_group.items %}
 				<li class="partners-list-item" data-partner-name="{{ partner.name }}">
 					<h4><a href="{{ partner.url }}" rel="external" title="View partner website">{{ partner.name }}</a></h4>
+
+		{% if partner.image %}
 					<figure>
 						<a href="{{ partner.url }}" rel="external" title="View partner website">
-							<img src="{{ partner.image | default: "http://placehold.it/300x300" }}" alt="" />
+							<img src="{{ partner.image }}" alt="" />
 						</a>
 					</figure>
+		{% endif %}
 				</li>
 	{% endfor %}
 			</ul>

@@ -2,6 +2,13 @@
 layout: default
 ---
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+{% comment %}
+{% if page.hero_image %}
+	<div class="post-hero-image">
+		<img src="{{ page.hero_image }}" alt="{{ page.hero_image_alt }}" />
+	</div>
+{% endif %}
+{% endcomment %}
 
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
@@ -11,5 +18,11 @@ layout: default
   <div class="post-content" itemprop="articleBody">
     {{ content }}
   </div>
+
+{% if page.read_more %}
+	<div class="read-more-link">
+		<a href="{{ page.read_more }}" class="button outline accent-button">Read more →</a>
+	</div>
+{% endif %}
 
 </article>

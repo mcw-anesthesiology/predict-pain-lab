@@ -1,5 +1,5 @@
 import debounce from 'lodash/debounce';
-import { isInView } from './element-in-view.js';
+import { isInView } from './utils.js';
 
 const header = document.querySelector('.site-header');
 let headerRect = header.getBoundingClientRect();

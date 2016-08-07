@@ -15,10 +15,13 @@ ul.people-group {
 
 	li.director {
 		width: 100%;
-		display: flex;
-		justify-content: space-between;
 
 		figure {
+			margin: 0 2em 2em 0;
+
+			@media (min-width: $small-desktop) {
+				float: left;
+			}
 
 			img {
 				width: 300px;
@@ -31,8 +34,13 @@ ul.people-group {
 		}
 
 		.bio {
-			padding: 0 1em;
-			margin: 0 1em;
+			font-size: 0.75em;
+		}
+
+		&::after {
+			content: ".";
+			clear: both;
+			display: none;
 		}
 	}
 
@@ -76,23 +84,23 @@ ul.people-group {
 			transition-duration: $people-transition-duration;
 		}
 
-		&:hover,
-		&:active,
-		&:focus {
-			background-color: $background-color;
-			border: 1px $grey-color solid;
-			outline: none;
-			border-bottom: 0;
-			border-radius: 2px 2px 0 0;
-
-			.bio {
-				border-radius: 0 0 2px 2px;
-				position: absolute;
-				z-index: 1000;
-				border: 1px $grey-color solid;
-				border-top: 0;
-				max-height: 250px;
-			}
-		}
+		// &:hover,
+		// &:active,
+		// &:focus {
+		// 	background-color: $background-color;
+		// 	border: 1px $grey-color solid;
+		// 	outline: none;
+		// 	border-bottom: 0;
+		// 	border-radius: 2px 2px 0 0;
+		//
+		// 	.bio {
+		// 		border-radius: 0 0 2px 2px;
+		// 		position: absolute;
+		// 		z-index: 1000;
+		// 		border: 1px $grey-color solid;
+		// 		border-top: 0;
+		// 		max-height: 250px;
+		// 	}
+		// }
 	}
 }

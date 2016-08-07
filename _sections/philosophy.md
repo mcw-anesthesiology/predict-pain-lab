@@ -1,7 +1,6 @@
 ---
 layout: split-pane-section
 title: Philosophy
-top_separator_image: /images/hero/philosophy.jpg
 order: 1
 show_in_nav: true
 heading: We want to make a difference in the world of pain

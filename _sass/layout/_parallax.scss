@@ -8,6 +8,10 @@
 	flex-direction: column;
 	justify-content: center;
 
+	&.hero {
+		height: 70vh;
+	}
+
 	.parallax {
 		position: absolute;
 		top: 0;
@@ -27,6 +31,23 @@
 			min-height: 100%;
 			will-change: transform;
 			box-sizing: border-box;
+			-webkit-filter: blur(1px);
+			filter: blur(1px);
+		}
+	}
+
+	&.has-content {
+
+		.parallax {
+
+			.parallax-image {
+				-webkit-filter: blur(3px) grayscale(25%);
+				filter: blur(3px) grayscale(25%);
+			}
+		}
+
+		.hero-content {
+			// box-shadow: 0 -5px 20px -5px $shadow-color;
 		}
 	}
 }

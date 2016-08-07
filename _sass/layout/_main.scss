@@ -15,7 +15,11 @@ main {
 
 	.section,
 	.split-pane-section {
-		padding: (4 * $spacing-unit) 10px;
+		padding: (2 * $spacing-unit) 10px;
+
+		&.compact {
+			padding: $spacing-unit 10px;
+		}
 	}
 
 	article,
@@ -44,14 +48,39 @@ main {
 
 
 	.sidebar {
-		box-sizing: border-box;
-		display: block;
-		padding-right: 20px;
-		padding-bottom: 40px;
 		// position: sticky :(
+		box-sizing: border-box;
+		padding: 20px;
+
+		// @media (max-width: #{$small-desktop - 1}) {
+		// 	display: inline-block;
+		// 	position: relative;
+		// 	right: 100%;
+		// 	top: 50%;
+		// 	background-color: rgba($background-color, 0.8);
+		// 	border: 1px solid $grey-color;
+		// 	// transform: translateY(-50%);
+		// 	transition: transform 0.25s ease-out;
+		// 	z-index: 100;
+		//
+		// 	&.active {
+		// 		// transform: translate(100%, -50%);
+		// 	}
+		//
+		// 	&::after {
+		// 		content: "↦";
+		// 		position: absolute;
+		// 		left: 100%;
+		// 		top: 0;
+		// 		padding: 3px;
+		// 		background-color: rgba($grey-color, 0.3);
+		// 	}
+		// }
 
 		@media (min-width: $small-desktop) {
 			float: left;
+			display: block;
+			padding: 0 20px 40px 0;
 			border-right: 1px solid rgba($primary-color, $active-icon);
 		}
 
@@ -71,6 +100,45 @@ main {
 			@media (min-width: $large-desktop) {
 				max-width: $large-sidebar-width;
 				min-width: calc(#{$large-sidebar-width} - 70px);
+			}
+		}
+
+		&.narrow-sidebar {
+
+			&,
+			&.page-nav {
+
+				@media (min-width: $small-desktop) {
+					max-width: 0.75 * $small-sidebar-width;
+					min-width: calc(#{0.75 * $small-sidebar-width} - 50px);
+				}
+
+				@media (min-width: $medium-desktop) {
+					max-width: 0.75 * $medium-sidebar-width;
+					min-width: calc(#{0.75 * $medium-sidebar-width} - 50px);
+				}
+
+				@media (min-width: $large-desktop) {
+					max-width: 0.75 * $large-sidebar-width;
+					min-width: calc(#{0.75 * $large-sidebar-width} - 50px);
+				}
+			}
+
+			& + .page-content {
+
+				@media (min-width: $small-desktop) {
+					float: right;
+					padding-left: 20px;
+					width: calc(100% - #{0.75 * $small-sidebar-width} - 20px);
+				}
+
+				@media (min-width: $medium-desktop) {
+					width: calc(100% - #{0.75 * $medium-sidebar-width} - 30px);
+				}
+
+				@media (min-width: $large-desktop) {
+					width: calc(100% - #{0.75 * $large-sidebar-width} - 40px);
+				}
 			}
 		}
 
@@ -97,11 +165,20 @@ main {
 	}
 }
 
+.page {
+
+	.page-header {
+		padding: 0 10%;
+		padding-bottom: 1.5em;
+		font-size: 1.5em;
+	}
+}
+
 .page-content {
-	padding-left: 20px;
 
 	@media (min-width: $small-desktop) {
 		float: right;
+		padding-left: 20px;
 		width: calc(100% - #{$small-sidebar-width} - 20px);
 	}
 
@@ -177,6 +254,22 @@ main {
 		@include media-query($on-laptop) {
 			font-size: 18px;
 		}
+	}
+}
+
+.post {
+
+	.post-hero-image {
+		width: 100%;
+
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	.read-more-link {
+		text-align: right;
 	}
 }
 

@@ -1,7 +1,7 @@
 # Site settings
 title: PREDICT Pain Lab at MCW
-email: predict@mcw.edu # FIXME
-description: TODO # FIXME
+email: jmischka@mcw.edu
+description: This site is a work in progress.
 baseurl: ""
 url: "http://predict.mcw-anesthesiology.tech" # FIXME
 # twitter_username: jekyllrb

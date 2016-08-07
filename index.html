@@ -8,15 +8,16 @@ hero_content: <h1>We take pain from present to future</h1>
 ---
 {% assign sections = site.sections | sort: "order" %}
 {% for section in sections %}
-	{{ section }}
-	{% if forloop.last %}
-{% capture choose_milwaukee_link %}
-	<div id="choose-milwaukee-link" class="text-center">
-		<a href="/choose-mke" id="choose-milwaukee-link" class="button accent-button outline"><span class="primary-color">Choose</span> Milwaukee</a>
-	</div>
-{% endcapture %}
-	{% include parallax.html image=section.hero_image content=choose_milwaukee_link %}
-	{% else %}
-	{% include parallax.html image=section.hero_image %}
+	{% if section.top_separator_image %}
+	{% include parallax.html image=section.top_separator_image %}
 	{% endif %}
+
+	{{ section }}
 {% endfor %}
+
+{% capture choose_milwaukee_link %}
+<div id="choose-milwaukee-link" class="text-center">
+	<a href="/choose-mke" id="choose-milwaukee-link" class="button accent-button outline"><span class="primary-color">Choose</span> Milwaukee</a>
+</div>
+{% endcapture %}
+{% include parallax.html image=section.top_separator_image content=choose_milwaukee_link %}
