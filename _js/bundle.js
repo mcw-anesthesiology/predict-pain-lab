@@ -14,17 +14,21 @@ import './sticky.js';
 
 const header = document.querySelector('.site-header');
 const main = document.querySelector('main');
+const hero = document.querySelector('.hero-container');
 // const sidebar = document.querySelector('.sidebar');
-let headerHeight = header.clientHeight;
+let headerHeight;
 
-window.requestAnimationFrame(() => {
-	main.style.setProperty('padding-top', `${headerHeight}px`);
-});
+window.requestAnimationFrame(fixHeader);
 
-window.addEventListener('resize', debounce(() => {
+window.addEventListener('resize', debounce(fixHeader, 100));
+
+function fixHeader(){
 	headerHeight = header.clientHeight;
 	main.style.setProperty('padding-top', `${headerHeight}px`);
-}, 100));
+	if(hero){
+		hero.style.setProperty('height', `calc(100vh - ${headerHeight}px)`);
+	}
+}
 
 if(window.location.hash.length > 1){
 	window.requestAnimationFrame(() => {
