@@ -6,6 +6,7 @@
 
 		<main {% if page.hero_image %} class="has-hero" {% endif %}>
 {% if page.hero_image %}
+			<div class="watch-in-view" data-id="#">
 	{% if page.hero_content %}
 		{% capture hero_content %}
 			<div class="hero-content">
@@ -15,6 +16,7 @@
 	{% endif %}
 
 				{% include hero.html content=hero_content %}
+			</div>
 {% endif %}
 			{{ content }}
 		</main>
