@@ -35,25 +35,48 @@ group_names:
 		{{ page.group_names[people_group.name] | default: people_group.name }}
 	</h2>
 	<ul class="people-group">
+
 	{% assign people = people_group.items %}
 	{% for person in people %}
 		{% unless person.hide %}
+
 		<li class="{% if person.director %} director {% else %} person {% endif %}" tabindex="1">
-			<figure>
-				<img src="{{ person.image | default: "http://placehold.it/250x250" }}" alt="" />
-				<figcaption>
-					{{ person.name }}
+			{% unless person.director %} <a href="#{{ person.name | slugify }}" title="Click to see more about {{ person.name }}"> {% endunless %}
+				<figure>
+					<img src="{{ person.image | default: "http://placehold.it/250x250" }}" alt="" />
+					<figcaption>
+						{{ person.name }}
 		{% if person.titles %}
-					<span class="person-titles">{{ person.titles | join: ", " }}</span>
+						<span class="person-titles">{{ person.titles | join: ", " }}</span>
 		{% endif %}
-				</figcaption>
-			</figure>
-			<div class="bio">
-				{{ person.content }}
-			</div>
+					</figcaption>
+				</figure>
+		{% if person.director %}
+				<div class="bio">
+					{{ person.content }}
+				</div>
+		{% endif %}
+			{% unless person.director %} </a> {% endunless %}
 		</li>
+
 		{% endunless %}
 	{% endfor %}
+
 	</ul>
+
+	{% for person in people %}
+		{% unless person.hide %}
+
+			<div class="remodal person-bio-modal" data-remodal-id="{{ person.name | slugify }}">
+				<button data-remodal-action="close" class="remodal-close"></button>
+				<h3 class="person-name">{{ person.name }} <span class="person-titles">{{ person.titles | join: ", " }}</span></h3>
+				<img class="person-image" src="{{ person.image }}" alt="" />
+				<div class="bio">
+					{{ person.content }}
+				</div>
+			</div>
+
+		{% endunless %}
+	{% endfor %}
 {% endfor %}
 </div>

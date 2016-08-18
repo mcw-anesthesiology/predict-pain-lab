@@ -1,7 +1,7 @@
 .parallax-container {
 	position: relative;
 	overflow: hidden;
-	min-height: 300px;
+	min-height: 400px;
 	box-sizing: border-box;
 	padding: 10%;
 	display: flex;
@@ -27,8 +27,6 @@
 			min-height: 100%;
 			will-change: transform;
 			box-sizing: border-box;
-			-webkit-filter: blur(1px);
-			filter: blur(1px);
 		}
 	}
 

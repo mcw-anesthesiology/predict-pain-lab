@@ -1,12 +1,14 @@
 /* eslint-env node */
 module.exports = {
-	entry: {
-		bundle: './_js/bundle.js'
-	},
+	entry: [
+		'babel-polyfill',
+		'raf/polyfill',
+		'./_js/bundle.js'
+	],
 	output: {
 		path: './resources/',
 		publicPath: '/resources/',
-		filename: '../js/[name].js' // I guess this works but it's gross
+		filename: '../js/bundle.js' // I guess this works but it's gross
 	},
 	target: 'web',
 	module: {

@@ -24,7 +24,7 @@ if(sitePosts){
 		delete post.next;
 		index.add(post);
 	}
-	
+
 	search.addEventListener('input', debounce(searchPosts, 200));
 }
 
@@ -42,7 +42,7 @@ function searchPosts(){
 
 				let searchResult = `
 					<li>
-						<h3>${post.title}</h3>
+						<h3><a href="${post.url}">${post.title}</a></h3>
 						<p>
 							${post.excerpt}
 						</p>

@@ -38,4 +38,11 @@
 	</style>
 	{% endif %}
 {% endif %}
+{% if jekyll.environment == "production" %}
+	{% include rollbar.html %}
+{% comment %}
+	FIXME: Uncomment before pushing actually live
+	{% include google-analytics.html %}
+{% endcomment %}
+{% endif %}
 </head>

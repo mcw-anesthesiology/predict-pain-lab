@@ -4,9 +4,9 @@
 	height: calc(100vh - $header-height);
 	padding: 10%;
 	box-sizing: border-box;
-	// display: flex;
-	// flex-direction: column;
-	// justify-content: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	z-index: -1;
 
 	.hero-content {
@@ -16,6 +16,7 @@
 
 		h1 {
 			color: rgba($light-text-color, $primary-light-text);
+			text-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
 		}
 	}
 }

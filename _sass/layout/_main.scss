@@ -217,15 +217,20 @@ main {
  */
 .post-header {
 	margin-bottom: $spacing-unit;
-}
 
-.post-title {
-	font-size: 42px;
-	letter-spacing: -1px;
-	line-height: 1;
+	.post-title {
+		font-size: 42px;
+		letter-spacing: -1px;
+		line-height: 1;
+		text-align: center;
 
-	@include media-query($on-laptop) {
-		font-size: 36px;
+		@include media-query($on-laptop) {
+			font-size: 36px;
+		}
+	}
+
+	.post-meta {
+		text-align: center;
 	}
 }
 
@@ -259,7 +264,7 @@ main {
 
 .post {
 
-	.post-hero-image {
+	.post-image {
 		width: 100%;
 
 		img {
@@ -269,7 +274,7 @@ main {
 	}
 
 	.read-more-link {
-		text-align: right;
+		text-align: center;
 	}
 }
 
