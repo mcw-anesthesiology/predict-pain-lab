@@ -12,10 +12,6 @@
 	font-family: $site-nav-font-family;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
 
 	@media (min-width: $small-desktop) {
 		font-size: 2em;
