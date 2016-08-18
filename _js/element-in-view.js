@@ -5,13 +5,11 @@ let watchedElements = document.querySelectorAll('.watch-in-view'); // TODO this 
 let headerHeight = document.querySelector('.site-header').clientHeight;
 
 if(watchedElements.length > 0){
-	for(let event of ['resize', 'scroll']){
+	for(let event of ['resize', 'scroll', 'load']){
 		window.addEventListener(event, () => {
 			window.requestAnimationFrame(viewStep);
 		});
 	}
-
-	window.requestAnimationFrame(viewStep);
 }
 
 

@@ -5,6 +5,7 @@ top_separator_image: /images/hero/education.jpg
 order: 2
 show_in_nav: true
 heading: We are an award winning fellowship
+heading_center: true
 ---
 ### We invest in you
 {: .text-center }

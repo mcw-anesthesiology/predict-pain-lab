@@ -8248,13 +8248,7 @@
 
 	'use strict';
 	
-	var _velocityAnimate = __webpack_require__(302);
-	
-	var _velocityAnimate2 = _interopRequireDefault(_velocityAnimate);
-	
-	var _debounce = __webpack_require__(303);
-	
-	var _debounce2 = _interopRequireDefault(_debounce);
+	__webpack_require__(442);
 	
 	__webpack_require__(310);
 	
@@ -8268,124 +8262,9 @@
 	
 	__webpack_require__(432);
 	
-	__webpack_require__(433);
+	__webpack_require__(438);
 	
-	__webpack_require__(436);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	// Try to make these handlers fire first
-	var header = document.querySelector('.site-header');
-	var main = document.querySelector('main');
-	var hero = document.querySelector('.hero-container');
-	// const sidebar = document.querySelector('.sidebar');
-	var headerHeight = void 0;
-	
-	window.requestAnimationFrame(fixHeader);
-	
-	window.addEventListener('resize', (0, _debounce2.default)(fixHeader, 100));
-	
-	function fixHeader() {
-		headerHeight = header.clientHeight;
-		main.style.setProperty('padding-top', headerHeight + 'px');
-		if (hero) {
-			hero.style.setProperty('height', 'calc(100vh - ' + headerHeight + 'px)');
-		}
-	}
-	
-	if (window.location.hash.length > 1) {
-		window.requestAnimationFrame(function () {
-			window.scrollBy(0, -1 * headerHeight);
-		});
-	}
-	
-	// collapsedSidebarHandle.addEventListener('click', () => {
-	// 	if(collapsedSidebarHandle.classList.contains('active'))
-	// 		collapsedSidebarHandle.classList.remove('active');
-	// 	else
-	// 		collapsedSidebarHandle.classList.add('active');
-	// });
-	
-	
-	var internalLinks = document.getElementsByClassName('internal-link');
-	var _iteratorNormalCompletion = true;
-	var _didIteratorError = false;
-	var _iteratorError = undefined;
-	
-	try {
-		for (var _iterator = internalLinks[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-			var link = _step.value;
-			// FIXME: I don't think this works in IE
-			link.addEventListener('click', function (event) {
-				var target = this.getAttribute('href');
-				if (target.charAt(0) === "#") {
-					event.preventDefault();
-					if (target === '#') target = 'body';
-					var targetElement = document.querySelector(target);
-					(0, _velocityAnimate2.default)(targetElement, 'scroll', { offset: headerHeight * -1 });
-				}
-			});
-		}
-	} catch (err) {
-		_didIteratorError = true;
-		_iteratorError = err;
-	} finally {
-		try {
-			if (!_iteratorNormalCompletion && _iterator.return) {
-				_iterator.return();
-			}
-		} finally {
-			if (_didIteratorError) {
-				throw _iteratorError;
-			}
-		}
-	}
-	
-	var expandSectionElements = document.querySelectorAll('.expand-section-element');
-	var _iteratorNormalCompletion2 = true;
-	var _didIteratorError2 = false;
-	var _iteratorError2 = undefined;
-	
-	try {
-		var _loop = function _loop() {
-			var element = _step2.value;
-			// FIXME: I don't think this works in IE
-			element.addEventListener('click', function (event) {
-				event.preventDefault();
-	
-				var target = element.dataset.target;
-				var targetElement = document.querySelector(target);
-				if (targetElement.classList.contains('collapsed')) {
-					targetElement.classList.remove('collapsed');
-					(0, _velocityAnimate2.default)(targetElement, 'slideDown', function () {
-						element.textContent = element.textContent.replace('Show', 'Hide').replace('show', 'hide');
-					});
-				} else {
-					(0, _velocityAnimate2.default)(targetElement, 'slideUp', function () {
-						targetElement.classList.add('collapsed');
-						element.textContent = element.textContent.replace('Hide', 'Show').replace('hide', 'show');
-					});
-				}
-			});
-		};
-	
-		for (var _iterator2 = expandSectionElements[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-			_loop();
-		}
-	} catch (err) {
-		_didIteratorError2 = true;
-		_iteratorError2 = err;
-	} finally {
-		try {
-			if (!_iteratorNormalCompletion2 && _iterator2.return) {
-				_iterator2.return();
-			}
-		} finally {
-			if (_didIteratorError2) {
-				throw _iteratorError2;
-			}
-		}
-	}
+	__webpack_require__(441);
 
 /***/ },
 /* 302 */
@@ -31896,7 +31775,7 @@
 	var headerHeight = document.querySelector('.site-header').clientHeight;
 	
 	if (watchedElements.length > 0) {
-		var _arr = ['resize', 'scroll'];
+		var _arr = ['resize', 'scroll', 'load'];
 	
 		for (var _i = 0; _i < _arr.length; _i++) {
 			var event = _arr[_i];
@@ -31904,8 +31783,6 @@
 				window.requestAnimationFrame(viewStep);
 			});
 		}
-	
-		window.requestAnimationFrame(viewStep);
 	}
 	
 	function viewStep() {
@@ -31994,517 +31871,14 @@
 
 	'use strict';
 	
-	__webpack_require__(437);
+	__webpack_require__(433);
 	
-	__webpack_require__(438);
+	__webpack_require__(434);
 	
-	__webpack_require__(440);
+	__webpack_require__(436);
 
 /***/ },
 /* 433 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _debounce = __webpack_require__(303);
-	
-	var _debounce2 = _interopRequireDefault(_debounce);
-	
-	var _research_partners = __webpack_require__(434);
-	
-	var _research_partners2 = _interopRequireDefault(_research_partners);
-	
-	var _star2 = __webpack_require__(435);
-	
-	var _star3 = _interopRequireDefault(_star2);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var map = document.getElementById('us-map');
-	var mapContainer = document.getElementById('map-container');
-	var starContainer = document.getElementById('star-container');
-	var mapContainerRect = void 0;
-	var partnerStates = [];
-	
-	if (map) {
-		mapContainerRect = mapContainer.getBoundingClientRect();
-	
-		var _iteratorNormalCompletion = true;
-		var _didIteratorError = false;
-		var _iteratorError = undefined;
-	
-		try {
-			for (var _iterator = _research_partners2.default[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-				var partner = _step.value;
-	
-				var state = document.getElementById(partner.state);
-				state.classList.add('has-partner');
-				partnerStates.push(state);
-	
-				starContainer.insertAdjacentHTML('beforeend', '<a href="' + partner.url + '" class="map-star notransition"\n\t\tdata-partner-name="' + partner.name + '" rel="external"\n\t\ttitle="View partner website">' + _star3.default + '</a>');
-				var _stars = starContainer.querySelectorAll('.map-star');
-				var newStar = _stars[_stars.length - 1];
-				var starPos = convertStateCoordsToPixels(state, partner.coordinates.x, partner.coordinates.y);
-				newStar.style.left = starPos.x - mapContainerRect.left + 'px';
-				newStar.style.top = starPos.y - mapContainerRect.top + 'px';
-				newStar.offsetHeight; // force reflow
-				newStar.classList.remove('notransition');
-			}
-		} catch (err) {
-			_didIteratorError = true;
-			_iteratorError = err;
-		} finally {
-			try {
-				if (!_iteratorNormalCompletion && _iterator.return) {
-					_iterator.return();
-				}
-			} finally {
-				if (_didIteratorError) {
-					throw _iteratorError;
-				}
-			}
-		}
-	
-		window.addEventListener('resize', (0, _debounce2.default)(adjustPartnerCoordinates, 100));
-	
-		var stars = document.querySelectorAll('.map-star');
-		var _iteratorNormalCompletion2 = true;
-		var _didIteratorError2 = false;
-		var _iteratorError2 = undefined;
-	
-		try {
-			for (var _iterator2 = stars[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-				var star = _step2.value;
-	
-				star.addEventListener('mouseenter', function () {
-					var partnerListItem = document.querySelector('.partners-list-item[data-partner-name="' + this.dataset.partnerName + '"]');
-					var partnerRect = partnerListItem.getBoundingClientRect();
-					var starRect = this.getBoundingClientRect();
-					var mainRect = document.querySelector('main').getBoundingClientRect();
-					var headerRect = document.querySelector('.site-header').getBoundingClientRect();
-	
-					var canFitAbove = partnerRect.height < starRect.top - headerRect.bottom;
-					var canFitBelow = partnerRect.height < mainRect.bottom - starRect.bottom;
-					var canFitRight = partnerRect.width < mainRect.right - starRect.right;
-					var canFitLeft = partnerRect.width < starRect.left - mainRect.left;
-	
-					if (!(canFitAbove || canFitBelow || canFitLeft || canFitRight)) return;
-	
-					var translation = void 0;
-	
-					if (canFitAbove) translation = {
-						x: starRect.left - partnerRect.left - (partnerRect.width / 2 - starRect.width / 2),
-						y: starRect.top - partnerRect.top - partnerRect.height
-					};else if (canFitLeft) translation = {
-						x: starRect.left - partnerRect.left - partnerRect.width,
-						y: starRect.top - partnerRect.top - (partnerRect.height / 2 - starRect.height / 2)
-					};else if (canFitRight) translation = {
-						x: starRect.right - partnerRect.left,
-						y: starRect.top - partnerRect.top - (partnerRect.height / 2 - starRect.height / 2)
-					};else translation = {
-						x: starRect.left - partnerRect.left - (partnerRect.width / 2 - starRect.width / 2),
-						y: starRect.bottom - partnerRect.top
-					};
-	
-					var translatedRect = {
-						left: partnerRect.left + translation.x,
-						right: partnerRect.right + translation.x,
-						top: partnerRect.top + translation.y,
-						bottom: partnerRect.bottom + translation.y
-					};
-	
-					if (translatedRect.left < mainRect.left) translation.x = mainRect.left - partnerRect.left;
-	
-					if (translatedRect.right > mainRect.right) translation.x = mainRect.right - partnerRect.right;
-	
-					if (translatedRect.top < headerRect.bottom) translation.y = headerRect.bottom - partnerRect.top;
-	
-					if (translatedRect.bottom > mainRect.bottom) translation.y = mainRect.bottom - partnerRect.bottom;
-	
-					translatedRect = {
-						left: partnerRect.left + translation.x,
-						right: partnerRect.right + translation.x,
-						top: partnerRect.top + translation.y,
-						bottom: partnerRect.bottom + translation.y
-					};
-	
-					window.requestAnimationFrame(function () {
-						partnerListItem.classList.add('active');
-						partnerListItem.style.transform = 'translate(' + translation.x + 'px, ' + translation.y + 'px)';
-					});
-				});
-	
-				star.addEventListener('mouseout', function () {
-					var partnerListItem = document.querySelector('.partners-list-item[data-partner-name="' + this.dataset.partnerName + '"]');
-	
-					window.requestAnimationFrame(function () {
-						partnerListItem.classList.remove('active');
-						partnerListItem.style.transform = null;
-					});
-				});
-			}
-		} catch (err) {
-			_didIteratorError2 = true;
-			_iteratorError2 = err;
-		} finally {
-			try {
-				if (!_iteratorNormalCompletion2 && _iterator2.return) {
-					_iterator2.return();
-				}
-			} finally {
-				if (_didIteratorError2) {
-					throw _iteratorError2;
-				}
-			}
-		}
-	}
-	
-	function adjustPartnerCoordinates() {
-		mapContainerRect = mapContainer.getBoundingClientRect();
-		var _iteratorNormalCompletion3 = true;
-		var _didIteratorError3 = false;
-		var _iteratorError3 = undefined;
-	
-		try {
-			for (var _iterator3 = _research_partners2.default[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-				var _partner = _step3.value;
-	
-				var _state = document.getElementById(_partner.state);
-				var _star = document.querySelector('.map-star[data-partner-name="' + _partner.name + '"]');
-				var _starPos = convertStateCoordsToPixels(_state, _partner.coordinates.x, _partner.coordinates.y);
-				_star.style.left = _starPos.x - mapContainerRect.left + 'px';
-				_star.style.top = _starPos.y - mapContainerRect.top + 'px';
-			}
-		} catch (err) {
-			_didIteratorError3 = true;
-			_iteratorError3 = err;
-		} finally {
-			try {
-				if (!_iteratorNormalCompletion3 && _iterator3.return) {
-					_iterator3.return();
-				}
-			} finally {
-				if (_didIteratorError3) {
-					throw _iteratorError3;
-				}
-			}
-		}
-	}
-	
-	function makeContext(element, svgDocument) {
-		var absolute = arguments.length <= 2 || arguments[2] === undefined ? true : arguments[2];
-	
-		return function (x, y) {
-			var offset = svgDocument.getBoundingClientRect();
-			var matrix = absolute ? element.getScreenCTM() : element.getCTM();
-			return {
-				x: matrix.a * x + matrix.c * y + matrix.e - offset.left,
-				y: matrix.b * x + matrix.d * y + matrix.f - offset.top
-			};
-		};
-	}
-	
-	function getStateCoords(event) {
-		// eslint-disable-line
-		var stateCoords = convertPixelsToStateCoords(this, event.clientX, event.clientY);
-		console.log(event.clientX, event.clientY);
-		console.log(stateCoords);
-		console.log(convertStateCoordsToPixels(this, stateCoords.x, stateCoords.y));
-	}
-	
-	function convertPixelsToStateCoords(state, x, y) {
-		var clientRect = state.getBoundingClientRect();
-		var bbox = state.getBBox();
-		var percentageLocation = {
-			x: (x - clientRect.left) / clientRect.width,
-			y: (y - clientRect.top) / clientRect.height
-		};
-		var svgLocation = {
-			x: percentageLocation.x * bbox.width,
-			y: percentageLocation.y * bbox.height
-		};
-		return svgLocation;
-	}
-	
-	function convertStateCoordsToPixels(state, x, y) {
-		var mapRect = map.getBoundingClientRect();
-		var stateBox = state.getBBox();
-		var convert = makeContext(state, map);
-	
-		var statePixels = convert(stateBox.x + x, stateBox.y + y);
-		return {
-			x: mapRect.left + statePixels.x,
-			y: mapRect.top + statePixels.y
-		};
-	}
-
-/***/ },
-/* 434 */
-/***/ function(module, exports) {
-
-	module.exports = [
-		{
-			"name": "Indiana University",
-			"url": "http://iuhealth.org/pain-management/",
-			"state": "US-IN",
-			"coordinates": {
-				"x": 32,
-				"y": 66
-			}
-		},
-		{
-			"name": "University of Iowa",
-			"url": "https://www.uihealthcare.org/pain/",
-			"state": "US-IA",
-			"coordinates": {
-				"x": 96,
-				"y": 48
-			}
-		},
-		{
-			"name": "University of Kansas",
-			"url": "http://www.kumed.com/medical-services/pain-management",
-			"state": "US-KS",
-			"coordinates": {
-				"x": 129,
-				"y": 29
-			}
-		},
-		{
-			"name": "University of Minnesota",
-			"url": "https://www.anesthesiology.umn.edu/our-pain-management-program",
-			"state": "US-MN",
-			"coordinates": {
-				"x": 77,
-				"y": 118
-			}
-		},
-		{
-			"name": "University of Nebraska",
-			"url": "http://www.nebraskamed.com/neuro/pain-management/pain-management-program",
-			"state": "US-NE",
-			"coordinates": {
-				"x": 154,
-				"y": 45
-			}
-		},
-		{
-			"name": "Johns Hopkins University",
-			"url": "http://www.hopkinsmedicine.org/pain/blaustein_pain_center/",
-			"state": "US-MD",
-			"coordinates": {
-				"x": 59,
-				"y": 8
-			}
-		},
-		{
-			"name": "University of Florida",
-			"url": "http://anest.ufl.edu/clinical-divisions/pain-medicine/",
-			"state": "US-FL",
-			"coordinates": {
-				"x": 100,
-				"y": 30
-			}
-		},
-		{
-			"name": "Stanford University",
-			"url": "https://stanfordhealthcare.org/medical-clinics/pain-management.html",
-			"state": "US-CA",
-			"coordinates": {
-				"x": 41,
-				"y": 112
-			}
-		},
-		{
-			"name": "Walter Reed National Medical Center",
-			"url": "http://www.wrnmmc.capmed.mil/SitePages/home.aspx",
-			"state": "US-MD",
-			"coordinates": {
-				"x": 45,
-				"y": 17
-			}
-		},
-		{
-			"name": "University of Michigan",
-			"url": "http://www.uofmhealth.org/conditions-treatments/cmc/pain-management",
-			"state": "US-MI",
-			"coordinates": {
-				"x": 130,
-				"y": 160
-			}
-		},
-		{
-			"name": "Vanderbilt University",
-			"url": "http://www.vanderbilthealth.com/painmedicine/",
-			"state": "US-TN",
-			"coordinates": {
-				"x": 68,
-				"y": 13
-			}
-		},
-		{
-			"name": "University of Pittsburgh",
-			"url": "http://www.vanderbilthealth.com/painmedicine/",
-			"state": "US-PA",
-			"coordinates": {
-				"x": 9,
-				"y": 48
-			}
-		},
-		{
-			"name": "University of Missouri",
-			"url": "http://www.muhealth.org/services/pmandr/pain/",
-			"state": "US-MO",
-			"coordinates": {
-				"x": 60,
-				"y": 38
-			}
-		},
-		{
-			"name": "University of Wisconsin-Madison",
-			"url": "http://www.uwhealth.org/chronic-pain/pain-management/10285",
-			"state": "US-WI",
-			"coordinates": {
-				"x": 67,
-				"y": 106
-			}
-		},
-		{
-			"name": "Marshfield Clinic",
-			"url": "https://www.marshfieldclinic.org/specialties/pain-management",
-			"state": "US-WI",
-			"coordinates": {
-				"x": 50,
-				"y": 60
-			}
-		},
-		{
-			"name": "University of Texas Health Science Center at Houston",
-			"url": "https://www.uth.edu",
-			"state": "US-TX",
-			"coordinates": {
-				"x": 214,
-				"y": 156
-			}
-		},
-		{
-			"name": "University of Texas Health Sciences Center at San Antonio",
-			"url": "http://www.utswmedicine.org/conditions-specialties/pain/",
-			"state": "US-TX",
-			"coordinates": {
-				"x": 157,
-				"y": 163
-			}
-		},
-		{
-			"name": "University of Texas Southwestern Medical Center",
-			"url": "http://anesthesia.uthscsa.edu/PainMedicineFellowship",
-			"state": "US-TX",
-			"coordinates": {
-				"x": 175,
-				"y": 81
-			}
-		}
-	];
-
-/***/ },
-/* 435 */
-/***/ function(module, exports) {
-
-	module.exports = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"240\" height=\"240\" viewBox=\"0 0 240 240\">\n\t<path fill=\"#F8D64E\" d=\"m48,234 73-226 73,226-192-140h238z\"/>\n</svg>\n"
-
-/***/ },
-/* 436 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _debounce = __webpack_require__(303);
-	
-	var _debounce2 = _interopRequireDefault(_debounce);
-	
-	var _utils = __webpack_require__(311);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var header = document.querySelector('.site-header');
-	var headerRect = header.getBoundingClientRect();
-	
-	window.addEventListener('resize', (0, _debounce2.default)(function () {
-		headerRect = header.getBoundingClientRect();
-	}, 100));
-	
-	var stickyElements = document.querySelectorAll('.sticky');
-	if (stickyElements.length > 0) {
-		var _arr = ['load', 'resize', 'scroll'];
-	
-		for (var _i = 0; _i < _arr.length; _i++) {
-			var event = _arr[_i];
-			window.addEventListener(event, function () {
-				window.requestAnimationFrame(function () {
-					var _iteratorNormalCompletion = true;
-					var _didIteratorError = false;
-					var _iteratorError = undefined;
-	
-					try {
-						for (var _iterator = stickyElements[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-							var stickyElement = _step.value;
-	
-							stickSticky(stickyElement);
-						}
-					} catch (err) {
-						_didIteratorError = true;
-						_iteratorError = err;
-					} finally {
-						try {
-							if (!_iteratorNormalCompletion && _iterator.return) {
-								_iterator.return();
-							}
-						} finally {
-							if (_didIteratorError) {
-								throw _iteratorError;
-							}
-						}
-					}
-				});
-			});
-		}
-	}
-	
-	function stickSticky(element) {
-		var stickyMargin = 10;
-		var parent = element.parentElement;
-		if (!(0, _utils.isInView)(parent)) return;
-	
-		if (element.classList.contains('stuck')) {
-			element.classList.remove('stuck');
-			element.style.top = null;
-		}
-	
-		if (element.classList.contains('stuck-bottom')) {
-			element.classList.remove('stuck-bottom');
-			element.style.bottom = null;
-		}
-	
-		var rect = element.getBoundingClientRect();
-		var parentRect = parent.getBoundingClientRect();
-	
-		if (rect.top < headerRect.height + stickyMargin) {
-			if (parentRect.bottom >= rect.height + headerRect.height + stickyMargin) {
-				element.classList.add('stuck');
-				element.style.top = headerRect.height + stickyMargin + 'px';
-				element.style.bottom = null;
-			} else {
-				element.classList.add('stuck-bottom');
-				parent.style.position = 'relative';
-				element.style.top = null;
-				element.style.bottom = stickyMargin + 'px';
-			}
-		}
-	}
-
-/***/ },
-/* 437 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
@@ -33295,13 +32669,13 @@
 
 
 /***/ },
-/* 438 */
+/* 434 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(439);
+	var content = __webpack_require__(435);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(422)(content, {});
@@ -33321,7 +32695,7 @@
 	}
 
 /***/ },
-/* 439 */
+/* 435 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(421)();
@@ -33335,13 +32709,13 @@
 
 
 /***/ },
-/* 440 */
+/* 436 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(441);
+	var content = __webpack_require__(437);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(422)(content, {});
@@ -33361,7 +32735,7 @@
 	}
 
 /***/ },
-/* 441 */
+/* 437 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(421)();
@@ -33373,6 +32747,630 @@
 	
 	// exports
 
+
+/***/ },
+/* 438 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _debounce = __webpack_require__(303);
+	
+	var _debounce2 = _interopRequireDefault(_debounce);
+	
+	var _research_partners = __webpack_require__(439);
+	
+	var _research_partners2 = _interopRequireDefault(_research_partners);
+	
+	var _star2 = __webpack_require__(440);
+	
+	var _star3 = _interopRequireDefault(_star2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var map = document.getElementById('us-map');
+	var mapContainer = document.getElementById('map-container');
+	var starContainer = document.getElementById('star-container');
+	var mapContainerRect = void 0;
+	var partnerStates = [];
+	
+	if (map) {
+		mapContainerRect = mapContainer.getBoundingClientRect();
+	
+		var _iteratorNormalCompletion = true;
+		var _didIteratorError = false;
+		var _iteratorError = undefined;
+	
+		try {
+			for (var _iterator = _research_partners2.default[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+				var partner = _step.value;
+	
+				var state = document.getElementById(partner.state);
+				state.classList.add('has-partner');
+				partnerStates.push(state);
+	
+				starContainer.insertAdjacentHTML('beforeend', '<a href="' + partner.url + '" class="map-star notransition"\n\t\tdata-partner-name="' + partner.name + '" rel="external"\n\t\ttitle="View partner website">' + _star3.default + '</a>');
+				var _stars = starContainer.querySelectorAll('.map-star');
+				var newStar = _stars[_stars.length - 1];
+				var starPos = convertStateCoordsToPixels(state, partner.coordinates.x, partner.coordinates.y);
+				newStar.style.left = starPos.x - mapContainerRect.left + 'px';
+				newStar.style.top = starPos.y - mapContainerRect.top + 'px';
+				newStar.offsetHeight; // force reflow
+				newStar.classList.remove('notransition');
+			}
+		} catch (err) {
+			_didIteratorError = true;
+			_iteratorError = err;
+		} finally {
+			try {
+				if (!_iteratorNormalCompletion && _iterator.return) {
+					_iterator.return();
+				}
+			} finally {
+				if (_didIteratorError) {
+					throw _iteratorError;
+				}
+			}
+		}
+	
+		window.addEventListener('resize', (0, _debounce2.default)(adjustPartnerCoordinates, 100));
+	
+		var stars = document.querySelectorAll('.map-star');
+		var _iteratorNormalCompletion2 = true;
+		var _didIteratorError2 = false;
+		var _iteratorError2 = undefined;
+	
+		try {
+			for (var _iterator2 = stars[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+				var star = _step2.value;
+	
+				star.addEventListener('mouseenter', function () {
+					var partnerListItem = document.querySelector('.partners-list-item[data-partner-name="' + this.dataset.partnerName + '"]');
+					var partnerRect = partnerListItem.getBoundingClientRect();
+					var starRect = this.getBoundingClientRect();
+					var mainRect = document.querySelector('main').getBoundingClientRect();
+					var headerRect = document.querySelector('.site-header').getBoundingClientRect();
+	
+					var canFitAbove = partnerRect.height < starRect.top - headerRect.bottom;
+					var canFitBelow = partnerRect.height < mainRect.bottom - starRect.bottom;
+					var canFitRight = partnerRect.width < mainRect.right - starRect.right;
+					var canFitLeft = partnerRect.width < starRect.left - mainRect.left;
+	
+					if (!(canFitAbove || canFitBelow || canFitLeft || canFitRight)) return;
+	
+					var translation = void 0;
+	
+					if (canFitAbove) translation = {
+						x: starRect.left - partnerRect.left - (partnerRect.width / 2 - starRect.width / 2),
+						y: starRect.top - partnerRect.top - partnerRect.height
+					};else if (canFitLeft) translation = {
+						x: starRect.left - partnerRect.left - partnerRect.width,
+						y: starRect.top - partnerRect.top - (partnerRect.height / 2 - starRect.height / 2)
+					};else if (canFitRight) translation = {
+						x: starRect.right - partnerRect.left,
+						y: starRect.top - partnerRect.top - (partnerRect.height / 2 - starRect.height / 2)
+					};else translation = {
+						x: starRect.left - partnerRect.left - (partnerRect.width / 2 - starRect.width / 2),
+						y: starRect.bottom - partnerRect.top
+					};
+	
+					var translatedRect = {
+						left: partnerRect.left + translation.x,
+						right: partnerRect.right + translation.x,
+						top: partnerRect.top + translation.y,
+						bottom: partnerRect.bottom + translation.y
+					};
+	
+					if (translatedRect.left < mainRect.left) translation.x = mainRect.left - partnerRect.left;
+	
+					if (translatedRect.right > mainRect.right) translation.x = mainRect.right - partnerRect.right;
+	
+					if (translatedRect.top < headerRect.bottom) translation.y = headerRect.bottom - partnerRect.top;
+	
+					if (translatedRect.bottom > mainRect.bottom) translation.y = mainRect.bottom - partnerRect.bottom;
+	
+					translatedRect = {
+						left: partnerRect.left + translation.x,
+						right: partnerRect.right + translation.x,
+						top: partnerRect.top + translation.y,
+						bottom: partnerRect.bottom + translation.y
+					};
+	
+					window.requestAnimationFrame(function () {
+						partnerListItem.classList.add('active');
+						partnerListItem.style.transform = 'translate(' + translation.x + 'px, ' + translation.y + 'px)';
+					});
+				});
+	
+				star.addEventListener('mouseout', function () {
+					var partnerListItem = document.querySelector('.partners-list-item[data-partner-name="' + this.dataset.partnerName + '"]');
+	
+					window.requestAnimationFrame(function () {
+						partnerListItem.classList.remove('active');
+						partnerListItem.style.transform = null;
+					});
+				});
+			}
+		} catch (err) {
+			_didIteratorError2 = true;
+			_iteratorError2 = err;
+		} finally {
+			try {
+				if (!_iteratorNormalCompletion2 && _iterator2.return) {
+					_iterator2.return();
+				}
+			} finally {
+				if (_didIteratorError2) {
+					throw _iteratorError2;
+				}
+			}
+		}
+	}
+	
+	function adjustPartnerCoordinates() {
+		mapContainerRect = mapContainer.getBoundingClientRect();
+		var _iteratorNormalCompletion3 = true;
+		var _didIteratorError3 = false;
+		var _iteratorError3 = undefined;
+	
+		try {
+			for (var _iterator3 = _research_partners2.default[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+				var _partner = _step3.value;
+	
+				var _state = document.getElementById(_partner.state);
+				var _star = document.querySelector('.map-star[data-partner-name="' + _partner.name + '"]');
+				var _starPos = convertStateCoordsToPixels(_state, _partner.coordinates.x, _partner.coordinates.y);
+				_star.style.left = _starPos.x - mapContainerRect.left + 'px';
+				_star.style.top = _starPos.y - mapContainerRect.top + 'px';
+			}
+		} catch (err) {
+			_didIteratorError3 = true;
+			_iteratorError3 = err;
+		} finally {
+			try {
+				if (!_iteratorNormalCompletion3 && _iterator3.return) {
+					_iterator3.return();
+				}
+			} finally {
+				if (_didIteratorError3) {
+					throw _iteratorError3;
+				}
+			}
+		}
+	}
+	
+	function makeContext(element, svgDocument) {
+		var absolute = arguments.length <= 2 || arguments[2] === undefined ? true : arguments[2];
+	
+		return function (x, y) {
+			var offset = svgDocument.getBoundingClientRect();
+			var matrix = absolute ? element.getScreenCTM() : element.getCTM();
+			return {
+				x: matrix.a * x + matrix.c * y + matrix.e - offset.left,
+				y: matrix.b * x + matrix.d * y + matrix.f - offset.top
+			};
+		};
+	}
+	
+	function getStateCoords(event) {
+		// eslint-disable-line
+		var stateCoords = convertPixelsToStateCoords(this, event.clientX, event.clientY);
+		console.log(event.clientX, event.clientY);
+		console.log(stateCoords);
+		console.log(convertStateCoordsToPixels(this, stateCoords.x, stateCoords.y));
+	}
+	
+	function convertPixelsToStateCoords(state, x, y) {
+		var clientRect = state.getBoundingClientRect();
+		var bbox = state.getBBox();
+		var percentageLocation = {
+			x: (x - clientRect.left) / clientRect.width,
+			y: (y - clientRect.top) / clientRect.height
+		};
+		var svgLocation = {
+			x: percentageLocation.x * bbox.width,
+			y: percentageLocation.y * bbox.height
+		};
+		return svgLocation;
+	}
+	
+	function convertStateCoordsToPixels(state, x, y) {
+		var mapRect = map.getBoundingClientRect();
+		var stateBox = state.getBBox();
+		var convert = makeContext(state, map);
+	
+		var statePixels = convert(stateBox.x + x, stateBox.y + y);
+		return {
+			x: mapRect.left + statePixels.x,
+			y: mapRect.top + statePixels.y
+		};
+	}
+
+/***/ },
+/* 439 */
+/***/ function(module, exports) {
+
+	module.exports = [
+		{
+			"name": "Indiana University",
+			"url": "http://iuhealth.org/pain-management/",
+			"state": "US-IN",
+			"coordinates": {
+				"x": 32,
+				"y": 66
+			}
+		},
+		{
+			"name": "University of Iowa",
+			"url": "https://www.uihealthcare.org/pain/",
+			"state": "US-IA",
+			"coordinates": {
+				"x": 96,
+				"y": 48
+			}
+		},
+		{
+			"name": "University of Kansas",
+			"url": "http://www.kumed.com/medical-services/pain-management",
+			"state": "US-KS",
+			"coordinates": {
+				"x": 129,
+				"y": 29
+			}
+		},
+		{
+			"name": "University of Minnesota",
+			"url": "https://www.anesthesiology.umn.edu/our-pain-management-program",
+			"state": "US-MN",
+			"coordinates": {
+				"x": 77,
+				"y": 118
+			}
+		},
+		{
+			"name": "University of Nebraska",
+			"url": "http://www.nebraskamed.com/neuro/pain-management/pain-management-program",
+			"state": "US-NE",
+			"coordinates": {
+				"x": 154,
+				"y": 45
+			}
+		},
+		{
+			"name": "Johns Hopkins University",
+			"url": "http://www.hopkinsmedicine.org/pain/blaustein_pain_center/",
+			"state": "US-MD",
+			"coordinates": {
+				"x": 59,
+				"y": 8
+			}
+		},
+		{
+			"name": "University of Florida",
+			"url": "http://anest.ufl.edu/clinical-divisions/pain-medicine/",
+			"state": "US-FL",
+			"coordinates": {
+				"x": 100,
+				"y": 30
+			}
+		},
+		{
+			"name": "Stanford University",
+			"url": "https://stanfordhealthcare.org/medical-clinics/pain-management.html",
+			"state": "US-CA",
+			"coordinates": {
+				"x": 41,
+				"y": 112
+			}
+		},
+		{
+			"name": "Walter Reed National Medical Center",
+			"url": "http://www.wrnmmc.capmed.mil/SitePages/home.aspx",
+			"state": "US-MD",
+			"coordinates": {
+				"x": 45,
+				"y": 17
+			}
+		},
+		{
+			"name": "University of Michigan",
+			"url": "http://www.uofmhealth.org/conditions-treatments/cmc/pain-management",
+			"state": "US-MI",
+			"coordinates": {
+				"x": 130,
+				"y": 160
+			}
+		},
+		{
+			"name": "Vanderbilt University",
+			"url": "http://www.vanderbilthealth.com/painmedicine/",
+			"state": "US-TN",
+			"coordinates": {
+				"x": 68,
+				"y": 13
+			}
+		},
+		{
+			"name": "University of Pittsburgh",
+			"url": "http://www.vanderbilthealth.com/painmedicine/",
+			"state": "US-PA",
+			"coordinates": {
+				"x": 9,
+				"y": 48
+			}
+		},
+		{
+			"name": "University of Missouri",
+			"url": "http://www.muhealth.org/services/pmandr/pain/",
+			"state": "US-MO",
+			"coordinates": {
+				"x": 60,
+				"y": 38
+			}
+		},
+		{
+			"name": "University of Wisconsin-Madison",
+			"url": "http://www.uwhealth.org/chronic-pain/pain-management/10285",
+			"state": "US-WI",
+			"coordinates": {
+				"x": 67,
+				"y": 106
+			}
+		},
+		{
+			"name": "Marshfield Clinic",
+			"url": "https://www.marshfieldclinic.org/specialties/pain-management",
+			"state": "US-WI",
+			"coordinates": {
+				"x": 50,
+				"y": 60
+			}
+		},
+		{
+			"name": "University of Texas Health Science Center at Houston",
+			"url": "https://www.uth.edu",
+			"state": "US-TX",
+			"coordinates": {
+				"x": 214,
+				"y": 156
+			}
+		},
+		{
+			"name": "University of Texas Health Sciences Center at San Antonio",
+			"url": "http://www.utswmedicine.org/conditions-specialties/pain/",
+			"state": "US-TX",
+			"coordinates": {
+				"x": 157,
+				"y": 163
+			}
+		},
+		{
+			"name": "University of Texas Southwestern Medical Center",
+			"url": "http://anesthesia.uthscsa.edu/PainMedicineFellowship",
+			"state": "US-TX",
+			"coordinates": {
+				"x": 175,
+				"y": 81
+			}
+		}
+	];
+
+/***/ },
+/* 440 */
+/***/ function(module, exports) {
+
+	module.exports = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"240\" height=\"240\" viewBox=\"0 0 240 240\">\n\t<path fill=\"#F8D64E\" d=\"m48,234 73-226 73,226-192-140h238z\"/>\n</svg>\n"
+
+/***/ },
+/* 441 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _debounce = __webpack_require__(303);
+	
+	var _debounce2 = _interopRequireDefault(_debounce);
+	
+	var _utils = __webpack_require__(311);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var header = document.querySelector('.site-header');
+	var headerRect = header.getBoundingClientRect();
+	
+	window.addEventListener('resize', (0, _debounce2.default)(function () {
+		headerRect = header.getBoundingClientRect();
+	}, 100));
+	
+	var stickyElements = document.querySelectorAll('.sticky');
+	if (stickyElements.length > 0) {
+		var _arr = ['load', 'resize', 'scroll'];
+	
+		for (var _i = 0; _i < _arr.length; _i++) {
+			var event = _arr[_i];
+			window.addEventListener(event, function () {
+				window.requestAnimationFrame(function () {
+					var _iteratorNormalCompletion = true;
+					var _didIteratorError = false;
+					var _iteratorError = undefined;
+	
+					try {
+						for (var _iterator = stickyElements[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+							var stickyElement = _step.value;
+	
+							stickSticky(stickyElement);
+						}
+					} catch (err) {
+						_didIteratorError = true;
+						_iteratorError = err;
+					} finally {
+						try {
+							if (!_iteratorNormalCompletion && _iterator.return) {
+								_iterator.return();
+							}
+						} finally {
+							if (_didIteratorError) {
+								throw _iteratorError;
+							}
+						}
+					}
+				});
+			});
+		}
+	}
+	
+	function stickSticky(element) {
+		var stickyMargin = 10;
+		var parent = element.parentElement;
+		if (!(0, _utils.isInView)(parent)) return;
+	
+		if (element.classList.contains('stuck')) {
+			element.classList.remove('stuck');
+			element.style.top = null;
+		}
+	
+		if (element.classList.contains('stuck-bottom')) {
+			element.classList.remove('stuck-bottom');
+			element.style.bottom = null;
+		}
+	
+		var rect = element.getBoundingClientRect();
+		var parentRect = parent.getBoundingClientRect();
+	
+		if (rect.top < headerRect.height + stickyMargin) {
+			if (parentRect.bottom >= rect.height + headerRect.height + stickyMargin) {
+				element.classList.add('stuck');
+				element.style.top = headerRect.height + stickyMargin + 'px';
+				element.style.bottom = null;
+			} else {
+				element.classList.add('stuck-bottom');
+				parent.style.position = 'relative';
+				element.style.top = null;
+				element.style.bottom = stickyMargin + 'px';
+			}
+		}
+	}
+
+/***/ },
+/* 442 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _velocityAnimate = __webpack_require__(302);
+	
+	var _velocityAnimate2 = _interopRequireDefault(_velocityAnimate);
+	
+	var _debounce = __webpack_require__(303);
+	
+	var _debounce2 = _interopRequireDefault(_debounce);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var header = document.querySelector('.site-header');
+	var main = document.querySelector('main');
+	var hero = document.querySelector('.hero-container');
+	var headerHeight = header.clientHeight;
+	
+	// FIXME: Why does this suck
+	window.addEventListener('load', function () {
+		fixHeader();
+		if (window.location.hash.length > 1) {
+			console.log(window.scrollY);
+			window.scrollBy(0, -1 * headerHeight);
+			console.log(window.scrollY);
+		}
+	});
+	
+	window.addEventListener('resize', (0, _debounce2.default)(fixHeader, 100));
+	
+	function fixHeader() {
+		headerHeight = header.clientHeight;
+		main.style.setProperty('padding-top', headerHeight + 'px');
+		if (hero) {
+			hero.style.setProperty('height', 'calc(100vh - ' + headerHeight + 'px)');
+		}
+	}
+	
+	var internalLinks = document.getElementsByClassName('internal-link');
+	var _iteratorNormalCompletion = true;
+	var _didIteratorError = false;
+	var _iteratorError = undefined;
+	
+	try {
+		for (var _iterator = internalLinks[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+			var link = _step.value;
+			// FIXME: I don't think this works in IE
+			link.addEventListener('click', function (event) {
+				var target = this.getAttribute('href');
+				if (target.charAt(0) === "#") {
+					event.preventDefault();
+					if (target === '#') target = 'body';
+					var targetElement = document.querySelector(target);
+					(0, _velocityAnimate2.default)(targetElement, 'scroll', { offset: headerHeight * -1 });
+				}
+			});
+		}
+	} catch (err) {
+		_didIteratorError = true;
+		_iteratorError = err;
+	} finally {
+		try {
+			if (!_iteratorNormalCompletion && _iterator.return) {
+				_iterator.return();
+			}
+		} finally {
+			if (_didIteratorError) {
+				throw _iteratorError;
+			}
+		}
+	}
+	
+	var expandSectionElements = document.querySelectorAll('.expand-section-element');
+	var _iteratorNormalCompletion2 = true;
+	var _didIteratorError2 = false;
+	var _iteratorError2 = undefined;
+	
+	try {
+		var _loop = function _loop() {
+			var element = _step2.value;
+			// FIXME: I don't think this works in IE
+			element.addEventListener('click', function (event) {
+				event.preventDefault();
+	
+				var target = element.dataset.target;
+				var targetElement = document.querySelector(target);
+				if (targetElement.classList.contains('collapsed')) {
+					targetElement.classList.remove('collapsed');
+					(0, _velocityAnimate2.default)(targetElement, 'slideDown', function () {
+						element.textContent = element.textContent.replace('Show', 'Hide').replace('show', 'hide');
+					});
+				} else {
+					(0, _velocityAnimate2.default)(targetElement, 'slideUp', function () {
+						targetElement.classList.add('collapsed');
+						element.textContent = element.textContent.replace('Hide', 'Show').replace('hide', 'show');
+					});
+				}
+			});
+		};
+	
+		for (var _iterator2 = expandSectionElements[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+			_loop();
+		}
+	} catch (err) {
+		_didIteratorError2 = true;
+		_iteratorError2 = err;
+	} finally {
+		try {
+			if (!_iteratorNormalCompletion2 && _iterator2.return) {
+				_iterator2.return();
+			}
+		} finally {
+			if (_didIteratorError2) {
+				throw _iteratorError2;
+			}
+		}
+	}
 
 /***/ }
 /******/ ]);

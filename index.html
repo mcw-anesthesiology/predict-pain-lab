@@ -3,21 +3,14 @@ layout: default
 title: Home
 long_title: PREDICT Pain Lab at MCW
 order: 1
-hero_image: /images/hero/home.jpg
+hero_image: /images/hero/skyline.jpg
 hero_content: <h1>We take pain from present to future</h1>
 ---
 {% assign sections = site.sections | sort: "order" %}
 {% for section in sections %}
 	{% if section.top_separator_image %}
-	{% include parallax.html image=section.top_separator_image %}
+		{% include parallax.html image=section.top_separator_image %}
 	{% endif %}
 
 	{{ section }}
 {% endfor %}
-
-{% capture choose_milwaukee_link %}
-<div id="choose-milwaukee-link" class="text-center">
-	<a href="/choose-mke" id="choose-milwaukee-link" class="button accent-button outline"><span class="primary-color">Choose</span> Milwaukee</a>
-</div>
-{% endcapture %}
-{% include parallax.html image=section.top_separator_image content=choose_milwaukee_link %}
