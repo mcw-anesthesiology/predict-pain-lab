@@ -3,6 +3,7 @@ title: Blog
 hero_image: /images/hero/blog.jpg
 order: 6
 permalink: null
+scroll_into_view: true
 ---
 <aside class="sidebar sticky">
 	<h2>Search</h2>
@@ -13,17 +14,15 @@ permalink: null
 </aside>
 
 <div class="page-content">
-	<ul class="post-list">
+	<section class="post-list">
 {% for post in paginator.posts %}
-		<li>
-			<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-			<h3>
-				<a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-			</h3>
-		</li>
+		{% include inline-post.html post=post %}
+		
+	{% unless forloop.last %}
+		<hr />
+	{% endunless %}
 {% endfor %}
-	</ul>
+	</section>
 
 {% if paginator.total_pages > 1 %}
 	<div class="pagination">

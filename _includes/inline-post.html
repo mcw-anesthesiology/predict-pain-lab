@@ -1,0 +1,27 @@
+<article class="inline-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">{{ include.post.title }}</h1>
+    <p class="post-meta"><time datetime="{{ include.post.date | date_to_xmlschema }}" itemprop="datePublished">{{ include.post.date | date: "%b %-d, %Y" }}</time>{% if include.post.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ include.post.author }}</span></span>{% endif %}</p>
+{% if include.post.post_image %}
+	<figure class="post-image">
+		<img src="{{ include.post.post_image }}" alt="" />
+	{% if include.post.post_image_caption %}
+		<figcaption>
+			{{ include.post.post_image_caption }}
+		</figcaption>
+	{% endif %}
+	</figure>
+{% endif %}
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    {{ post.content }}
+  </div>
+
+{% if include.post.read_more %}
+	<div class="read-more-link">
+		<a href="{{ include.post.read_more }}" class="button outline accent-button">Read more →</a>
+	</div>
+{% endif %}
+
+</article>

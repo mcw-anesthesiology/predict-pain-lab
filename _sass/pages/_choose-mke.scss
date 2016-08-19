@@ -11,6 +11,7 @@ ul#choose-mke-attraction-list {
 			img {
 				width: 200px;
 				height: 200px;
+				object-fit: cover;
 			}
 
 			figcaption {
@@ -33,7 +34,9 @@ ul#choose-mke-attraction-list {
 
 			img {
 				margin: 0 auto;
-				height: 400px;
+				height: 500px;
+				width: 100%;
+				object-fit: cover;
 			}
 
 			figcaption {

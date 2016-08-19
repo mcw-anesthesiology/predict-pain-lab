@@ -4,11 +4,11 @@ title: Education
 top_separator_image: /images/hero/education.jpg
 order: 2
 show_in_nav: true
-heading: We are an award winning fellowship
+heading: Learn about our award-winning fellowship
 heading_center: true
 ---
 ### We invest in you
-{: .text-center .text-uppercase }
+{: .text-center }
 
 The Medical College of Wisconsin offers a one-year Pain Medicine Fellowship that provides instruction and experience in managing acute, chronic and cancer pain. Fellows rotate through the Pain Clinics at the Froedtert Hospital, VA Medical Center and Children's Hospital of Wisconsin. Comprehensive, multidisciplinary pain management is provided at all three institutions.
 

@@ -8285,17 +8285,22 @@
 	var header = document.querySelector('.site-header');
 	var main = document.querySelector('main');
 	var hero = document.querySelector('.hero-container');
+	var scrollIntoView = document.querySelector('.scroll-into-view');
 	var headerHeight = header.clientHeight;
 	
-	// FIXME: Why does this suck
-	window.addEventListener('load', function () {
-		fixHeader();
-		if (window.location.hash.length > 1) {
-			console.log(window.scrollY);
-			window.scrollBy(0, -1 * headerHeight);
-			console.log(window.scrollY);
-		}
-	});
+	fixHeader();
+	if (window.location.hash.length > 1) {
+		(function () {
+			var target = document.querySelector(window.location.hash);
+			window.requestAnimationFrame(function () {
+				window.scroll(0, target.offsetTop - headerHeight);
+			});
+		})();
+	} else if (scrollIntoView) {
+		window.requestAnimationFrame(function () {
+			if (scrollIntoView.clientHeight < window.innerHeight - headerHeight) window.scroll(0, scrollIntoView.offsetTop - (window.innerHeight - scrollIntoView.clientHeight));else window.scroll(0, scrollIntoView.offsetTop - headerHeight);
+		});
+	}
 	
 	window.addEventListener('resize', (0, _debounce2.default)(fixHeader, 100));
 	
@@ -12882,6 +12887,10 @@
 	
 	var _find2 = _interopRequireDefault(_find);
 	
+	var _loadingRing = __webpack_require__(443);
+	
+	var _loadingRing2 = _interopRequireDefault(_loadingRing);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var search = document.getElementById('search-posts');
@@ -12927,7 +12936,7 @@
 			}
 		}
 	
-		search.addEventListener('input', (0, _debounce2.default)(searchPosts, 200));
+		search.addEventListener('input', (0, _debounce2.default)(searchPosts, 100));
 	}
 	
 	function searchPosts() {
@@ -12935,9 +12944,12 @@
 		while (searchResults.firstChild) {
 			searchResults.removeChild(searchResults.firstChild);
 		}if (query.trim().length > 0) {
+			searchResults.insertAdjacentHTML('beforeend', '\n\t\t\t<div class="loading-container">\n\t\t\t\t' + _loadingRing2.default + '\n\t\t\t</div>\n\t\t');
 			var results = index.search(this.value);
 	
-			if (results.length > 0) {
+			while (searchResults.firstChild) {
+				searchResults.removeChild(searchResults.firstChild);
+			}if (results.length > 0) {
 				var _iteratorNormalCompletion2 = true;
 				var _didIteratorError2 = false;
 				var _iteratorError2 = undefined;
@@ -33116,6 +33128,7 @@
 			"name": "Indiana University",
 			"url": "http://iuhealth.org/pain-management/",
 			"state": "US-IN",
+			"image": "/images/partners/indiana.jpg",
 			"coordinates": {
 				"x": 32,
 				"y": 66
@@ -33125,6 +33138,7 @@
 			"name": "University of Iowa",
 			"url": "https://www.uihealthcare.org/pain/",
 			"state": "US-IA",
+			"image": "/images/partners/iowa.jpg",
 			"coordinates": {
 				"x": 96,
 				"y": 48
@@ -33134,6 +33148,7 @@
 			"name": "University of Kansas",
 			"url": "http://www.kumed.com/medical-services/pain-management",
 			"state": "US-KS",
+			"image": "/images/partners/kansas.jpg",
 			"coordinates": {
 				"x": 129,
 				"y": 29
@@ -33143,6 +33158,7 @@
 			"name": "University of Minnesota",
 			"url": "https://www.anesthesiology.umn.edu/our-pain-management-program",
 			"state": "US-MN",
+			"image": "/images/partners/minnesota.jpg",
 			"coordinates": {
 				"x": 77,
 				"y": 118
@@ -33152,6 +33168,7 @@
 			"name": "University of Nebraska",
 			"url": "http://www.nebraskamed.com/neuro/pain-management/pain-management-program",
 			"state": "US-NE",
+			"image": "/images/partners/nebraska.jpg",
 			"coordinates": {
 				"x": 154,
 				"y": 45
@@ -33161,6 +33178,7 @@
 			"name": "Johns Hopkins University",
 			"url": "http://www.hopkinsmedicine.org/pain/blaustein_pain_center/",
 			"state": "US-MD",
+			"image": "/images/partners/hopkins.jpg",
 			"coordinates": {
 				"x": 59,
 				"y": 8
@@ -33170,6 +33188,7 @@
 			"name": "University of Florida",
 			"url": "http://anest.ufl.edu/clinical-divisions/pain-medicine/",
 			"state": "US-FL",
+			"image": "/images/partners/florida.jpg",
 			"coordinates": {
 				"x": 100,
 				"y": 30
@@ -33179,6 +33198,7 @@
 			"name": "Stanford University",
 			"url": "https://stanfordhealthcare.org/medical-clinics/pain-management.html",
 			"state": "US-CA",
+			"image": "/images/partners/stanford.jpg",
 			"coordinates": {
 				"x": 41,
 				"y": 112
@@ -33188,6 +33208,7 @@
 			"name": "Walter Reed National Medical Center",
 			"url": "http://www.wrnmmc.capmed.mil/SitePages/home.aspx",
 			"state": "US-MD",
+			"image": "/images/partners/walter-reed.jpg",
 			"coordinates": {
 				"x": 45,
 				"y": 17
@@ -33197,6 +33218,7 @@
 			"name": "University of Michigan",
 			"url": "http://www.uofmhealth.org/conditions-treatments/cmc/pain-management",
 			"state": "US-MI",
+			"image": "/images/partners/michigan.jpg",
 			"coordinates": {
 				"x": 130,
 				"y": 160
@@ -33206,6 +33228,7 @@
 			"name": "Vanderbilt University",
 			"url": "http://www.vanderbilthealth.com/painmedicine/",
 			"state": "US-TN",
+			"image": "/images/partners/vanderbilt.jpg",
 			"coordinates": {
 				"x": 68,
 				"y": 13
@@ -33213,8 +33236,9 @@
 		},
 		{
 			"name": "University of Pittsburgh",
-			"url": "http://www.vanderbilthealth.com/painmedicine/",
+			"url": "http://www.upmc.com/Services/pain-management/Pages/default.aspx",
 			"state": "US-PA",
+			"image": "/images/partners/pittsburgh.jpg",
 			"coordinates": {
 				"x": 9,
 				"y": 48
@@ -33224,6 +33248,7 @@
 			"name": "University of Missouri",
 			"url": "http://www.muhealth.org/services/pmandr/pain/",
 			"state": "US-MO",
+			"image": "/images/partners/missouri.jpg",
 			"coordinates": {
 				"x": 60,
 				"y": 38
@@ -33233,6 +33258,7 @@
 			"name": "University of Wisconsin-Madison",
 			"url": "http://www.uwhealth.org/chronic-pain/pain-management/10285",
 			"state": "US-WI",
+			"image": "/images/partners/madison.jpg",
 			"coordinates": {
 				"x": 67,
 				"y": 106
@@ -33242,6 +33268,7 @@
 			"name": "Marshfield Clinic",
 			"url": "https://www.marshfieldclinic.org/specialties/pain-management",
 			"state": "US-WI",
+			"image": "/images/partners/marshfield.jpg",
 			"coordinates": {
 				"x": 50,
 				"y": 60
@@ -33251,15 +33278,17 @@
 			"name": "University of Texas Health Science Center at Houston",
 			"url": "https://www.uth.edu",
 			"state": "US-TX",
+			"image": "/images/partners/uth.jpg",
 			"coordinates": {
 				"x": 214,
 				"y": 156
 			}
 		},
 		{
-			"name": "University of Texas Health Sciences Center at San Antonio",
+			"name": "University of Texas Health Science Center at San Antonio",
 			"url": "http://www.utswmedicine.org/conditions-specialties/pain/",
 			"state": "US-TX",
+			"image": "/images/partners/utsw.jpg",
 			"coordinates": {
 				"x": 157,
 				"y": 163
@@ -33269,6 +33298,7 @@
 			"name": "University of Texas Southwestern Medical Center",
 			"url": "http://anesthesia.uthscsa.edu/PainMedicineFellowship",
 			"state": "US-TX",
+			"image": "/images/partners/uthscsa.jpg",
 			"coordinates": {
 				"x": 175,
 				"y": 81
@@ -33371,6 +33401,12 @@
 			}
 		}
 	}
+
+/***/ },
+/* 443 */
+/***/ function(module, exports) {
+
+	module.exports = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<svg width='48px' height='48px' xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"xMidYMid\" class=\"uil-ring\">\n\t<rect x=\"0\" y=\"0\" width=\"100\" height=\"100\" fill=\"none\" class=\"bk\"></rect>\n\t<defs>\n\t\t<filter id=\"uil-ring-shadow\" x=\"-100%\" y=\"-100%\" width=\"300%\" height=\"300%\">\n\t\t\t<feOffset result=\"offOut\" in=\"SourceGraphic\" dx=\"0\" dy=\"0\"></feOffset>\n\t\t\t<feGaussianBlur result=\"blurOut\" in=\"offOut\" stdDeviation=\"0\"></feGaussianBlur>\n\t\t\t<feBlend in=\"SourceGraphic\" in2=\"blurOut\" mode=\"normal\"></feBlend>\n\t\t</filter>\n\t</defs>\n\t<path\n\t\td=\"M10,50c0,0,0,0.5,0.1,1.4c0,0.5,0.1,1,0.2,1.7c0,0.3,0.1,0.7,0.1,1.1c0.1,0.4,0.1,0.8,0.2,1.2c0.2,0.8,0.3,1.8,0.5,2.8 c0.3,1,0.6,2.1,0.9,3.2c0.3,1.1,0.9,2.3,1.4,3.5c0.5,1.2,1.2,2.4,1.8,3.7c0.3,0.6,0.8,1.2,1.2,1.9c0.4,0.6,0.8,1.3,1.3,1.9 c1,1.2,1.9,2.6,3.1,3.7c2.2,2.5,5,4.7,7.9,6.7c3,2,6.5,3.4,10.1,4.6c3.6,1.1,7.5,1.5,11.2,1.6c4-0.1,7.7-0.6,11.3-1.6 c3.6-1.2,7-2.6,10-4.6c3-2,5.8-4.2,7.9-6.7c1.2-1.2,2.1-2.5,3.1-3.7c0.5-0.6,0.9-1.3,1.3-1.9c0.4-0.6,0.8-1.3,1.2-1.9 c0.6-1.3,1.3-2.5,1.8-3.7c0.5-1.2,1-2.4,1.4-3.5c0.3-1.1,0.6-2.2,0.9-3.2c0.2-1,0.4-1.9,0.5-2.8c0.1-0.4,0.1-0.8,0.2-1.2 c0-0.4,0.1-0.7,0.1-1.1c0.1-0.7,0.1-1.2,0.2-1.7C90,50.5,90,50,90,50s0,0.5,0,1.4c0,0.5,0,1,0,1.7c0,0.3,0,0.7,0,1.1 c0,0.4-0.1,0.8-0.1,1.2c-0.1,0.9-0.2,1.8-0.4,2.8c-0.2,1-0.5,2.1-0.7,3.3c-0.3,1.2-0.8,2.4-1.2,3.7c-0.2,0.7-0.5,1.3-0.8,1.9 c-0.3,0.7-0.6,1.3-0.9,2c-0.3,0.7-0.7,1.3-1.1,2c-0.4,0.7-0.7,1.4-1.2,2c-1,1.3-1.9,2.7-3.1,4c-2.2,2.7-5,5-8.1,7.1 c-0.8,0.5-1.6,1-2.4,1.5c-0.8,0.5-1.7,0.9-2.6,1.3L66,87.7l-1.4,0.5c-0.9,0.3-1.8,0.7-2.8,1c-3.8,1.1-7.9,1.7-11.8,1.8L47,90.8 c-1,0-2-0.2-3-0.3l-1.5-0.2l-0.7-0.1L41.1,90c-1-0.3-1.9-0.5-2.9-0.7c-0.9-0.3-1.9-0.7-2.8-1L34,87.7l-1.3-0.6 c-0.9-0.4-1.8-0.8-2.6-1.3c-0.8-0.5-1.6-1-2.4-1.5c-3.1-2.1-5.9-4.5-8.1-7.1c-1.2-1.2-2.1-2.7-3.1-4c-0.5-0.6-0.8-1.4-1.2-2 c-0.4-0.7-0.8-1.3-1.1-2c-0.3-0.7-0.6-1.3-0.9-2c-0.3-0.7-0.6-1.3-0.8-1.9c-0.4-1.3-0.9-2.5-1.2-3.7c-0.3-1.2-0.5-2.3-0.7-3.3 c-0.2-1-0.3-2-0.4-2.8c-0.1-0.4-0.1-0.8-0.1-1.2c0-0.4,0-0.7,0-1.1c0-0.7,0-1.2,0-1.7C10,50.5,10,50,10,50z\"\n\t\tfill=\"#2a7ae2\"\n\t\tfilter=\"url(#uil-ring-shadow)\"></path>\n</svg>\n"
 
 /***/ }
 /******/ ]);

@@ -3,15 +3,16 @@
 ---
 @charset "utf-8";
 
-@import 'https://fonts.googleapis.com/css?family=Lato|Open+Sans|Roboto';
+@import 'https://fonts.googleapis.com/css?family=Cormorant:500|Open+Sans|Roboto';
 // FIXME: Fonts need to be reviewed
 
 // Our variables
 $base-font-family: "Open Sans", Helvetica, Arial, sans-serif;
-$heading-font-family: "Lato", Helvetica, Arial, sans-serif;
+$heading-font-family: "Cormorant", Helvetica, Arial, sans-serif;
 $site-nav-font-family: "Roboto", Helvetica, Arial, sans-serif;
 $base-font-size:   18px;
 $base-font-weight: 400;
+$heading-font-weight: 500;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
 

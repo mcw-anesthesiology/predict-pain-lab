@@ -11,17 +11,23 @@
 		padding: 2em;
 	}
 
-	.split-pane-section-header {
+	.split-pane-section-header,
+	.section-content {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+	}
+
+	.split-pane-section-header {
+		font-size: 0.9em;
 
 		.split-pane-section-heading {
 
+			small {
+				display: block;
+				margin-top: $spacing-unit / 2;
+				color: rgba($primary-color, $secondary-text);
+			}
 		}
-	}
-
-	.section-content {
-
 	}
 }

@@ -262,7 +262,12 @@ main {
 	}
 }
 
-.post {
+.inline-post {
+	width: 100%;
+}
+
+.post,
+.inline-post {
 
 	.post-image {
 		width: 100%;

@@ -4,13 +4,18 @@ order: 7
 show_in_nav: true
 hero_image: /images/hero/why-milwaukee.jpg
 # hero_content: <h1>Choose Milwaukee</h1>
+# external_scripts: "<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzUjYL1M1CQNv2MjTqdxJq0fgA83z6C2A&callback=initMap" async defer></script>"
 ---
 <section id="choose-mke-attractions">
 {% for attraction in site.milwaukee_attractions %}
 	<section>
 		<h2 id="{{ attraction.name | slugify }}">{{ attraction.name }}</h2>
 		<figure>
-			<img src="{{ attraction.image }}" alt="" />
+			<img src="{{ attraction.image }}" alt=""
+	{% if attraction.image_position %}
+	  			style="object-position: {{ attraction.image_position }};"
+	{% endif %}
+			/>
 	{% if attraction.image_caption %}
 			<figcaption>{{ attraction.image_caption }}</figcaption>
 	{% endif %}
@@ -39,4 +44,6 @@ hero_image: /images/hero/why-milwaukee.jpg
 {% endfor %}
 </ul>
 
-<a href="http://www.visitmilwaukee.org/visitors/neighborhoods">Find out more about Milwaukee's neighborhoods</a>
+<div class="text-center">
+	<a class="button accent-button outline" href="http://www.visitmilwaukee.org/visitors/neighborhoods">Find out more about Milwaukee's neighborhoods</a>
+</div>

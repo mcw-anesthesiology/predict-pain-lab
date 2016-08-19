@@ -2,6 +2,8 @@ import lunr from 'lunr';
 import debounce from 'lodash/debounce';
 import find from 'lodash/find';
 
+import LOADING_RING from '../_includes/svgs/loading-ring.svg';
+
 const search = document.getElementById('search-posts');
 const searchResults = document.getElementById('search-posts-results');
 const sitePosts = document.getElementById('site-posts');
@@ -25,7 +27,7 @@ if(sitePosts){
 		index.add(post);
 	}
 
-	search.addEventListener('input', debounce(searchPosts, 200));
+	search.addEventListener('input', debounce(searchPosts, 100));
 }
 
 function searchPosts(){
@@ -34,7 +36,15 @@ function searchPosts(){
 		searchResults.removeChild(searchResults.firstChild);
 
 	if(query.trim().length > 0){
+		searchResults.insertAdjacentHTML('beforeend', `
+			<div class="loading-container">
+				${LOADING_RING}
+			</div>
+		`);
 		let results = index.search(this.value);
+
+		while(searchResults.firstChild)
+			searchResults.removeChild(searchResults.firstChild);
 
 		if(results.length > 0){
 			for(let result of results){

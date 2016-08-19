@@ -4,17 +4,24 @@ import debounce from 'lodash/debounce';
 const header = document.querySelector('.site-header');
 const main = document.querySelector('main');
 const hero = document.querySelector('.hero-container');
+const scrollIntoView = document.querySelector('.scroll-into-view');
 let headerHeight = header.clientHeight;
 
-// FIXME: Why does this suck
-window.addEventListener('load', () => {
-	fixHeader();
-	if(window.location.hash.length > 1){
-		console.log(window.scrollY);
-		window.scrollBy(0, -1 * headerHeight);
-		console.log(window.scrollY);
-	}
-});
+fixHeader();
+if(window.location.hash.length > 1){
+	let target = document.querySelector(window.location.hash);
+	window.requestAnimationFrame(() => {
+		window.scroll(0, target.offsetTop - headerHeight);
+	});
+}
+else if(scrollIntoView){
+	window.requestAnimationFrame(() => {
+		if(scrollIntoView.clientHeight < window.innerHeight - headerHeight)
+			window.scroll(0, scrollIntoView.offsetTop - (window.innerHeight - scrollIntoView.clientHeight));
+		else
+			window.scroll(0, scrollIntoView.offsetTop - headerHeight);
+	});
+}
 
 window.addEventListener('resize', debounce(fixHeader, 100));
 
@@ -33,7 +40,7 @@ for(let link of internalLinks){ // FIXME: I don't think this works in IE
 		if(target.charAt(0) === "#"){
 			event.preventDefault();
 			if(target === '#')
-			target = 'body';
+				target = 'body';
 			let targetElement = document.querySelector(target);
 			velocity(targetElement, 'scroll', { offset: headerHeight * -1 });
 		}

@@ -59,7 +59,6 @@
 			width: 300px;
 			padding: 10px;
 			text-align: center;
-
 			transition: transform 0.25s, background-color 0.25s, border 0.25s, box-shadow 0.25s;
 
 			&.active {
@@ -80,6 +79,9 @@
 				img {
 					display: block;
 					margin: auto;
+					width: 280px;
+					height: 280px;
+					object-fit: cover;
 				}
 			}
 		}
