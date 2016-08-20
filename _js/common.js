@@ -4,7 +4,6 @@ import debounce from 'lodash/debounce';
 const header = document.querySelector('.site-header');
 const main = document.querySelector('main');
 const hero = document.querySelector('.hero-container');
-const scrollIntoView = document.querySelector('.scroll-into-view');
 let headerHeight = header.clientHeight;
 
 fixHeader();
@@ -12,14 +11,6 @@ if(window.location.hash.length > 1){
 	let target = document.querySelector(window.location.hash);
 	window.requestAnimationFrame(() => {
 		window.scroll(0, target.offsetTop - headerHeight);
-	});
-}
-else if(scrollIntoView){
-	window.requestAnimationFrame(() => {
-		if(scrollIntoView.clientHeight < window.innerHeight - headerHeight)
-			window.scroll(0, scrollIntoView.offsetTop - (window.innerHeight - scrollIntoView.clientHeight));
-		else
-			window.scroll(0, scrollIntoView.offsetTop - headerHeight);
 	});
 }
 
@@ -31,6 +22,13 @@ function fixHeader(){
 	if(hero){
 		hero.style.setProperty('height', `calc(100vh - ${headerHeight}px)`);
 	}
+}
+
+const scrollToContent = document.querySelector('.scroll-to-content');
+if(scrollToContent){
+	scrollToContent.addEventListener('click', () => {
+		velocity(hero, 'scroll', { offset: hero.clientHeight - headerHeight });
+	});
 }
 
 let internalLinks = document.getElementsByClassName('internal-link');

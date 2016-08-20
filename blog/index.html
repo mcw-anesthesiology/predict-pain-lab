@@ -3,7 +3,6 @@ title: Blog
 hero_image: /images/hero/blog.jpg
 order: 6
 permalink: null
-scroll_into_view: true
 ---
 <aside class="sidebar sticky">
 	<h2>Search</h2>
@@ -17,7 +16,7 @@ scroll_into_view: true
 	<section class="post-list">
 {% for post in paginator.posts %}
 		{% include inline-post.html post=post %}
-		
+
 	{% unless forloop.last %}
 		<hr />
 	{% endunless %}
