@@ -33187,6 +33187,32 @@
 		};
 	}
 	
+	var states = document.querySelectorAll('.land');
+	var _iteratorNormalCompletion4 = true;
+	var _didIteratorError4 = false;
+	var _iteratorError4 = undefined;
+	
+	try {
+		for (var _iterator4 = states[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+			var _state2 = _step4.value;
+	
+			_state2.addEventListener('click', getStateCoords);
+		}
+	} catch (err) {
+		_didIteratorError4 = true;
+		_iteratorError4 = err;
+	} finally {
+		try {
+			if (!_iteratorNormalCompletion4 && _iterator4.return) {
+				_iterator4.return();
+			}
+		} finally {
+			if (_didIteratorError4) {
+				throw _iteratorError4;
+			}
+		}
+	}
+	
 	function getStateCoords(event) {
 		// eslint-disable-line
 		var stateCoords = convertPixelsToStateCoords(this, event.clientX, event.clientY);
@@ -33404,6 +33430,26 @@
 			"coordinates": {
 				"x": 175,
 				"y": 81
+			}
+		},
+		{
+			"name": "Dartmouth-Hitchcock",
+			"url": "http://www.dartmouth-hitchcock.org/pain_mgt.html",
+			"state": "US-NH",
+			"image": "/images/partners/dartmouth-hitchcock.jpg",
+			"coordinates": {
+				"x": 7,
+				"y": 45
+			}
+		},
+		{
+			"name": "Oregon Health and Science University",
+			"url": "http://www.ohsu.edu/xd/health/services/brain/getting-treatment/diagnosis/pain-management/",
+			"state": "US-OR",
+			"image": "/images/partners/oregon.jpg",
+			"coordinates": {
+				"x": 37,
+				"y": 20
 			}
 		}
 	];
