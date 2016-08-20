@@ -4,7 +4,8 @@ order: 7
 show_in_nav: true
 hero_image: /images/hero/why-milwaukee.jpg
 # hero_content: <h1>Choose Milwaukee</h1>
-# external_scripts: "<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzUjYL1M1CQNv2MjTqdxJq0fgA83z6C2A&callback=initMap" async defer></script>"
+external_scripts:
+  - <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzUjYL1M1CQNv2MjTqdxJq0fgA83z6C2A&callback=initMap" async defer></script>
 ---
 <section id="choose-mke-attractions">
 {% for attraction in site.milwaukee_attractions %}
@@ -43,6 +44,8 @@ hero_image: /images/hero/why-milwaukee.jpg
 	</li>
 {% endfor %}
 </ul>
+
+<div id="milwaukee-map"></div>
 
 <div class="text-center">
 	<a class="button accent-button outline" href="http://www.visitmilwaukee.org/visitors/neighborhoods">Find out more about Milwaukee's neighborhoods</a>

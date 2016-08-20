@@ -68,13 +68,13 @@
 				box-shadow: 0 0 10px 0 $shadow-color;
 			}
 
-			h4 {
-
-			}
-
 			figure {
 				display: block;
 				margin: auto;
+
+				figcaption {
+					font-size: 1.25em;
+				}
 
 				img {
 					display: block;

@@ -45,14 +45,16 @@ show_in_nav: true
 			<ul class="partners-list-group" data-state="{{ state_group.name }}">
 	{% for partner in state_group.items %}
 				<li class="partners-list-item" data-partner-name="{{ partner.name }}">
-					<h4><a href="{{ partner.url }}" rel="external" title="View partner website">{{ partner.name }}</a></h4>
 
 		{% if partner.image %}
-					<figure>
-						<a href="{{ partner.url }}" rel="external" title="View partner website">
-							<img src="{{ partner.image }}" alt="" />
-						</a>
-					</figure>
+					<a href="{{ partner.url }}" rel="external" title="View partner website">
+						<figure>
+							<figcaption>
+								{{ partner.name }}
+							</figcaption>
+								<img src="{{ partner.image }}" alt="" />
+						</figure>
+					</a>
 		{% endif %}
 				</li>
 	{% endfor %}

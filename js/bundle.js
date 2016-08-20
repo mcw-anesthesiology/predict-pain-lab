@@ -8254,17 +8254,17 @@
 	
 	__webpack_require__(313);
 	
-	__webpack_require__(417);
-	
-	__webpack_require__(431);
-	
-	__webpack_require__(432);
+	__webpack_require__(418);
 	
 	__webpack_require__(433);
 	
-	__webpack_require__(439);
+	__webpack_require__(434);
 	
-	__webpack_require__(442);
+	__webpack_require__(435);
+	
+	__webpack_require__(441);
+	
+	__webpack_require__(444);
 
 /***/ },
 /* 302 */
@@ -12887,7 +12887,7 @@
 	
 	var _find2 = _interopRequireDefault(_find);
 	
-	var _loadingRing = __webpack_require__(443);
+	var _loadingRing = __webpack_require__(417);
 	
 	var _loadingRing2 = _interopRequireDefault(_loadingRing);
 	
@@ -18453,23 +18453,31 @@
 
 /***/ },
 /* 417 */
+/***/ function(module, exports) {
+
+	module.exports = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<svg width='48px' height='48px' xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"xMidYMid\" class=\"uil-ring\">\n\t<rect x=\"0\" y=\"0\" width=\"100\" height=\"100\" fill=\"none\" class=\"bk\"></rect>\n\t<defs>\n\t\t<filter id=\"uil-ring-shadow\" x=\"-100%\" y=\"-100%\" width=\"300%\" height=\"300%\">\n\t\t\t<feOffset result=\"offOut\" in=\"SourceGraphic\" dx=\"0\" dy=\"0\"></feOffset>\n\t\t\t<feGaussianBlur result=\"blurOut\" in=\"offOut\" stdDeviation=\"0\"></feGaussianBlur>\n\t\t\t<feBlend in=\"SourceGraphic\" in2=\"blurOut\" mode=\"normal\"></feBlend>\n\t\t</filter>\n\t</defs>\n\t<path\n\t\td=\"M10,50c0,0,0,0.5,0.1,1.4c0,0.5,0.1,1,0.2,1.7c0,0.3,0.1,0.7,0.1,1.1c0.1,0.4,0.1,0.8,0.2,1.2c0.2,0.8,0.3,1.8,0.5,2.8 c0.3,1,0.6,2.1,0.9,3.2c0.3,1.1,0.9,2.3,1.4,3.5c0.5,1.2,1.2,2.4,1.8,3.7c0.3,0.6,0.8,1.2,1.2,1.9c0.4,0.6,0.8,1.3,1.3,1.9 c1,1.2,1.9,2.6,3.1,3.7c2.2,2.5,5,4.7,7.9,6.7c3,2,6.5,3.4,10.1,4.6c3.6,1.1,7.5,1.5,11.2,1.6c4-0.1,7.7-0.6,11.3-1.6 c3.6-1.2,7-2.6,10-4.6c3-2,5.8-4.2,7.9-6.7c1.2-1.2,2.1-2.5,3.1-3.7c0.5-0.6,0.9-1.3,1.3-1.9c0.4-0.6,0.8-1.3,1.2-1.9 c0.6-1.3,1.3-2.5,1.8-3.7c0.5-1.2,1-2.4,1.4-3.5c0.3-1.1,0.6-2.2,0.9-3.2c0.2-1,0.4-1.9,0.5-2.8c0.1-0.4,0.1-0.8,0.2-1.2 c0-0.4,0.1-0.7,0.1-1.1c0.1-0.7,0.1-1.2,0.2-1.7C90,50.5,90,50,90,50s0,0.5,0,1.4c0,0.5,0,1,0,1.7c0,0.3,0,0.7,0,1.1 c0,0.4-0.1,0.8-0.1,1.2c-0.1,0.9-0.2,1.8-0.4,2.8c-0.2,1-0.5,2.1-0.7,3.3c-0.3,1.2-0.8,2.4-1.2,3.7c-0.2,0.7-0.5,1.3-0.8,1.9 c-0.3,0.7-0.6,1.3-0.9,2c-0.3,0.7-0.7,1.3-1.1,2c-0.4,0.7-0.7,1.4-1.2,2c-1,1.3-1.9,2.7-3.1,4c-2.2,2.7-5,5-8.1,7.1 c-0.8,0.5-1.6,1-2.4,1.5c-0.8,0.5-1.7,0.9-2.6,1.3L66,87.7l-1.4,0.5c-0.9,0.3-1.8,0.7-2.8,1c-3.8,1.1-7.9,1.7-11.8,1.8L47,90.8 c-1,0-2-0.2-3-0.3l-1.5-0.2l-0.7-0.1L41.1,90c-1-0.3-1.9-0.5-2.9-0.7c-0.9-0.3-1.9-0.7-2.8-1L34,87.7l-1.3-0.6 c-0.9-0.4-1.8-0.8-2.6-1.3c-0.8-0.5-1.6-1-2.4-1.5c-3.1-2.1-5.9-4.5-8.1-7.1c-1.2-1.2-2.1-2.7-3.1-4c-0.5-0.6-0.8-1.4-1.2-2 c-0.4-0.7-0.8-1.3-1.1-2c-0.3-0.7-0.6-1.3-0.9-2c-0.3-0.7-0.6-1.3-0.8-1.9c-0.4-1.3-0.9-2.5-1.2-3.7c-0.3-1.2-0.5-2.3-0.7-3.3 c-0.2-1-0.3-2-0.4-2.8c-0.1-0.4-0.1-0.8-0.1-1.2c0-0.4,0-0.7,0-1.1c0-0.7,0-1.2,0-1.7C10,50.5,10,50,10,50z\"\n\t\tfill=\"#2a7ae2\"\n\t\tfilter=\"url(#uil-ring-shadow)\"></path>\n</svg>\n"
+
+/***/ },
+/* 418 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _jquery = __webpack_require__(418);
+	var _jquery = __webpack_require__(419);
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
-	__webpack_require__(419);
-	
 	__webpack_require__(420);
 	
-	__webpack_require__(424);
+	__webpack_require__(421);
+	
+	__webpack_require__(425);
+	
+	var _constants = __webpack_require__(432);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	(0, _jquery2.default)('#choose-mke-attractions').slick();
+	(0, _jquery2.default)('#choose-mke-attractions').slick(); /* global google */
 	
 	var slideLinks = Array.from(document.getElementsByClassName('slick-slide-link'));
 	var _iteratorNormalCompletion = true;
@@ -18481,9 +18489,11 @@
 			var slideLink = _step.value;
 	
 			slideLink.addEventListener('click', function () {
-				(0, _jquery2.default)("#choose-mke-attractions").slick('slickGoTo', this.dataset.slideIndex);
+				(0, _jquery2.default)('#choose-mke-attractions').slick('slickGoTo', this.dataset.slideIndex);
 			});
 		}
+	
+		// FIXME: Make this better
 	} catch (err) {
 		_didIteratorError = true;
 		_iteratorError = err;
@@ -18498,9 +18508,83 @@
 			}
 		}
 	}
+	
+	window.initMap = function () {
+		var painCenter = {
+			lat: 43.0422999,
+			lng: -88.0502617
+		};
+	
+		var map = new google.maps.Map(document.getElementById('milwaukee-map'), {
+			center: {
+				lat: 43.0429319,
+				lng: -87.9709897
+			},
+			zoom: 13,
+			styles: [{
+				'featureType': 'administrative',
+				'elementType': 'labels.text.fill',
+				'stylers': [{
+					'color': '#444444'
+				}]
+			}, {
+				'featureType': 'landscape',
+				'elementType': 'all',
+				'stylers': [{
+					'color': '#f2f2f2'
+				}]
+			}, {
+				'featureType': 'poi',
+				'elementType': 'all',
+				'stylers': [{
+					'visibility': 'off'
+				}]
+			}, {
+				'featureType': 'road',
+				'elementType': 'all',
+				'stylers': [{
+					'saturation': -100
+				}, {
+					'lightness': 45
+				}]
+			}, {
+				'featureType': 'road.highway',
+				'elementType': 'all',
+				'stylers': [{
+					'visibility': 'simplified'
+				}]
+			}, {
+				'featureType': 'road.arterial',
+				'elementType': 'labels.icon',
+				'stylers': [{
+					'visibility': 'off'
+				}]
+			}, {
+				'featureType': 'transit',
+				'elementType': 'all',
+				'stylers': [{
+					'visibility': 'off'
+				}]
+			}, {
+				'featureType': 'water',
+				'elementType': 'all',
+				'stylers': [{
+					'color': _constants.PRIMARY_COLOR
+				}, {
+					'visibility': 'on'
+				}]
+			}]
+		});
+	
+		var marker = new google.maps.Marker({
+			position: painCenter,
+			map: map,
+			title: 'MCW Pain Management Center'
+		});
+	};
 
 /***/ },
-/* 418 */
+/* 419 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*eslint-disable no-unused-vars*/
@@ -28580,7 +28664,7 @@
 
 
 /***/ },
-/* 419 */
+/* 420 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
@@ -28603,7 +28687,7 @@
 	(function(factory) {
 	    'use strict';
 	    if (true) {
-	        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(418)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(419)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	    } else if (typeof exports !== 'undefined') {
 	        module.exports = factory(require('jquery'));
 	    } else {
@@ -31478,16 +31562,16 @@
 
 
 /***/ },
-/* 420 */
+/* 421 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(421);
+	var content = __webpack_require__(422);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(423)(content, {});
+	var update = __webpack_require__(424)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -31504,10 +31588,10 @@
 	}
 
 /***/ },
-/* 421 */
+/* 422 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(422)();
+	exports = module.exports = __webpack_require__(423)();
 	// imports
 	
 	
@@ -31518,7 +31602,7 @@
 
 
 /***/ },
-/* 422 */
+/* 423 */
 /***/ function(module, exports) {
 
 	/*
@@ -31574,7 +31658,7 @@
 
 
 /***/ },
-/* 423 */
+/* 424 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -31826,16 +31910,16 @@
 
 
 /***/ },
-/* 424 */
+/* 425 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(425);
+	var content = __webpack_require__(426);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(423)(content, {});
+	var update = __webpack_require__(424)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -31852,51 +31936,67 @@
 	}
 
 /***/ },
-/* 425 */
+/* 426 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(422)();
+	exports = module.exports = __webpack_require__(423)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, "@charset 'UTF-8';\n/* Slider */\n.slick-loading .slick-list\n{\n    background: #fff url(" + __webpack_require__(426) + ") center center no-repeat;\n}\n\n/* Icons */\n@font-face\n{\n    font-family: 'slick';\n    font-weight: normal;\n    font-style: normal;\n\n    src: url(" + __webpack_require__(427) + ");\n    src: url(" + __webpack_require__(427) + "?#iefix) format('embedded-opentype'), url(" + __webpack_require__(428) + ") format('woff'), url(" + __webpack_require__(429) + ") format('truetype'), url(" + __webpack_require__(430) + "#slick) format('svg');\n}\n/* Arrows */\n.slick-prev,\n.slick-next\n{\n    font-size: 0;\n    line-height: 0;\n\n    position: absolute;\n    top: 50%;\n\n    display: block;\n\n    width: 20px;\n    height: 20px;\n    padding: 0;\n    -webkit-transform: translate(0, -50%);\n    -ms-transform: translate(0, -50%);\n    transform: translate(0, -50%);\n\n    cursor: pointer;\n\n    color: transparent;\n    border: none;\n    outline: none;\n    background: transparent;\n}\n.slick-prev:hover,\n.slick-prev:focus,\n.slick-next:hover,\n.slick-next:focus\n{\n    color: transparent;\n    outline: none;\n    background: transparent;\n}\n.slick-prev:hover:before,\n.slick-prev:focus:before,\n.slick-next:hover:before,\n.slick-next:focus:before\n{\n    opacity: 1;\n}\n.slick-prev.slick-disabled:before,\n.slick-next.slick-disabled:before\n{\n    opacity: .25;\n}\n\n.slick-prev:before,\n.slick-next:before\n{\n    font-family: 'slick';\n    font-size: 20px;\n    line-height: 1;\n\n    opacity: .75;\n    color: white;\n\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n}\n\n.slick-prev\n{\n    left: -25px;\n}\n[dir='rtl'] .slick-prev\n{\n    right: -25px;\n    left: auto;\n}\n.slick-prev:before\n{\n    content: '\\2190';\n}\n[dir='rtl'] .slick-prev:before\n{\n    content: '\\2192';\n}\n\n.slick-next\n{\n    right: -25px;\n}\n[dir='rtl'] .slick-next\n{\n    right: auto;\n    left: -25px;\n}\n.slick-next:before\n{\n    content: '\\2192';\n}\n[dir='rtl'] .slick-next:before\n{\n    content: '\\2190';\n}\n\n/* Dots */\n.slick-dotted.slick-slider\n{\n    margin-bottom: 30px;\n}\n\n.slick-dots\n{\n    position: absolute;\n    bottom: -25px;\n\n    display: block;\n\n    width: 100%;\n    padding: 0;\n    margin: 0;\n\n    list-style: none;\n\n    text-align: center;\n}\n.slick-dots li\n{\n    position: relative;\n\n    display: inline-block;\n\n    width: 20px;\n    height: 20px;\n    margin: 0 5px;\n    padding: 0;\n\n    cursor: pointer;\n}\n.slick-dots li button\n{\n    font-size: 0;\n    line-height: 0;\n\n    display: block;\n\n    width: 20px;\n    height: 20px;\n    padding: 5px;\n\n    cursor: pointer;\n\n    color: transparent;\n    border: 0;\n    outline: none;\n    background: transparent;\n}\n.slick-dots li button:hover,\n.slick-dots li button:focus\n{\n    outline: none;\n}\n.slick-dots li button:hover:before,\n.slick-dots li button:focus:before\n{\n    opacity: 1;\n}\n.slick-dots li button:before\n{\n    font-family: 'slick';\n    font-size: 6px;\n    line-height: 20px;\n\n    position: absolute;\n    top: 0;\n    left: 0;\n\n    width: 20px;\n    height: 20px;\n\n    content: '\\2022';\n    text-align: center;\n\n    opacity: .25;\n    color: black;\n\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n}\n.slick-dots li.slick-active button:before\n{\n    opacity: .75;\n    color: black;\n}\n", ""]);
+	exports.push([module.id, "@charset 'UTF-8';\n/* Slider */\n.slick-loading .slick-list\n{\n    background: #fff url(" + __webpack_require__(427) + ") center center no-repeat;\n}\n\n/* Icons */\n@font-face\n{\n    font-family: 'slick';\n    font-weight: normal;\n    font-style: normal;\n\n    src: url(" + __webpack_require__(428) + ");\n    src: url(" + __webpack_require__(428) + "?#iefix) format('embedded-opentype'), url(" + __webpack_require__(429) + ") format('woff'), url(" + __webpack_require__(430) + ") format('truetype'), url(" + __webpack_require__(431) + "#slick) format('svg');\n}\n/* Arrows */\n.slick-prev,\n.slick-next\n{\n    font-size: 0;\n    line-height: 0;\n\n    position: absolute;\n    top: 50%;\n\n    display: block;\n\n    width: 20px;\n    height: 20px;\n    padding: 0;\n    -webkit-transform: translate(0, -50%);\n    -ms-transform: translate(0, -50%);\n    transform: translate(0, -50%);\n\n    cursor: pointer;\n\n    color: transparent;\n    border: none;\n    outline: none;\n    background: transparent;\n}\n.slick-prev:hover,\n.slick-prev:focus,\n.slick-next:hover,\n.slick-next:focus\n{\n    color: transparent;\n    outline: none;\n    background: transparent;\n}\n.slick-prev:hover:before,\n.slick-prev:focus:before,\n.slick-next:hover:before,\n.slick-next:focus:before\n{\n    opacity: 1;\n}\n.slick-prev.slick-disabled:before,\n.slick-next.slick-disabled:before\n{\n    opacity: .25;\n}\n\n.slick-prev:before,\n.slick-next:before\n{\n    font-family: 'slick';\n    font-size: 20px;\n    line-height: 1;\n\n    opacity: .75;\n    color: white;\n\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n}\n\n.slick-prev\n{\n    left: -25px;\n}\n[dir='rtl'] .slick-prev\n{\n    right: -25px;\n    left: auto;\n}\n.slick-prev:before\n{\n    content: '\\2190';\n}\n[dir='rtl'] .slick-prev:before\n{\n    content: '\\2192';\n}\n\n.slick-next\n{\n    right: -25px;\n}\n[dir='rtl'] .slick-next\n{\n    right: auto;\n    left: -25px;\n}\n.slick-next:before\n{\n    content: '\\2192';\n}\n[dir='rtl'] .slick-next:before\n{\n    content: '\\2190';\n}\n\n/* Dots */\n.slick-dotted.slick-slider\n{\n    margin-bottom: 30px;\n}\n\n.slick-dots\n{\n    position: absolute;\n    bottom: -25px;\n\n    display: block;\n\n    width: 100%;\n    padding: 0;\n    margin: 0;\n\n    list-style: none;\n\n    text-align: center;\n}\n.slick-dots li\n{\n    position: relative;\n\n    display: inline-block;\n\n    width: 20px;\n    height: 20px;\n    margin: 0 5px;\n    padding: 0;\n\n    cursor: pointer;\n}\n.slick-dots li button\n{\n    font-size: 0;\n    line-height: 0;\n\n    display: block;\n\n    width: 20px;\n    height: 20px;\n    padding: 5px;\n\n    cursor: pointer;\n\n    color: transparent;\n    border: 0;\n    outline: none;\n    background: transparent;\n}\n.slick-dots li button:hover,\n.slick-dots li button:focus\n{\n    outline: none;\n}\n.slick-dots li button:hover:before,\n.slick-dots li button:focus:before\n{\n    opacity: 1;\n}\n.slick-dots li button:before\n{\n    font-family: 'slick';\n    font-size: 6px;\n    line-height: 20px;\n\n    position: absolute;\n    top: 0;\n    left: 0;\n\n    width: 20px;\n    height: 20px;\n\n    content: '\\2022';\n    text-align: center;\n\n    opacity: .25;\n    color: black;\n\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n}\n.slick-dots li.slick-active button:before\n{\n    opacity: .75;\n    color: black;\n}\n", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 426 */
+/* 427 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "c5cd7f5300576ab4c88202b42f6ded62.gif";
 
 /***/ },
-/* 427 */
+/* 428 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "ced611daf7709cc778da928fec876475.eot";
 
 /***/ },
-/* 428 */
+/* 429 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "b7c9e1e479de3b53f1e4e30ebac2403a.woff";
 
 /***/ },
-/* 429 */
+/* 430 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "d41f55a78e6f49a5512878df1737e58a.ttf";
 
 /***/ },
-/* 430 */
+/* 431 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "f97e3bbf73254b0112091d0192f17aec.svg";
 
 /***/ },
-/* 431 */
+/* 432 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.PRIMARY_COLOR = PRIMARY_COLOR;
+	exports.ACCENT_COLOR = ACCENT_COLOR;
+	
+	
+	var PRIMARY_COLOR = '#2a7ae2';
+	var ACCENT_COLOR = '#ff3d2e';
+
+/***/ },
+/* 433 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31993,25 +32093,25 @@
 	}
 
 /***/ },
-/* 432 */
+/* 434 */
 /***/ function(module, exports) {
 
 	"use strict";
 
 /***/ },
-/* 433 */
+/* 435 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	__webpack_require__(434);
-	
-	__webpack_require__(435);
+	__webpack_require__(436);
 	
 	__webpack_require__(437);
+	
+	__webpack_require__(439);
 
 /***/ },
-/* 434 */
+/* 436 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
@@ -32025,7 +32125,7 @@
 	
 	!(function(root, factory) {
 	  if (true) {
-	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(418)], __WEBPACK_AMD_DEFINE_RESULT__ = function($) {
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(419)], __WEBPACK_AMD_DEFINE_RESULT__ = function($) {
 	      return factory(root, $);
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	  } else if (typeof exports === 'object') {
@@ -32802,16 +32902,16 @@
 
 
 /***/ },
-/* 435 */
+/* 437 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(436);
+	var content = __webpack_require__(438);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(423)(content, {});
+	var update = __webpack_require__(424)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -32828,10 +32928,10 @@
 	}
 
 /***/ },
-/* 436 */
+/* 438 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(422)();
+	exports = module.exports = __webpack_require__(423)();
 	// imports
 	
 	
@@ -32842,16 +32942,16 @@
 
 
 /***/ },
-/* 437 */
+/* 439 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(438);
+	var content = __webpack_require__(440);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(423)(content, {});
+	var update = __webpack_require__(424)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -32868,10 +32968,10 @@
 	}
 
 /***/ },
-/* 438 */
+/* 440 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(422)();
+	exports = module.exports = __webpack_require__(423)();
 	// imports
 	
 	
@@ -32882,7 +32982,7 @@
 
 
 /***/ },
-/* 439 */
+/* 441 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32891,11 +32991,11 @@
 	
 	var _debounce2 = _interopRequireDefault(_debounce);
 	
-	var _research_partners = __webpack_require__(440);
+	var _research_partners = __webpack_require__(442);
 	
 	var _research_partners2 = _interopRequireDefault(_research_partners);
 	
-	var _star2 = __webpack_require__(441);
+	var _star2 = __webpack_require__(443);
 	
 	var _star3 = _interopRequireDefault(_star2);
 	
@@ -33120,7 +33220,7 @@
 	}
 
 /***/ },
-/* 440 */
+/* 442 */
 /***/ function(module, exports) {
 
 	module.exports = [
@@ -33307,13 +33407,13 @@
 	];
 
 /***/ },
-/* 441 */
+/* 443 */
 /***/ function(module, exports) {
 
 	module.exports = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"240\" height=\"240\" viewBox=\"0 0 240 240\">\n\t<path fill=\"#F8D64E\" d=\"m48,234 73-226 73,226-192-140h238z\"/>\n</svg>\n"
 
 /***/ },
-/* 442 */
+/* 444 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33401,12 +33501,6 @@
 			}
 		}
 	}
-
-/***/ },
-/* 443 */
-/***/ function(module, exports) {
-
-	module.exports = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<svg width='48px' height='48px' xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"xMidYMid\" class=\"uil-ring\">\n\t<rect x=\"0\" y=\"0\" width=\"100\" height=\"100\" fill=\"none\" class=\"bk\"></rect>\n\t<defs>\n\t\t<filter id=\"uil-ring-shadow\" x=\"-100%\" y=\"-100%\" width=\"300%\" height=\"300%\">\n\t\t\t<feOffset result=\"offOut\" in=\"SourceGraphic\" dx=\"0\" dy=\"0\"></feOffset>\n\t\t\t<feGaussianBlur result=\"blurOut\" in=\"offOut\" stdDeviation=\"0\"></feGaussianBlur>\n\t\t\t<feBlend in=\"SourceGraphic\" in2=\"blurOut\" mode=\"normal\"></feBlend>\n\t\t</filter>\n\t</defs>\n\t<path\n\t\td=\"M10,50c0,0,0,0.5,0.1,1.4c0,0.5,0.1,1,0.2,1.7c0,0.3,0.1,0.7,0.1,1.1c0.1,0.4,0.1,0.8,0.2,1.2c0.2,0.8,0.3,1.8,0.5,2.8 c0.3,1,0.6,2.1,0.9,3.2c0.3,1.1,0.9,2.3,1.4,3.5c0.5,1.2,1.2,2.4,1.8,3.7c0.3,0.6,0.8,1.2,1.2,1.9c0.4,0.6,0.8,1.3,1.3,1.9 c1,1.2,1.9,2.6,3.1,3.7c2.2,2.5,5,4.7,7.9,6.7c3,2,6.5,3.4,10.1,4.6c3.6,1.1,7.5,1.5,11.2,1.6c4-0.1,7.7-0.6,11.3-1.6 c3.6-1.2,7-2.6,10-4.6c3-2,5.8-4.2,7.9-6.7c1.2-1.2,2.1-2.5,3.1-3.7c0.5-0.6,0.9-1.3,1.3-1.9c0.4-0.6,0.8-1.3,1.2-1.9 c0.6-1.3,1.3-2.5,1.8-3.7c0.5-1.2,1-2.4,1.4-3.5c0.3-1.1,0.6-2.2,0.9-3.2c0.2-1,0.4-1.9,0.5-2.8c0.1-0.4,0.1-0.8,0.2-1.2 c0-0.4,0.1-0.7,0.1-1.1c0.1-0.7,0.1-1.2,0.2-1.7C90,50.5,90,50,90,50s0,0.5,0,1.4c0,0.5,0,1,0,1.7c0,0.3,0,0.7,0,1.1 c0,0.4-0.1,0.8-0.1,1.2c-0.1,0.9-0.2,1.8-0.4,2.8c-0.2,1-0.5,2.1-0.7,3.3c-0.3,1.2-0.8,2.4-1.2,3.7c-0.2,0.7-0.5,1.3-0.8,1.9 c-0.3,0.7-0.6,1.3-0.9,2c-0.3,0.7-0.7,1.3-1.1,2c-0.4,0.7-0.7,1.4-1.2,2c-1,1.3-1.9,2.7-3.1,4c-2.2,2.7-5,5-8.1,7.1 c-0.8,0.5-1.6,1-2.4,1.5c-0.8,0.5-1.7,0.9-2.6,1.3L66,87.7l-1.4,0.5c-0.9,0.3-1.8,0.7-2.8,1c-3.8,1.1-7.9,1.7-11.8,1.8L47,90.8 c-1,0-2-0.2-3-0.3l-1.5-0.2l-0.7-0.1L41.1,90c-1-0.3-1.9-0.5-2.9-0.7c-0.9-0.3-1.9-0.7-2.8-1L34,87.7l-1.3-0.6 c-0.9-0.4-1.8-0.8-2.6-1.3c-0.8-0.5-1.6-1-2.4-1.5c-3.1-2.1-5.9-4.5-8.1-7.1c-1.2-1.2-2.1-2.7-3.1-4c-0.5-0.6-0.8-1.4-1.2-2 c-0.4-0.7-0.8-1.3-1.1-2c-0.3-0.7-0.6-1.3-0.9-2c-0.3-0.7-0.6-1.3-0.8-1.9c-0.4-1.3-0.9-2.5-1.2-3.7c-0.3-1.2-0.5-2.3-0.7-3.3 c-0.2-1-0.3-2-0.4-2.8c-0.1-0.4-0.1-0.8-0.1-1.2c0-0.4,0-0.7,0-1.1c0-0.7,0-1.2,0-1.7C10,50.5,10,50,10,50z\"\n\t\tfill=\"#2a7ae2\"\n\t\tfilter=\"url(#uil-ring-shadow)\"></path>\n</svg>\n"
 
 /***/ }
 /******/ ]);
