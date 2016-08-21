@@ -48,6 +48,13 @@ body {
 	}
 }
 
+p.text-center {
+
+	.button {
+		margin: ($spacing-unit / 2) 0;
+	}
+}
+
 button,
 .button {
 	display: inline-block;

@@ -4,7 +4,7 @@ title: Education
 top_separator_image: /images/hero/education.jpg
 order: 2
 show_in_nav: true
-heading: Learn about our award-winning fellowship
+heading: Learn about our award&#8209;winning fellowship
 heading_center: true
 ---
 ### We invest in you

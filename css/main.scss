@@ -6,10 +6,16 @@
 @import 'https://fonts.googleapis.com/css?family=Cormorant:500|Open+Sans|Roboto';
 // FIXME: Fonts need to be reviewed
 
+@font-face {
+	font-family: "Black Medium Down-Pointing Triangle";
+	src: url("/resources/black-medium-down-pointing-triangle.woff");
+}
+
 // Our variables
 $base-font-family: "Open Sans", Helvetica, Arial, sans-serif;
 $heading-font-family: "Cormorant", Helvetica, Arial, sans-serif;
 $site-nav-font-family: "Roboto", Helvetica, Arial, sans-serif;
+$down-arrow-font-family: Symbola, "Black Medium Down-Pointing Triangle", sans-serif;
 $base-font-size:   18px;
 $base-font-weight: 400;
 $heading-font-weight: 500;

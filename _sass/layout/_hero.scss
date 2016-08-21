@@ -14,10 +14,13 @@
 		h1 {
 			color: rgba($light-text-color, $primary-light-text);
 			text-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+			line-height: 1;
+			margin-top: $spacing-unit;
 		}
 	}
 
 	.scroll-to-content {
+		font-family: $down-arrow-font-family;
 		text-align: center;
 		color: rgba($light-text-color, $active-light-icon);
 		border: 1px solid rgba($light-text-color, $inactive-light-icon);
