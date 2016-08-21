@@ -138,11 +138,6 @@ function makeContext(element, svgDocument, absolute = true){
 	};
 }
 
-let states = document.querySelectorAll('.land');
-for(let state of states){
-	state.addEventListener('click', getStateCoords);
-}
-
 function getStateCoords(event){ // eslint-disable-line
 	let stateCoords = convertPixelsToStateCoords(this, event.clientX, event.clientY);
 	console.log(event.clientX, event.clientY);
