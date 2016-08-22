@@ -3,6 +3,7 @@ $medium-sidebar-width: 225px;
 $large-sidebar-width: 300px;
 
 main {
+	display: block;
 	padding-top: $header-height;
 	position: relative;
 	background-color: $background-color;
@@ -301,5 +302,27 @@ main {
 			right: calc(100% + 1000px);
 			bottom: calc(100% + 100px);
 		}
+	}
+}
+
+.lead {
+	padding: 20px 40px;
+	font-size: 1.15em;
+
+	p {
+		margin-bottom: $spacing-unit;
+	}
+
+	@media (min-width: $small-desktop) {
+		padding: 40px 60px;
+	}
+
+	@media (min-width: $medium-desktop) {
+		font-size: 1.25em;
+		padding: 60px 80px;
+	}
+
+	@media (min-width: $large-desktop) {
+		padding: 60px 120px;
 	}
 }

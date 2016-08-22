@@ -4,7 +4,7 @@ let currentElement = document.querySelector('.in-view');
 let watchedElements = document.querySelectorAll('.watch-in-view'); // TODO this name sucks
 let headerHeight = document.querySelector('.site-header').clientHeight;
 
-if(watchedElements.length > 0){
+if(window.history.replaceState && watchedElements.length > 0){
 	for(let event of ['resize', 'scroll', 'load']){
 		window.addEventListener(event, () => {
 			window.requestAnimationFrame(viewStep);

@@ -1,5 +1,5 @@
-import velocity from 'velocity-animate';
 import debounce from 'lodash/debounce';
+import velocity from 'velocity-animate';
 
 const header = document.querySelector('.site-header');
 const main = document.querySelector('main');
@@ -31,8 +31,8 @@ if(scrollToContent){
 	});
 }
 
-let internalLinks = document.getElementsByClassName('internal-link');
-for(let link of internalLinks){ // FIXME: I don't think this works in IE
+let internalLinks = Array.from(document.getElementsByClassName('internal-link'));
+for(let link of internalLinks){
 	link.addEventListener('click', function(event){
 		let target = this.getAttribute('href');
 		if(target.charAt(0) === "#"){
@@ -45,8 +45,8 @@ for(let link of internalLinks){ // FIXME: I don't think this works in IE
 	});
 }
 
-let expandSectionElements = document.querySelectorAll('.expand-section-element');
-for(let element of expandSectionElements){ // FIXME: I don't think this works in IE
+let expandSectionElements = Array.from(document.querySelectorAll('.expand-section-element'));
+for(let element of expandSectionElements){
 	element.addEventListener('click', (event) => {
 		event.preventDefault();
 

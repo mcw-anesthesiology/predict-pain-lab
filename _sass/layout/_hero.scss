@@ -4,7 +4,12 @@
 	height: calc(100vh - #{$header-height});
 	padding: 0 10%;
 	box-sizing: border-box;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
 	flex-direction: column;
 
 	.hero-content {

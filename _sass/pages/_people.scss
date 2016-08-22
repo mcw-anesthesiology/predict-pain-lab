@@ -2,13 +2,17 @@ $people-transition-duration: 0.2s;
 
 ul.people-group {
 	position: relative;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
 	list-style: none;
 	margin: 0;
 
 	li {
 		position: relative;
+		-ms-flex-negative: 0;
 		flex-shrink: 0;
 		padding: 10px;
 	}
@@ -48,7 +52,9 @@ ul.people-group {
 		width: 250px;
 		border: 1px $background-color solid;
 		border-bottom: 0;
+		-webkit-transition-property: border, background;
 		transition-property: border, background;
+		-webkit-transition-duration: $people-transition-duration;
 		transition-duration: $people-transition-duration;
 
 		figure {
@@ -60,6 +66,7 @@ ul.people-group {
 				width: 250px;
 				// width: auto;
 				margin: auto;
+				-o-object-fit: cover;
 				object-fit: cover;
 			}
 

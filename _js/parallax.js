@@ -77,8 +77,9 @@ function updateParallaxes(){
 			if(parallax.containerRect.top >= parallaxRect.top && parallax.containerRect.top <= parallaxRect.bottom){
 				let scrolledValue = (parallaxRect.bottom - parallax.containerRect.top) / parallaxRect.height;
 				parallax.translateY = Math.round(scrolledValue * parallax.scrollMultiplier);
-				parallax.image.style.setProperty('transform',
-					`translate3d(-50%, ${parallax.translateY}px, 0px)`);
+				parallax.image.style.webkitTransform = `translate(-50%, ${parallax.translateY}px)`;
+				parallax.image.style.msTransform = `translate(-50%, ${parallax.translateY}px)`;
+				parallax.image.style.transform = `translate(-50%, ${parallax.translateY}px)`;
 			}
 		}
 	}

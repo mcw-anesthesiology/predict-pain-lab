@@ -1,6 +1,4 @@
 import './common.js';
-
-// Try to make these handlers fire first
 import './parallax.js';
 
 import './blog.js';

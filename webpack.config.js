@@ -1,8 +1,12 @@
+const path = require('path');
+
 /* eslint-env node */
 module.exports = {
 	entry: [
 		'babel-polyfill',
 		'raf/polyfill',
+		'classlist-polyfill',
+		'element-dataset',
 		'./_js/bundle.js'
 	],
 	output: {
@@ -41,6 +45,17 @@ module.exports = {
 				test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
 				include: /node_modules/,
 				loader: 'file'
+			},
+			{
+				test: path.resolve(__dirname, '_js/lib/modernizr.js'),
+				loaders: [
+					'imports?this=>window',
+					'exports?window.Modernizr'
+				]
+			},
+			{
+				test: /element-dataset/,
+				loader: 'apply'
 			}
 		]
 	},
