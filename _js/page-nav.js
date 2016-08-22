@@ -4,9 +4,8 @@ const page = getPageData();
 
 if(page.create_page_nav){
 	let pageNav = document.querySelector(".page-nav");
-	let headings = document.getElementsByTagName("h2");
-	for(let i = 0; i < headings.length; i++){
-		let h = headings[i];
+	let headings = Array.from(document.querySelectorAll(".page-content h2"));
+	for(let h of headings){
 		let li = document.createElement("li");
 		let a = document.createElement("a");
 		a.href = "#" + h.id;
