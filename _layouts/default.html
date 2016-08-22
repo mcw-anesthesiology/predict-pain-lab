@@ -21,6 +21,9 @@
 
 		{% include footer.html %}
 
+		<script id="page-data" type="application/json">
+			{{ page | jsonify | strip_html }}
+		</script>
 		<script src="/js/bundle.js"></script>
 {% for script_src in page.scripts %}
 		<script src="{{ script_src }}"></script>

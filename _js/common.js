@@ -1,3 +1,5 @@
+import './page-nav.js';
+
 import debounce from 'lodash/debounce';
 import velocity from 'velocity-animate';
 
@@ -40,7 +42,11 @@ for(let link of internalLinks){
 			if(target === '#')
 				target = 'body';
 			let targetElement = document.querySelector(target);
-			velocity(targetElement, 'scroll', { offset: headerHeight * -1 });
+			velocity(targetElement, 'scroll', { offset: headerHeight * -1, complete: function(){
+				if(window.history.replaceState){
+					window.history.replaceState({}, '', target);
+				}
+			}});
 		}
 	});
 }

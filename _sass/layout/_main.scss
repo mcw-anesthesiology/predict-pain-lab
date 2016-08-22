@@ -162,6 +162,16 @@ main {
 					font-size: 1.25em;
 				}
 			}
+
+			&.cozy {
+
+				li {
+
+					& + li {
+						margin-top: 0.25em;
+					}
+				}
+			}
 		}
 	}
 }

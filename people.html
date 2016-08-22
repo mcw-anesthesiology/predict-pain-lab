@@ -28,7 +28,7 @@ group_names:
 	</ul>
 </aside>
 
-<div class="page-content">
+<section class="page-content">
 {% for position in page.position_order %}
 	{% assign people_group = people_groups | where: "name",position | first %}
 	<h2 id="{{ page.group_names[people_group.name] | default: people_group.name | slugify }}">
@@ -79,4 +79,4 @@ group_names:
 		{% endunless %}
 	{% endfor %}
 {% endfor %}
-</div>
+</section>
