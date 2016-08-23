@@ -39,60 +39,79 @@
 	}
 }
 
-#partners-list {
+#research-partners-list {
 
-	h2 {
+	&.hide-off-screen {
 
-	}
+		#partners-list {
 
-	h3 {
-		margin-top: 40px;
-		margin-bottom: 5px;
-	}
+			ul.partners-list-group {
 
-	ul.partners-list-group {
-		display: -webkit-box;
-		display: -ms-flexbox;
-		display: flex;
-		-ms-flex-wrap: wrap;
-		flex-wrap: wrap;
-		-webkit-box-align: end;
-		-ms-flex-align: end;
-		align-items: flex-end;
-		list-style: none;
-		margin: 0;
-
-		li.partners-list-item {
-			width: 300px;
-			padding: 10px;
-			text-align: center;
-			-webkit-transition: background-color 0.25s, border 0.25s, box-shadow 0.25s, -webkit-transform 0.25s;
-			transition: background-color 0.25s, border 0.25s, box-shadow 0.25s, -webkit-transform 0.25s;
-			transition: transform 0.25s, background-color 0.25s, border 0.25s, box-shadow 0.25s;
-			transition: transform 0.25s, background-color 0.25s, border 0.25s, box-shadow 0.25s, -webkit-transform 0.25s;
-
-			&.active {
-				background-color: $background-color;
-				border: 1px $grey-color solid;
-				border-radius: 2px;
-				box-shadow: 0 0 10px 0 $shadow-color;
+				li.partners-list-item {
+					display: block !important;
+					position: absolute !important;
+					right: calc(100% + 1000px);
+					bottom: calc(100% + 100px);
+				}
 			}
+		}
+	}
 
-			figure {
-				display: block;
-				margin: auto;
+	#partners-list {
 
-				figcaption {
-					font-size: 1.25em;
+		h2 {
+
+		}
+
+		h3 {
+			margin-top: 40px;
+			margin-bottom: 5px;
+		}
+
+		ul.partners-list-group {
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-ms-flex-wrap: wrap;
+			flex-wrap: wrap;
+			-webkit-box-align: end;
+			-ms-flex-align: end;
+			align-items: flex-end;
+			list-style: none;
+			margin: 0;
+
+			li.partners-list-item {
+				width: 300px;
+				padding: 10px;
+				text-align: center;
+				-webkit-transition: background-color 0.25s, border 0.25s, box-shadow 0.25s, -webkit-transform 0.25s;
+				transition: background-color 0.25s, border 0.25s, box-shadow 0.25s, -webkit-transform 0.25s;
+				transition: transform 0.25s, background-color 0.25s, border 0.25s, box-shadow 0.25s;
+				transition: transform 0.25s, background-color 0.25s, border 0.25s, box-shadow 0.25s, -webkit-transform 0.25s;
+
+				&.active {
+					background-color: $background-color;
+					border: 1px $grey-color solid;
+					border-radius: 2px;
+					box-shadow: 0 0 10px 0 $shadow-color;
 				}
 
-				img {
+				figure {
 					display: block;
 					margin: auto;
-					width: 280px;
-					height: 280px;
-					-o-object-fit: cover;
-					object-fit: cover;
+
+					figcaption {
+						font-size: 1.25em;
+					}
+
+					img {
+						display: block;
+						margin: auto;
+						width: 280px;
+						height: 280px;
+						-o-object-fit: cover;
+						object-fit: cover;
+					}
 				}
 			}
 		}
