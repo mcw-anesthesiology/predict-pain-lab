@@ -4,6 +4,7 @@
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
+	justify-content: space-between;
 	z-index: 10;
 	box-sizing: border-box;
 	position: fixed;
@@ -17,21 +18,14 @@
 	}
 
 	.site-logo {
+		flex-shrink: 0;
 		padding: 5px;
 		width: 65px;
 		height: 65px;
-		-webkit-box-flex: 1000;
-		-ms-flex-positive: 1000;
-		flex-grow: 1000;
 		-webkit-transition: -webkit-transform 0.25s;
 		transition: -webkit-transform 0.25s;
 		transition: transform 0.25s;
 		transition: transform 0.25s, -webkit-transform 0.25s;
-
-		&.expanded {
-			-webkit-transform: translate(75%, 75%) scale(2.5);
-			transform: translate(75%, 75%) scale(2.5);
-		}
 
 		svg {
 			height: 100%;
@@ -40,44 +34,20 @@
 	}
 
 	.site-title {
+		flex-shrink: 0;
 		display: inline-block;
 		font-weight: 300;
 		line-height: 56px;
 		letter-spacing: -1px;
 		margin-bottom: 0;
-		-webkit-box-flex: 1000;
-		-ms-flex-positive: 1000;
-		flex-grow: 1000;
 		padding: 10px;
-
-		@media (max-width: $small-desktop) {
-			-webkit-transform: translateX(calc(50vw - 50%));
-			transform: translateX(calc(50vw - 50%));
-		}
-
 		-webkit-transition: -webkit-transform 0.5s;
 		transition: -webkit-transform 0.5s;
 		transition: transform 0.5s;
 		transition: transform 0.5s, -webkit-transform 0.5s;
 
-		&.expanded {
-			-webkit-transform: translate(calc(50vw - 50%), 15vh);
-			transform: translate(calc(50vw - 50%), 15vh);
-
-			@media (min-width: $small-desktop) {
-				-webkit-transform: translate(5vw, 15vh);
-				transform: translate(5vw, 15vh);
-			}
-
-			@media (min-width: $medium-desktop) {
-				-webkit-transform: translate(10vw, 15vh);
-				transform: translate(10vw, 15vh);
-			}
-
-			@media (min-width: $large-desktop) {
-				-webkit-transform: translate(15vw, 15vh);
-				transform: translate(15vw, 15vh);
-			}
+		@media (max-width: $small-desktop) {
+			order: 2;
 		}
 
 		a,
@@ -87,12 +57,15 @@
 	}
 
 	.site-nav {
+		position: relative;
 		font-family: $site-nav-font-family;
 		text-align: center;
 		line-height: 56px;
 		-ms-flex-negative: 0;
-		flex-shrink: 0;
+		display: flex;
+		flex-wrap: wrap;
 		padding: 10px;
+		overflow: hidden;
 
 		.menu-icon {
 			display: none;
@@ -119,17 +92,23 @@
 		}
 
 		@media (max-width: $small-desktop) {
-			position: absolute;
-			top: 9px;
-			right: $spacing-unit / 2;
-			background-color: $background-color;
-			border: 1px solid darken($background-color, 5%);
+			order: 3;
+			flex-direction: column;
+			align-items: flex-end;
+			margin: 9px ($spacing-unit / 2);
+			// background-color: $background-color;
+			// border: 1px solid darken($background-color, 5%);
 			border-radius: 5px;
 			text-align: right;
+			box-sizing: border-box;
+			max-width: 58px;
+			max-height: 58px;
 
 			.menu-icon {
+				position: relative;
+				right: 0;
+				top: 0;
 				display: block;
-				float: right;
 				width: 36px;
 				height: 26px;
 				line-height: 0;
@@ -141,25 +120,44 @@
 					height: 15px;
 
 					path {
-						fill: $grey-color-dark;
+						fill: $light-text-color;
 					}
 				}
 			}
 
 			.trigger {
-				clear: both;
-				display: none;
+				position: fixed;
+				right: 0;
+				top: 0;
+				height: 100%;
+				background-color: $primary-color-light;
+				transform: translateX(100%);
+				transition: transform 0.1s, box-shadow 0.1s;
+				padding: $spacing-unit ($spacing-unit / 2);
 			}
 
-			&:hover .trigger {
-				display: block;
-				padding-bottom: 5px;
+			&:hover,
+			&:focus {
+
+				.trigger {
+					transform: none;
+					box-shadow: 0px 0px 0px 10000px rgba(0, 0, 0, 0.35);
+				}
 			}
+
+			// .trigger {
+			// 	clear: both;
+			// 	display: none;
+			// }
+
+			// &:hover .trigger {
+			// 	display: block;
+			// 	padding-bottom: 5px;
+			// }
 
 			.page-link {
 				display: block;
 				padding: 5px 10px;
-				color: rgba($text-color, $primary-text);
 				margin-left: 20px;
 
 				&:not(:last-child) {

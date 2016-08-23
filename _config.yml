@@ -3,6 +3,9 @@ title: PREDICT Pain Lab at MCW
 email: jmischka@mcw.edu
 description: This site is a work in progress.
 baseurl: ""
+copyright_holder: PREDICT Pain Lab at MCW
+copyright_year: 2016
+author: http://www.mcw.edu/Anesthesiology.htm
 url: "http://predict.mcw-anesthesiology.tech" # FIXME
 # twitter_username: jekyllrb
 # github_username:  jekyll
@@ -19,6 +22,9 @@ exclude:
   - Gemfile.lock
   - package.json
   - webpack.config.js
+  - gulpfile.js
+  - rollup.config.js
+  - todo.txt
 gems:
   - jekyll-paginate
 
