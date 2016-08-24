@@ -17,6 +17,7 @@ main {
 
 	.section,
 	.split-pane-section {
+		box-sizing: border-box;
 		padding: (2 * $spacing-unit) 10px;
 
 		&.compact {
@@ -27,7 +28,6 @@ main {
 	article,
 	.section,
 	.split-pane-section {
-		box-sizing: border-box;
 		overflow-x: auto;
 
 		@media (min-width: $small-desktop) {
