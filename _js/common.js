@@ -8,7 +8,8 @@ const main = document.querySelector('main');
 const hero = document.querySelector('.hero-container');
 let headerHeight = header.clientHeight;
 
-fixHeader();
+window.requestAnimationFrame(fixHeader);
+
 if(window.location.hash.length > 1){
 	let target = document.querySelector(window.location.hash);
 	window.requestAnimationFrame(() => {
@@ -43,7 +44,7 @@ for(let link of internalLinks){
 				target = 'body';
 			let targetElement = document.querySelector(target);
 			velocity(targetElement, 'scroll', { offset: headerHeight * -1, complete: function(){
-				if(window.history.replaceState){
+				if(window.history.replaceState && target.charAt(0) === '#'){
 					window.history.replaceState({}, '', target);
 				}
 			}});
@@ -74,5 +75,12 @@ for(let element of expandSectionElements){
 					.replace('hide', 'show');
 			});
 		}
+	});
+}
+
+let ignoredAnchors = Array.from(document.querySelectorAll('.ignore-click'));
+for(let anchor of ignoredAnchors){
+	anchor.addEventListener('click', event => {
+		event.preventDefault();
 	});
 }

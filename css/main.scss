@@ -27,7 +27,7 @@ $spacing-unit:     30px;
 
 $grey-color:       				#828282;
 $grey-color-light: 				lighten($grey-color, 40%);
-$grey-color-dark:  				darken($grey-color, 30%);
+$grey-color-dark:  				darken($grey-color, 25%);
 
 $hero-background-color:			$grey-color;
 $background-color: 				#fafafa;
@@ -40,7 +40,10 @@ $accent-color-dark:				darken($accent-color, 10%);
 $accent-color-light:			lighten($accent-color, 10%);
 
 $footer-color:					$grey-color-dark;
-$header-color:					$primary-color;
+$header-color:					#fff;
+$header-text-color:				$primary-color;
+
+$mcw-blue:						#00436e;
 
 $text-color:	  				#000;
 $light-text-color:				#fff;

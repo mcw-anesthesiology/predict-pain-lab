@@ -179,9 +179,12 @@ main {
 .page {
 
 	.page-header {
-		padding: 0 10%;
-		padding-bottom: 1.5em;
+		padding-bottom: 0.5em;
 		font-size: 1.5em;
+
+		@media (min-width: $small-desktop) {
+			padding: 0 10%;
+		}
 	}
 }
 
@@ -315,9 +318,13 @@ main {
 	}
 }
 
+header + .lead {
+	padding-top: 0;
+}
+
 .lead {
 	padding: 20px 40px;
-	font-size: 1.15em;
+	font-size: 1.05em;
 
 	p {
 		margin-bottom: $spacing-unit;
@@ -328,7 +335,7 @@ main {
 	}
 
 	@media (min-width: $medium-desktop) {
-		font-size: 1.25em;
+		font-size: 1.1em;
 		padding: 60px 80px;
 	}
 
