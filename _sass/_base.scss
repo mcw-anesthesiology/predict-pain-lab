@@ -28,10 +28,26 @@ body {
 
 	.primary-color {
 		color: rgba($primary-color, $primary-text);
+
+		&.secondary {
+			color: rgba($primary-color, $secondary-text);
+		}
+
+		&.disabled {
+			color: rgba($primary-color, $disabled-text);
+		}
 	}
 
 	.accent-color {
 		color: rgba($accent-color, $primary-text);
+
+		&.secondary {
+			color: rgba($accent-color, $secondary-text);
+		}
+
+		&.disabled {
+			color: rgba($accent-color, $disabled-text);
+		}
 	}
 
 	::-moz-selection {
@@ -443,9 +459,39 @@ template {
 .attribution {
 	font-size: 0.9em;
 	font-style: italic;
-	opacity: $secondary-text;
+	color: rgba($text-color, $secondary-text);
 
 	&.standalone {
 		margin-top: $spacing-unit * 2;
+	}
+
+	a {
+		color: rgba($accent-color, $secondary-text);
+		text-decoration: none;
+
+		&:visited {
+			color: rgba($accent-color-dark, $disabled-text);
+
+			.accent-color {
+				color: rgba($accent-color-dark, $disabled-text);
+			}
+
+			.primary-color {
+				color: rgba($primary-color-dark, $disabled-text);
+			}
+		}
+
+		&:hover {
+			color: rgba($accent-color-light, $secondary-text);
+			text-decoration: underline;
+
+			.accent-color {
+				color: rgba($accent-color-light, $secondary-text);
+			}
+
+			.primary-color {
+				color: rgba($primary-color-light, $secondary-text);
+			}
+		}
 	}
 }
