@@ -4,6 +4,11 @@
 	border-top: 1px solid lighten($footer-color, 20%);
 	padding: $spacing-unit 0;
 	z-index: 2;
+
+	#copyright-statement {
+		position: absolute;
+		bottom: 0;
+	}
 }
 
 .footer-heading {
@@ -77,7 +82,7 @@
 				width: 100%;
 			}
 
-			.mcw-links {
+			.icon-links {
 				display: -webkit-box;
 				display: -ms-flexbox;
 				display: flex;
