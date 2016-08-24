@@ -27,6 +27,7 @@ main {
 	article,
 	.section,
 	.split-pane-section {
+		box-sizing: border-box;
 		overflow-x: auto;
 
 		@media (min-width: $small-desktop) {
