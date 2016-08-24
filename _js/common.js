@@ -8,7 +8,8 @@ const main = document.querySelector('main');
 const hero = document.querySelector('.hero-container');
 let headerHeight = header.clientHeight;
 
-fixHeader();
+window.requestAnimationFrame(fixHeader);
+
 if(window.location.hash.length > 1){
 	let target = document.querySelector(window.location.hash);
 	window.requestAnimationFrame(() => {

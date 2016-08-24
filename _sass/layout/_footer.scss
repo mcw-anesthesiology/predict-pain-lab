@@ -110,6 +110,21 @@
 						}
 					}
 				}
+
+				li.visit-milwaukee-logo {
+
+					a {
+
+						svg {
+
+							path,
+							polygon,
+							rect {
+								fill: $light-text-color !important;
+							}
+						}
+					}
+				}
 			}
 		}
 	}

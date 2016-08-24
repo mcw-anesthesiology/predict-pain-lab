@@ -1,18 +1,6 @@
 <header class="site-header collapsed">
-	<div class="site-logo">
-		<a href="/">
-			{% include svgs/pain-medicine.svg %}
-		</a>
-	</div>
-{% comment %}
-	<h1 class="site-title">
-{% if page.layout == "post" %}
-		Blog
-{% else %}
-		{{ page.long_title | default: page.title }}
-{% endif %}
-	</h1>
-{% endcomment %}
+	<a href="/" class="site-title">PREDICT <span class="title-pain-lab">Pain Lab</span></a>
+
 	<nav class="site-nav">
 		<a href="#" class="ignore-click menu-icon">
     		{% include svgs/menu.svg %}
@@ -40,7 +28,7 @@
 		</div>
 	</nav>
 
-	<div>
-		<span class="site-title">PREDICT Pain Lab</span>
+	<div class="site-logo">
+		{% include svgs/pain-medicine.svg %}
 	</div>
 </header>
