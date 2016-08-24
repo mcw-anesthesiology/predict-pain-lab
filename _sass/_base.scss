@@ -160,9 +160,9 @@ figure > img {
 	display: block;
 }
 
-figcaption {
-	font-size: $small-font-size;
-}
+// figcaption {
+// 	font-size: 0.9em;
+// }
 
 
 
@@ -442,6 +442,7 @@ template {
 
 .attribution {
 	font-size: 0.9em;
+	font-style: italic;
 	opacity: $secondary-text;
 
 	&.standalone {

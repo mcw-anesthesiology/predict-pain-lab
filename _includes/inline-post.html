@@ -5,9 +5,24 @@
 {% if include.post.post_image %}
 	<figure class="post-image">
 		<img src="{{ include.post.post_image }}" alt="" />
-	{% if include.post.post_image_caption %}
+	{% if include.post.post_image_caption or include.post.image_credit %}
 		<figcaption>
-			{{ include.post.post_image_caption }}
+		{% if include.post.post_image_caption %}
+			<p>
+				{{ include.post.post_image_caption }}
+			</p>
+		{% endif %}
+
+		{% if include.post.image_credit or include.post.post_credit %}
+			<p class="attribution">
+			{% if include.post.image_credit %}
+				Image by {{ include.post.image_credit }}.
+			{% endif %}
+			{% if include.post.post_credit %}
+				Post by {{ include.post.post_credit }}.
+			{% endif %}
+			</p>
+		{% endif %}
 		</figcaption>
 	{% endif %}
 	</figure>
@@ -15,7 +30,7 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    {{ post.content }}
+    {{ include.post.content }}
   </div>
 
 {% if include.post.read_more %}

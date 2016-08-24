@@ -8,9 +8,24 @@ layout: default
 {% if page.post_image %}
 	<figure class="post-image">
 		<img src="{{ page.post_image }}" alt="" />
-	{% if page.post_image_caption %}
+	{% if page.post_image_caption or page.image_credit %}
 		<figcaption>
-			{{ page.post_image_caption }}
+		{% if page.post_image_caption %}
+			<p>
+				{{ page.post_image_caption }}
+			</p>
+		{% endif %}
+
+		{% if page.image_credit or page.post_credit %}
+			<p class="attribution">
+			{% if page.image_credit %}
+				Image by {{ page.image_credit }}.
+			{% endif %}
+			{% if page.post_credit %}
+				Post by {{ page.post_credit }}.
+			{% endif %}
+			</p>
+		{% endif %}
 		</figcaption>
 	{% endif %}
 	</figure>
