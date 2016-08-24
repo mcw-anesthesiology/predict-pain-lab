@@ -17,6 +17,7 @@ if(window.location.hash.length > 1){
 	});
 }
 
+window.addEventListener('load', fixHeader);
 window.addEventListener('resize', debounce(fixHeader, 100));
 
 function fixHeader(){

@@ -434,7 +434,10 @@ template {
 }
 
 .nowrap {
-	white-space: nowrap;
+
+	@media (min-width: $extra-small-screen) {
+		white-space: nowrap;
+	}
 }
 
 .attribution {

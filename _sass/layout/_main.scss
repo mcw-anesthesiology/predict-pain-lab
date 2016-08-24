@@ -9,6 +9,7 @@ main {
 	background-color: $background-color;
 	box-shadow: 0 -5px 20px -5px $shadow-color;
 	z-index: 3;
+	overflow-x: auto;
 
 	article {
 		padding: $spacing-unit 10px;
@@ -26,6 +27,7 @@ main {
 	article,
 	.section,
 	.split-pane-section {
+		overflow-x: auto;
 
 		@media (min-width: $small-desktop) {
 			margin: auto;
@@ -52,6 +54,8 @@ main {
 		// position: sticky :(
 		box-sizing: border-box;
 		padding: 20px;
+		max-height: calc(100vh - $header-height);
+		overflow: auto;
 
 		// @media (max-width: #{$small-desktop - 1}) {
 		// 	display: inline-block;

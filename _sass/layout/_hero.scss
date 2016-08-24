@@ -1,8 +1,8 @@
 .hero-container {
 	position: relative;
-	overflow: hidden;
+	overflow: auto;
 	height: calc(100vh - #{$header-height});
-	padding: 0 10%;
+	padding: 0 10px;
 	box-sizing: border-box;
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -11,6 +11,10 @@
 	-webkit-box-direction: normal;
 	-ms-flex-direction: column;
 	flex-direction: column;
+
+	@media (min-width: $extra-small-screen) {
+		padding: 0 10%;
+	}
 
 	.hero-content {
 		text-align: center;
@@ -35,6 +39,7 @@
 		left: 50%;
 		cursor: pointer;
 		opacity: 0.5;
+		-webkit-transform: translateX(-50%);
 		transform: translateX(-50%);
 
 		&:hover {
