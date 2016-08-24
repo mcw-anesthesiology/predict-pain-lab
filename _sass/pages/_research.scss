@@ -1,5 +1,9 @@
 .predict-acronym {
-	font-family: $heading-font-family;
+
+	h1 {
+		font-family: $heading-font-family;
+		line-height: 1.15;
+	}
 
 	figcaption {
 		font-variant: small-caps;
