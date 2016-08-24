@@ -129,6 +129,10 @@
 			}
 		}
 
+		@media (min-width: $small-desktop) {
+			font-size: 0.95em;
+		}
+
 		@media (max-width: $small-desktop) {
 			-ms-flex-negative: 0;
 			flex-shrink: 0;
