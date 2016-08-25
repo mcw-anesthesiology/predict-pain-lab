@@ -1,14 +1,10 @@
-// FIXME: Breaks on blog pages
-
 import Color from 'color';
 
 let hero = document.querySelector('.site-hero-header-container');
 let heroImageContainer = document.querySelector('.site-hero-image-container');
 let header = document.querySelector('header.site-header');
 let title = document.querySelector('.site-title');
-// let logo = document.querySelector('.site-logo');
-// const collapseMargin = 20;
-// const expandMargin = 30;
+
 const defaultHeroImageBackgroundPositionY = window.getComputedStyle(heroImageContainer).getPropertyValue('background-position-y');
 const heroParallaxScrollMultiplier = 10;
 
@@ -38,22 +34,6 @@ for(let i in expandedTitleTranslation)
 
 // FIXME: How broken will this be with js disabled?
 
-// window.requestAnimationFrame(() => {
-// 	if(title.classList.contains('expanded')
-// 			&& (hero.getBoundingClientRect().bottom
-// 			< title.getBoundingClientRect().bottom + collapseMargin)){
-// 		title.classList.add('notransition');
-// 		title.classList.remove('expanded');
-// 		title.offsetHeight; // Trigger reflow, this is filthy
-// 		logo.classList.add('notransition');
-// 		logo.classList.remove('expanded');
-// 		logo.offsetHeight;
-// 		header.classList.add('collapsed');
-// 		title.classList.remove('notransition');
-// 		logo.classList.remove('notransition');
-// 	}
-// });
-
 for(let event of ['resize', 'scroll']){
 	window.addEventListener(event, () => {
 		window.requestAnimationFrame(step);
@@ -64,24 +44,6 @@ function step(){
 	let heroRect = hero.getBoundingClientRect();
 	let headerHeight = header.getBoundingClientRect().height;
 	let newHeroColor = heroBackgroundColor.clone();
-
-	// if(title.classList.contains('expanded')){
-	// 	if(heroRect.bottom
-	// 			< title.getBoundingClientRect().bottom + collapseMargin){
-	//
-	// 		title.classList.remove('expanded');
-	// 		logo.classList.remove('expanded');
-	// 	}
-	// }
-	// else {
-	// 	if(heroRect.bottom
-	// 			> expandedTitleTranslation[expandedTitleTranslation.length - 1]
-	// 			+ title.getBoundingClientRect().height + expandMargin){
-	//
-	// 		title.classList.add('expanded');
-	// 		logo.classList.add('expanded');
-	// 	}
-	// }
 
 	if(header.classList.contains('collapsed')){
 		if(heroRect.bottom > headerHeight){
