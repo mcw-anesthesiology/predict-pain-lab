@@ -16,5 +16,30 @@
 		line-height: 1;
 		font-size: 2em;
 		color: rgba($primary-color, $secondary-text);
+
+		@media (min-width: $small-desktop) {
+			font-size: 2.5em;
+		}
+	}
+}
+
+.has-js {
+
+	.predict-acronym {
+
+		h1 {
+
+			.letter,
+			small {
+				opacity: 0;
+			}
+		}
+
+		figcaption {
+
+			.letter {
+				color: rgba($primary-color, $primary-text);
+			}
+		}
 	}
 }

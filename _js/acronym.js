@@ -1,4 +1,6 @@
+import Color from 'color';
 import { isInView } from './utils.js';
+import { ACCENT_COLOR, SECONDARY_TEXT } from './constants.js';
 
 const letters = [
 	'p',
@@ -16,9 +18,8 @@ const smallTransitionDurationSeconds = 1;
 let letterElements = {};
 
 if(acronym && isInView(acronym)){
-	moveTermLetters();
-
 	window.addEventListener('load', () => {
+		moveTermLetters();
 		window.requestAnimationFrame(moveTermLettersBack);
 	});
 }
@@ -31,7 +32,7 @@ function moveTermLetters(){
 		// FIXME: Why is this necessary?
 		let offset = {
 			x: 0,
-			y: -2
+			y: -5
 		};
 
 		let termStyle = window.getComputedStyle(termLetter);
@@ -40,7 +41,7 @@ function moveTermLetters(){
 		let definitionLetterString = definitionLetter.textContent.charAt(0);
 		if(definitionLetterString === definitionLetterString.toLowerCase()){
 			scale = scale * 0.7;
-			offset.y = -6;
+			offset.y = -7;
 		}
 		termLetter.style.display = 'inline-block';
 		termLetter.style.transform = `scale(${scale})`;
@@ -53,6 +54,11 @@ function moveTermLetters(){
 		};
 
 		termLetter.style.transform = `translate(${translate.x}px, ${translate.y}px) scale(${scale})`;
+		termLetter.style.opacity = 1;
+
+		let definitionLetterColor = new Color(ACCENT_COLOR);
+		definitionLetterColor.alpha(SECONDARY_TEXT);
+		definitionLetter.style.color = definitionLetterColor.rgbString();
 		definitionLetter.style.opacity = 0;
 
 		letterElements[letter] = {
@@ -60,17 +66,14 @@ function moveTermLetters(){
 			definitionLetter
 		};
 	}
-
-	let small = acronym.querySelector('h1 small');
-	small.style.opacity = 0;
 }
 
 function moveTermLettersBack(){
 	let delaySeconds = 1;
 
 	for(let letter of letters){
-		let termLetter = letterElements[letter].termLetter;
-		let definitionLetter = letterElements[letter].definitionLetter;
+		const termLetter = letterElements[letter].termLetter;
+		const definitionLetter = letterElements[letter].definitionLetter;
 
 		termLetter.style.transition = 'translate scale opacity';
 		termLetter.style.transitionDuration = `${transitionDurationSeconds}s`;
@@ -80,8 +83,8 @@ function moveTermLettersBack(){
 		definitionLetter.style.transitionDelay = `${delaySeconds}s`;
 
 		termLetter.style.transform = null;
-		termLetter.style.opacity = null;
-		definitionLetter.style.opacity = null;
+		termLetter.style.opacity = 1;
+		definitionLetter.style.opacity = 1;
 
 		window.setTimeout(() => {
 			termLetter.style.display = null;
@@ -95,5 +98,5 @@ function moveTermLettersBack(){
 	small.style.transitionDuration = `${smallTransitionDurationSeconds}s`;
 	small.style.transitionDelay = `${delaySeconds}s`;
 	small.style.transitionTimingFunction = 'ease-in';
-	small.style.opacity = null;
+	small.style.opacity = 1;
 }

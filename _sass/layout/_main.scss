@@ -12,7 +12,7 @@ main {
 	overflow-x: auto;
 
 	article {
-		padding: $spacing-unit 10px;
+		padding: $spacing-unit;
 	}
 
 	.section,
@@ -87,7 +87,7 @@ main {
 		&.narrow-sidebar {
 
 			&,
-			&.page-nav {
+			ul.page-nav {
 
 				@media (min-width: $small-desktop) {
 					max-width: 0.75 * $small-sidebar-width;
@@ -162,7 +162,11 @@ main {
 		padding-bottom: 0.5em;
 
 		h1 {
-			font-size: 6em;
+			font-size: 4em;
+
+			@media (min-width: $small-desktop) {
+				font-size: 6em;
+			}
 		}
 
 		.lead {
