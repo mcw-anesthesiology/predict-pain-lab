@@ -2,14 +2,18 @@
 
 	h1 {
 		font-family: $heading-font-family;
-		line-height: 1.15;
+		line-height: 1;
+
+		small {
+			white-space: nowrap;
+		}
 	}
 
 	figcaption {
 		font-variant: small-caps;
 		font-family: $heading-font-family;
 		font-weight: $heading-font-weight;
-		line-height: 1.15;
+		line-height: 1;
 		font-size: 2em;
 		color: rgba($primary-color, $secondary-text);
 	}

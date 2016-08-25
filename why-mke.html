@@ -4,21 +4,24 @@ order: 7
 show_in_nav: true
 hero_image: /images/hero/why-milwaukee.jpg
 # hero_content: <h1>Choose Milwaukee</h1>
-show_header: true
+# show_header: true
 external_scripts:
   - <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzUjYL1M1CQNv2MjTqdxJq0fgA83z6C2A&callback=initMap" async defer></script>
 ---
-<div class="lead">
-	<p>
-		Located on the scenic shore of Lake Michigan, Milwaukee offers an exceptional blend of stunning natural beauty and Midwest charm.
-		A downtown RiverWalk connects German heritage-inspired Old World Third Street to the Historic Third Ward with its shops and restaurants.
-	</p>
-	<p>
-		We’re a city of colorful, walk-around neighborhoods, acclaimed culinary scene and entrepreneurial spirit, where exciting attractions like
-		Discovery World and Milwaukee Art Museum meet brewery tours, excursion boats, professional sports and a summer-long schedule of lakefront festivals.
-		You’ll find all this and more on tap in Milwaukee. Check out some of our Milwaukee favorites below.
-	</p>
-</div>
+<header class="page-header">
+	<h1>{{ page.title }}</h1>
+	<div class="lead">
+		<p>
+			Located on the scenic shore of Lake Michigan, Milwaukee offers an exceptional blend of stunning natural beauty and Midwest charm.
+			A downtown RiverWalk connects German heritage-inspired Old World Third Street to the Historic Third Ward with its shops and restaurants.
+		</p>
+		<p>
+			We’re a city of colorful, walk-around neighborhoods, acclaimed culinary scene and entrepreneurial spirit, where exciting attractions like
+			Discovery World and Milwaukee Art Museum meet brewery tours, excursion boats, professional sports and a summer-long schedule of lakefront festivals.
+			You’ll find all this and more on tap in Milwaukee. Check out some of our Milwaukee favorites below.
+		</p>
+	</div>
+</header>
 
 <section id="choose-mke-attractions">
 {% for attraction in site.milwaukee_attractions %}

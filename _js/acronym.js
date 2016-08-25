@@ -1,3 +1,5 @@
+import { isInView } from './utils.js';
+
 const letters = [
 	'p',
 	'r',
@@ -7,17 +9,16 @@ const letters = [
 	'c',
 	't'
 ];
-
 const acronym = document.querySelector('.predict-acronym');
 const transitionDurationSeconds = 0.2;
-const delayOffsetSeconds = 0.125;
-let termLetters = [];
+const delayOffsetSeconds = 0.4;
+const smallTransitionDurationSeconds = 1;
+let letterElements = {};
 
-if(acronym){
+if(acronym && isInView(acronym)){
+	moveTermLetters();
 
 	window.addEventListener('load', () => {
-		moveTermLetters();
-
 		window.requestAnimationFrame(moveTermLettersBack);
 	});
 }
@@ -51,21 +52,48 @@ function moveTermLetters(){
 			y: (definitionRect.bottom - termRect.bottom) + offset.y
 		};
 
-		console.log(letter, `translate(${translate.x}px, ${translate.y}px) scale(${scale})`);
 		termLetter.style.transform = `translate(${translate.x}px, ${translate.y}px) scale(${scale})`;
+		definitionLetter.style.opacity = 0;
 
-		termLetters.push(termLetter);
+		letterElements[letter] = {
+			termLetter,
+			definitionLetter
+		};
 	}
+
+	let small = acronym.querySelector('h1 small');
+	small.style.opacity = 0;
 }
 
 function moveTermLettersBack(){
-	let delaySeconds = 0;
-	for(let termLetter of termLetters){
-		termLetter.style.transition = 'translate scale';
+	let delaySeconds = 1;
+
+	for(let letter of letters){
+		let termLetter = letterElements[letter].termLetter;
+		let definitionLetter = letterElements[letter].definitionLetter;
+
+		termLetter.style.transition = 'translate scale opacity';
 		termLetter.style.transitionDuration = `${transitionDurationSeconds}s`;
 		termLetter.style.transitionDelay = `${delaySeconds}s`;
+		definitionLetter.style.transition = 'opacity';
+		definitionLetter.style.transitionDuration = '0';
+		definitionLetter.style.transitionDelay = `${delaySeconds}s`;
+
 		termLetter.style.transform = null;
+		termLetter.style.opacity = null;
+		definitionLetter.style.opacity = null;
+
+		window.setTimeout(() => {
+			termLetter.style.display = null;
+		}, (delaySeconds + transitionDurationSeconds) * 1000);
 
 		delaySeconds += delayOffsetSeconds;
 	}
+
+	let small = acronym.querySelector('h1 small');
+	small.style.transition = 'opacity';
+	small.style.transitionDuration = `${smallTransitionDurationSeconds}s`;
+	small.style.transitionDelay = `${delaySeconds}s`;
+	small.style.transitionTimingFunction = 'ease-in';
+	small.style.opacity = null;
 }
