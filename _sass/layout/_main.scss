@@ -28,7 +28,6 @@ main {
 	article,
 	.section,
 	.split-pane-section {
-		overflow-x: auto;
 
 		@media (min-width: $small-desktop) {
 			margin: auto;
