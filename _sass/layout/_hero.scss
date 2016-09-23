@@ -1,7 +1,6 @@
 .hero-container {
 	position: relative;
-	overflow: auto;
-	height: calc(100vh - #{$header-height});
+	min-height: 50vh;
 	padding: 0 10px;
 	box-sizing: border-box;
 	display: -webkit-box;
@@ -16,9 +15,15 @@
 		padding: 0 10%;
 	}
 
+	@media (min-width: $small-desktop) {
+		min-height: calc(100vh - #{$header-height});
+		background-attachment: fixed;
+	}
+
 	.hero-content {
 		text-align: center;
 		font-size: 1.25em;
+		padding-bottom: 50px;
 
 		h1 {
 			color: rgba($light-text-color, $primary-light-text);

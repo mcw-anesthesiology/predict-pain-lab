@@ -1,4 +1,5 @@
 import './page-nav.js';
+import { BREAKPOINTS } from './constants.js';
 
 import debounce from 'lodash/debounce';
 import velocity from 'velocity-animate';
@@ -24,7 +25,14 @@ function fixHeader(){
 	headerHeight = header.clientHeight;
 	main.style.setProperty('padding-top', `${headerHeight}px`);
 	if(hero){
-		hero.style.setProperty('height', `calc(100vh - ${headerHeight}px)`);
+		if(window.innerWidth < BREAKPOINTS.SMALL_DESKTOP){
+			hero.style.setProperty('min-height', '50vh');
+			hero.style.setProperty('background-attachment', null);
+		}
+		else{
+			hero.style.setProperty('min-height', `calc(100vh - ${headerHeight}px)`);
+			hero.style.setProperty('background-attachment', 'fixed');
+		}
 	}
 }
 

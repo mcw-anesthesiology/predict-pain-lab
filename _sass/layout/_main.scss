@@ -11,35 +11,31 @@ main {
 	z-index: 3;
 	overflow-x: auto;
 
-	article {
-		padding: $spacing-unit;
-	}
+	.page,
+	.section {
+		padding: 1em 1.5em;
 
-	.section,
-	.split-pane-section {
-		box-sizing: border-box;
-		padding: (2 * $spacing-unit) 10px;
-
-		&.compact {
-			padding: $spacing-unit 10px;
+		@media (min-width: $small-desktop) {
+			padding: 1em 2em;
 		}
 	}
 
-	article,
+	.page,
 	.section,
 	.split-pane-section {
+		max-width: 10;
 
 		@media (min-width: $small-desktop) {
 			margin: auto;
-			width: 750px;
+			width: 700px;
 		}
 
 		@media (min-width: $medium-desktop) {
-			width: 970px;
+			width: 920px;
 		}
 
 		@media (min-width: $large-desktop) {
-			width: 1170px;
+			width: 1100px;
 		}
 
 		&::after {
