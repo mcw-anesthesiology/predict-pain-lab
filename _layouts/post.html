@@ -7,22 +7,22 @@ layout: default
     <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
 {% if page.post_image %}
 	<figure class="post-image">
-	{% if include.post.post_images %}
+	{% if page.post_images %}
 		<picture>
-		{% for source in include.post.post_images %}
+		{% for source in page.post_images %}
 			<source srcset="{{ source.src }}" type="{{ source.type }}" />
 		{% endfor %}
-			<img src="{{ include.post.post_image }}" alt="" />
+			<img src="{{ page.post_image }}" alt="" />
 		</picture>
-	{% elsif include.post.post_videos %}
+	{% elsif page.post_videos %}
 		<video width="100%" height="100%" autoplay controls loop>
-		{% for source in include.post.post_images %}
+		{% for source in page.post_images %}
 			<source src="{{ source.src }}" type="{{ source.type }}" />
 		{% endfor %}
-			<img src="{{ include.post.post_image }}" alt="" />
+			<img src="{{ page.post_image }}" alt="" />
 		</video>
 	{% else %}
-		<img src="{{ include.post.post_image }}" alt="" />
+		<img src="{{ page.post_image }}" alt="" />
 	{% endif %}
 	{% if page.post_image_caption or page.image_credit %}
 		<figcaption>
