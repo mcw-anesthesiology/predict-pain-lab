@@ -43,7 +43,7 @@ group_names:
 		<li class="{% if person.director %} director {% else %} person {% endif %}" tabindex="1">
 			{% unless person.director %} <a href="#{{ person.name | slugify }}" title="Click to see more about {{ person.name }}"> {% endunless %}
 				<figure>
-					<img src="{{ person.image | default: "http://placehold.it/250x250" }}" alt="" />
+					<img src="{{ person.image | default: "/images/people/placeholder.svg" }}" alt="" />
 					<figcaption>
 						{{ person.name }}
 		{% if person.titles %}
