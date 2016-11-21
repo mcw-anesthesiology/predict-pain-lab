@@ -1,22 +1,26 @@
-const path = require('path');
-
 /* eslint-env node */
+const path = require('path');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
 module.exports = {
-	entry: [
-		'babel-polyfill',
-		'raf/polyfill',
-		'classlist-polyfill',
-		'element-dataset',
-		'./_js/bundle.js'
-	],
+	entry: {
+		bundle: [
+			'babel-polyfill',
+			'raf/polyfill',
+			'classlist-polyfill',
+			'element-dataset',
+			'./_js/bundle.js'
+		],
+		blog: './_js/blog.js'
+	},
 	output: {
 		path: './resources/',
 		publicPath: '/resources/',
-		filename: '../js/bundle.js' // I guess this works but it's gross
+		filename: '../js/[name].js' // I guess this works but it's gross
 	},
 	target: 'web',
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
@@ -25,39 +29,46 @@ module.exports = {
 			{
 				test: /\.yaml$/,
 				loaders: [
-					'json',
-					'yaml'
+					'json-loader',
+					'yaml-loader'
 				]
 			},
 			{
 				test: /\.svg/,
 				include: /_includes/,
-				loader: 'raw'
+				loader: 'raw-loader'
 			},
 			{
 				test: /\.css$/,
 				loaders: [
-					'style',
-					'css'
+					'style-loader',
+					'css-loader'
 				]
 			},
 			{
 				test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
 				include: /node_modules/,
-				loader: 'file'
+				loader: 'file-loader'
 			},
 			{
 				test: path.resolve(__dirname, '_js/lib/modernizr.js'),
 				loaders: [
-					'imports?this=>window',
-					'exports?window.Modernizr'
+					'imports-loader?this=>window',
+					'exports-loader?window.Modernizr'
 				]
 			},
 			{
 				test: /element-dataset/,
-				loader: 'apply'
+				loader: 'apply-loader'
 			}
 		]
 	},
+	plugins: [
+		new BundleAnalyzerPlugin({
+			analyzerMode: 'disabled',
+			generateStatsFile: true,
+			statsFilename: '../js/stats.json'
+		})
+	],
 	devtool: 'source-map'
 };

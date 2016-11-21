@@ -1,20 +1,26 @@
 /* global google */
-
-import $ from 'jquery';
-import 'slick-carousel';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import Flickity from 'flickity';
+import 'flickity/dist/flickity.css';
 
 import { PRIMARY_COLOR } from './constants.js';
 
-$('#choose-mke-attractions').slick();
+const carousel = document.querySelector('#choose-mke-attractions');
 
-let slideLinks = Array.from(document.getElementsByClassName('slick-slide-link'));
-for(let slideLink of slideLinks){
-	slideLink.addEventListener('click', function(){
-		$('#choose-mke-attractions')
-			.slick('slickGoTo', this.dataset.slideIndex);
+if(carousel){
+	const flickity = new Flickity(carousel, {
+		wrapAround: true
 	});
+
+	window.addEventListener('load', () => {
+		flickity.resize();
+	});
+	
+	let slideLinks = Array.from(document.getElementsByClassName('slick-slide-link'));
+	for(let slideLink of slideLinks){
+		slideLink.addEventListener('click', function(){
+			flickity.select(this.dataset.slideIndex);
+		});
+	}
 }
 
 // FIXME: Make this better
@@ -112,7 +118,7 @@ window.initMap = () => {
 		]
 	});
 
-	let marker = new google.maps.Marker({
+	new google.maps.Marker({
 		position: painCenter,
 		map: map,
 		title: 'MCW Pain Management Center'

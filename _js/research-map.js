@@ -26,8 +26,11 @@ if(map){
 		let starPos = convertStateCoordsToPixels(state, partner.coordinates.x, partner.coordinates.y);
 		newStar.style.left = `${starPos.x - mapContainerRect.left}px`;
 		newStar.style.top = `${starPos.y - mapContainerRect.top}px`;
-		newStar.offsetHeight; // force reflow
-		newStar.classList.remove('notransition');
+		window.requestAnimationFrame(() => {
+			window.requestAnimationFrame(() => {
+				newStar.classList.remove('notransition');
+			});
+		});
 	}
 
 	window.addEventListener('resize', debounce(adjustPartnerCoordinates, 100));

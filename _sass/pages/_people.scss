@@ -116,6 +116,13 @@ ul.people-group {
 }
 
 .person-bio-modal {
+	display: none;
+
+	&.active {
+		display: block;
+		position: absolute;
+		top: 1em;
+	}
 
 	.person-name {
 		margin-top: 0;

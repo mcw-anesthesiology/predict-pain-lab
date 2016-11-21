@@ -25,7 +25,7 @@ external_scripts:
 
 <section id="choose-mke-attractions">
 {% for attraction in site.milwaukee_attractions %}
-	<section>
+	<section class="choose-mke-attraction">
 		<h2 id="{{ attraction.name | slugify }}">{{ attraction.name }}</h2>
 		<figure>
 			<img src="{{ attraction.image }}" alt=""

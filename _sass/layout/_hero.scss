@@ -27,7 +27,7 @@
 
 		h1 {
 			color: rgba($light-text-color, $primary-light-text);
-			text-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+			text-shadow: 0 0 10px $shadow-color;
 			line-height: 1;
 			margin-top: $spacing-unit;
 		}
