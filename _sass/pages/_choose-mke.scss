@@ -1,14 +1,7 @@
 ul#choose-mke-attraction-list {
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
 	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
 	align-items: center;
 	list-style: none;
 	margin: 0;
@@ -22,7 +15,6 @@ ul#choose-mke-attraction-list {
 				width: 200px;
 				height: 200px;
 				margin: 0 auto;
-				-o-object-fit: cover;
 				object-fit: cover;
 			}
 
@@ -51,7 +43,6 @@ ul#choose-mke-attraction-list {
 				margin: 0 auto;
 				height: 500px;
 				width: 100%;
-				-o-object-fit: cover;
 				object-fit: cover;
 			}
 

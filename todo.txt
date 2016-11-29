@@ -1,4 +1,0 @@
-Flexbox polyfill
-Fix parallax
-Background-shading on parallax again
-Slide out drawer for sidebars on mobile

@@ -19,14 +19,11 @@
 
 	.map-star {
 		position: absolute;
-		-webkit-transform: translate(-50%, -50%);
 		transform: translate(-50%, -50%);
 		// pointer-events: none;
-		-webkit-transition: top 0.5s, left 0.5s;
 		transition: top 0.5s, left 0.5s;
 
 		&:hover {
-			-webkit-transform: translate(-50%, -50%) scale(2);
 			transform: translate(-50%, -50%) scale(2);
 			z-index: 1;
 		}
@@ -67,13 +64,8 @@
 		}
 
 		ul.partners-list-group {
-			display: -webkit-box;
-			display: -ms-flexbox;
 			display: flex;
-			-ms-flex-wrap: wrap;
 			flex-wrap: wrap;
-			-webkit-box-align: end;
-			-ms-flex-align: end;
 			align-items: flex-end;
 			list-style: none;
 			margin: 0;
@@ -82,10 +74,7 @@
 				width: 300px;
 				padding: 10px;
 				text-align: center;
-				-webkit-transition: background-color 0.25s, border 0.25s, box-shadow 0.25s, -webkit-transform 0.25s;
-				transition: background-color 0.25s, border 0.25s, box-shadow 0.25s, -webkit-transform 0.25s;
 				transition: transform 0.25s, background-color 0.25s, border 0.25s, box-shadow 0.25s;
-				transition: transform 0.25s, background-color 0.25s, border 0.25s, box-shadow 0.25s, -webkit-transform 0.25s;
 
 				&.active {
 					background-color: $background-color;
@@ -107,7 +96,6 @@
 						margin: auto;
 						width: 280px;
 						height: 280px;
-						-o-object-fit: cover;
 						object-fit: cover;
 					}
 				}
