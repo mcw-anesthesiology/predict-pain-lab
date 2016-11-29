@@ -1,8 +1,12 @@
-import 'remodal';
-import 'remodal/dist/remodal.css';
-import 'remodal/dist/remodal-default-theme.css';
+import { h, render } from 'preact';
+import PersonDetails from './components/PersonDetails.js';
 
-// import { h, render } from 'preact';
-// import PersonDetails from './components/PersonDetails.js';
-//
-// render(<PersonDetails />, document.querySelector('#person-details'));
+const peopleLinks = Array.from(document.querySelectorAll('.person > a'));
+peopleLinks.map(personLink => {
+	personLink.addEventListener('click', event => {
+		event.preventDefault();
+		window.history.pushState({}, '', personLink.href);
+		const details = personLink.dataset.details;
+		render(<PersonDetails {...details} />, document.querySelector('#person-details'));
+	});
+});

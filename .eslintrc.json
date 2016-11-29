@@ -19,7 +19,8 @@
 		"no-spaced-func": "warn",
 		"comma-style": "warn",
 		"comma-spacing": "warn",
-		"key-spacing": "warn"
+		"key-spacing": "warn",
+		"react/no-unknown-property": [2, {"ignore": ["class", "for"]}]
 	},
 	"plugins": [
 		"react"

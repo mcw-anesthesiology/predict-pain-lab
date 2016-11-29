@@ -41,7 +41,7 @@ group_names:
 		{% unless person.hide %}
 
 		<li class="{% if person.director %} director {% else %} person {% endif %}" tabindex="1">
-			{% unless person.director %} <a href="#{{ person.name | slugify }}" title="Click to see more about {{ person.name }}"> {% endunless %}
+			{% unless person.director %} <a href="?person={{ person.name | slugify }}" title="Click to see more about {{ person.name }}" data-details='{{ person | jsonify | strip_html }}'> {% endunless %}
 				<figure>
 					<img src="{{ person.image | default: "/images/people/placeholder.svg" }}" alt="" />
 					<figcaption>
