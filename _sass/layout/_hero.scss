@@ -5,6 +5,13 @@
 	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+
+	&.blur {
+		filter: blur(2px);
+	}
 
 	@media (min-width: $extra-small-screen) {
 		padding: 0 10%;
@@ -19,12 +26,32 @@
 		text-align: center;
 		font-size: 1.25em;
 		padding-bottom: 50px;
+		filter: none;
 
 		h1 {
 			color: rgba($light-text-color, $primary-light-text);
 			text-shadow: 0 0 10px $shadow-color;
 			line-height: 1;
 			margin-top: $spacing-unit;
+		}
+
+		.lead {
+			color: rgba($light-text-color, $primary-light-text);
+			text-shadow: 2px 2px 5px black;
+			font-size: 1.25em;
+			margin: 20% 0 0;
+
+			@media (min-width: $extra-small-screen) {
+				font-size: 1.5em;
+			}
+
+			@media (min-width: $small-desktop) {
+				font-size: 1.75em;
+			}
+
+			@media (min-width: $medium-desktop) {
+				font-size: 2em;
+			}
 		}
 	}
 

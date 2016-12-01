@@ -13,7 +13,7 @@
 		{% endcapture %}
 	{% endif %}
 
-				{% include hero.html content=hero_content %}
+				{% include hero.html title=page.hero_title text=page.hero_text content=hero_content %}
 			</div>
 {% endif %}
 			{{ content }}
