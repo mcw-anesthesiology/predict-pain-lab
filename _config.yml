@@ -1,14 +1,12 @@
 # Site settings
 title: PREDICT Pain Lab at MCW
 email: jmischka@mcw.edu
-description: This site is a work in progress.
+description: Pain Research Education Informatics Technology Center
 baseurl: ""
 copyright_holder: PREDICT Pain Lab at MCW
 copyright_year: 2016
 author: http://www.mcw.edu/Anesthesiology.htm
-url: "http://www.predictpainlab.org"
-# twitter_username: jekyllrb
-# github_username:  jekyll
+url: "https://www.predictpainlab.org"
 
 paginate: 5
 paginate_path: "/blog/page:num/"
@@ -20,11 +18,12 @@ exclude:
   - node_modules
   - Gemfile
   - Gemfile.lock
-  - package.json
-  - webpack.config.js
   - gulpfile.js
+  - package.json
   - rollup.config.js
-  - todo.txt
+  - webpack.config.js
+  - yarn.lock
+
 gems:
   - jekyll-paginate
   - jekyll-autoprefixer
@@ -36,7 +35,7 @@ collections:
 
 prose:
   rooturl: "_posts"
-  siteurl: "http://www.predictpainlab.org"
+  siteurl: "https://www.predictpainlab.org"
   media: "resources/posts"
   metadata:
     _posts:

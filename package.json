@@ -2,7 +2,7 @@
   "name": "predict-pain-lab",
   "version": "1.0.0",
   "description": "New MCW Pain Care PREDICT Pain Lab site",
-  "main": "./_js/index.js",
+  "main": "./_js/bundle.js",
   "private": true,
   "scripts": {
     "start": "run-p watch serve",
