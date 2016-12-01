@@ -23,7 +23,7 @@
     "url": "git+https://github.com/jacobmischka/predict-pain-lab.git"
   },
   "author": "Jacob Mischka <jacob@mischka.me>",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/jacobmischka/predict-pain-lab/issues"
   },
