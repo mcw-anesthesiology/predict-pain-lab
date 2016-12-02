@@ -12,6 +12,8 @@ group_names:
   Fellow: Fellows
   Psychology Graduate Student: Psychology graduate students
   "": Other research team members
+scripts:
+  - /js/people.js
 ---
 {% assign people_groups = site.people | group_by: "position" %}
 
@@ -41,42 +43,43 @@ group_names:
 		{% unless person.hide %}
 
 		<li class="{% if person.director %} director {% else %} person {% endif %}" tabindex="1">
-			{% unless person.director %} <a href="?person={{ person.name | slugify }}" title="Click to see more about {{ person.name }}" data-details='{{ person | jsonify | strip_html }}'> {% endunless %}
+			{% unless person.director %}
+			<a href="?person={{ person.name | slugify }}" title="Click to see more about {{ person.name }}"
+				data-name="{{ person.name }}"
+				data-image="{{ person.image }}"
+				data-titles="{{ person.titles | jsonify | xml_escape }}"
+				data-bio="{{ person.content | xml_escape }}">
+			{% endunless %}
+
 				<figure>
 					<img src="{{ person.image | default: "/images/people/placeholder.svg" }}" alt="" />
 					<figcaption>
 						{{ person.name }}
-		{% if person.titles %}
+			{% if person.titles %}
 						<span class="person-titles">{{ person.titles | join: ", " }}</span>
-		{% endif %}
+			{% endif %}
 					</figcaption>
 				</figure>
-		{% if person.director %}
+			{% if person.director %}
 				<div class="bio">
 					{{ person.content }}
 				</div>
-		{% endif %}
-			{% unless person.director %} </a> {% endunless %}
+			{% else %}
+				<template class="bio">
+					{{ person.content }}
+				</template>
+			{% endif %}
+
+			{% unless person.director %}
+			</a>
+			{% endunless %}
 		</li>
 
 		{% endunless %}
 	{% endfor %}
 
 	</ul>
-
-	{% for person in people %}
-		{% unless person.hide %}
-
-			<div class="remodal person-bio-modal" data-remodal-id="{{ person.name | slugify }}">
-				<button data-remodal-action="close" class="remodal-close"></button>
-				<h3 class="person-name">{{ person.name }} <span class="person-titles">{{ person.titles | join: ", " }}</span></h3>
-				<img class="person-image" src="{{ person.image }}" alt="" />
-				<div class="bio">
-					{{ person.content }}
-				</div>
-			</div>
-
-		{% endunless %}
-	{% endfor %}
 {% endfor %}
+
+	<div id="person-details"></div>
 </section>

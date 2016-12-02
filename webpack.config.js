@@ -11,7 +11,8 @@ module.exports = {
 			'element-dataset',
 			'./_js/bundle.js'
 		],
-		blog: './_js/blog.js'
+		blog: './_js/blog.js',
+		people: './_js/people.js'
 	},
 	output: {
 		path: './resources/',

@@ -1,12 +1,5 @@
 {
 	"presets": [
-		"react",
 		["es2015", {"modules": false}]
-	],
-	"plugins": [
-		"array-includes",
-		["transform-react-jsx", {
-			"pragma": "h"
-		}]
 	]
 }

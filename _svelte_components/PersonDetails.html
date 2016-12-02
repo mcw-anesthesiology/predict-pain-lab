@@ -1,0 +1,46 @@
+<div class="details-container {{ activeClassName }}">
+	<div class="details">
+{{#if active}}
+		<span class="name">
+			{{name}}
+	{{#if titles}}
+			<span class="titles">{{titles.join(', ')}}</span>
+	{{/if}}
+		</span>
+		<img class="image" src="{{image}}" alt="" />
+		<div ref:bio class="bio"></div>
+{{/if}}
+	</div>
+</div>
+
+<script>
+	export default {
+		data(){
+			return {
+				active: false,
+				name: '',
+				titles: '',
+				image: '',
+				bio: ''
+			}
+		},
+
+		computed: {
+			activeClassName : active => active ? 'active' : ''
+		},
+
+		onrender(){
+			this.observe('bio', bio => {
+				this.refs.bio.innerHTML = bio;
+			}, { init: false, defer: true });
+
+			this.observe('active', active => {
+				const html = document.querySelector('html');
+				if(active)
+					html.classList.add('locked');
+				else
+					html.classList.remove('locked');
+			}, { defer: true });
+		}
+	}
+</script>

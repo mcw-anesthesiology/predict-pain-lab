@@ -1,0 +1,18 @@
+<div ref:container></div>
+
+<script>
+// This could work, except this simple helper component is 3.3kb
+	export default {
+		data(){
+			return {
+				html: ''
+			}
+		},
+
+		onrender(){
+			this.observe('html', html => {
+				this.refs.container.innerHTML = html;
+			}, { init: false, defer: true });
+		}
+	}
+</script>

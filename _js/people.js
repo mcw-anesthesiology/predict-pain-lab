@@ -1,12 +1,21 @@
-import { h, render } from 'preact';
 import PersonDetails from './components/PersonDetails.js';
+
+let personDetails = new PersonDetails({
+	target: document.querySelector('body'),
+	data: {
+		active: false
+	}
+});
 
 const peopleLinks = Array.from(document.querySelectorAll('.person > a'));
 peopleLinks.map(personLink => {
 	personLink.addEventListener('click', event => {
 		event.preventDefault();
 		window.history.pushState({}, '', personLink.href);
-		const details = personLink.dataset.details;
-		render(<PersonDetails {...details} />, document.querySelector('#person-details'));
+		let data = Object.assign({}, personLink.dataset, {active: true});
+		data.titles = JSON.parse(data.titles);
+		personDetails.set(data);
 	});
 });
+
+window.personDetails = personDetails;

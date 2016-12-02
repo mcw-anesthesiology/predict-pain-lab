@@ -1,16 +1,13 @@
 {
 	"parserOptions": {
 		"ecmaVersion": 6,
-		"sourceType": "module",
-		"ecmaFeatures": {
-			"jsx": true
-		}
+		"sourceType": "module"
 	},
 	"env": {
 		"browser": true,
 		"es6": true
 	},
-	"extends": ["eslint:recommended", "plugin:react/recommended"],
+	"extends": ["eslint:recommended"],
 	"rules": {
 		"no-console": "off",
 		"no-var": "warn",
@@ -19,15 +16,6 @@
 		"no-spaced-func": "warn",
 		"comma-style": "warn",
 		"comma-spacing": "warn",
-		"key-spacing": "warn",
-		"react/no-unknown-property": [2, {"ignore": ["class", "for"]}]
-	},
-	"plugins": [
-		"react"
-	],
-	"settings": {
-		"react": {
-			"pragma": "h"
-		}
+		"key-spacing": "warn"
 	}
 }

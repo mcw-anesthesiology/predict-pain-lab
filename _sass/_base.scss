@@ -1,3 +1,5 @@
+@import "imports/normalize";
+
 /**
  * Reset some basic elements
  */
@@ -84,27 +86,35 @@ button,
 	background: $primary-color;
 	color: rgba($light-text-color, $primary-light-text);
 
-	&:hover {
+	&:focus,
+	&:hover,
+	&:active {
 		background: $primary-color-dark;
 		text-decoration: none;
+		outline: none;
 	}
 
 	&.outline {
 		background: none;
 		color: $primary-color;
 
-		&:hover {
+		&:focus,
+		&:hover,
+		&:active {
 			background: $primary-color;
 			color: rgba($light-text-color, $primary-light-text);
 		}
 	}
 
+	&.accent,
 	&.accent-button {
 		border: 1px solid $accent-color;
 		background: $accent-color;
 		color: rgba($light-text-color, $primary-light-text);
 
-		&:hover {
+		&:focus,
+		&:hover,
+		&:active {
 			background: $accent-color-dark;
 		}
 
@@ -112,7 +122,9 @@ button,
 			background: none;
 			color: $accent-color;
 
-			&:hover {
+			&:focus,
+			&:hover,
+			&:active {
 				background: $accent-color;
 				color: rgba($light-text-color, $primary-light-text);
 			}

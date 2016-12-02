@@ -29,7 +29,7 @@ function moveTermLetters(){
 		const termLetter = acronym.querySelector(`h1 .${letter}`);
 		const definitionLetter = acronym.querySelector(`figcaption .${letter}`);
 
-		// FIXME: Why is this necessary?
+		// HACK: Why is this necessary?
 		let offset = {
 			x: 0,
 			y: -5

@@ -58,12 +58,16 @@ defaults:
       type: "sections"
     values:
       layout: "section"
-
   - scope:
       path: ""
       type: "posts"
     values:
       layout: "post"
+  - scope:
+      path: ""
+      type: "people"
+    values:
+      layout: null
 
 autoprefixer:
   only_production: true
