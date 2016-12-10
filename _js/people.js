@@ -12,7 +12,8 @@ peopleLinks.map(personLink => {
 	personLink.addEventListener('click', event => {
 		event.preventDefault();
 		let data = Object.assign({}, personLink.dataset, {active: true});
-		data.titles = JSON.parse(data.titles);
+		if(data.titles)
+			data.titles = JSON.parse(data.titles);
 		window.history.pushState(data, '', personLink.href);
 		personDetails.set(data);
 	});
