@@ -1,6 +1,9 @@
-<div on:click="closeModal(event)" class="details-container {{ activeClassName }}">
+<div ref:container on:click="closeModal(event)" class="details-container {{ activeClassName }}">
 	<div on:click="preventCloseModal(event)" class="details">
-{{#if active}}
+		<button type="button" class="close" on:click="closeModal(event)"
+				title="Close person details">
+			×
+		</button>
 		<span class="name">
 			{{name}}
 	{{#if titles}}
@@ -9,7 +12,6 @@
 		</span>
 		<img class="image" src="{{image}}" alt="" />
 		<div class="bio">{{{bio}}}</div>
-{{/if}}
 	</div>
 </div>
 
@@ -30,12 +32,30 @@
 		},
 
 		onrender(){
+			const closeModalWithEsc = event => {
+				console.log('close modal with esc');
+				if(event.which == 27) // Escape
+					this.fire('closeModal');
+			};
+
+			this.on('closeModal', () => {
+				this.set({ active: false });
+				let urlWithoutSearch = window.location.href
+					.replace(window.location.search, '');
+				window.history.pushState({active: false}, '', urlWithoutSearch);
+			});
+
 			this.observe('active', active => {
 				const html = document.querySelector('html');
-				if(active)
+				if(active){
 					html.classList.add('locked');
-				else
+					this.refs.container.scrollTop = 0;
+					document.addEventListener('keyup', closeModalWithEsc);
+				}
+				else {
 					html.classList.remove('locked');
+					document.removeEventListener('keyup', closeModalWithEsc);
+				}
 			}, { defer: true });
 		},
 
@@ -44,8 +64,9 @@
 				event.preventDefault();
 			},
 			closeModal(event){
-				if(!event.defaultPrevented)
-					this.set({ active: false });
+				if(!event.defaultPrevented){
+					this.fire('closeModal');
+				}
 			}
 		}
 	}
