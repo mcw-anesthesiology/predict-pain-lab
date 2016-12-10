@@ -1,4 +1,4 @@
-import PersonDetails from './components/PersonDetails.js';
+import PersonDetails from './svelte-components/PersonDetails.html';
 
 let personDetails = new PersonDetails({
 	target: document.querySelector('body'),

@@ -28,6 +28,10 @@ module.exports = {
 				loader: 'babel-loader'
 			},
 			{
+				test: /\.html$/,
+				loader: 'svelte-loader'
+			},
+			{
 				test: /\.yaml$/,
 				loaders: [
 					'json-loader',

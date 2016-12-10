@@ -3284,6 +3284,12 @@ macaddress@^0.2.8:
   version "0.2.8"
   resolved "https://registry.yarnpkg.com/macaddress/-/macaddress-0.2.8.tgz#5904dc537c39ec6dbefeae902327135fa8511f12"
 
+magic-string@^0.19.0:
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.19.0.tgz#198948217254e3e0b93080e01146b7c73b2a06b2"
+  dependencies:
+    vlq "^0.2.1"
+
 map-cache@^0.2.0:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/map-cache/-/map-cache-0.2.2.tgz#c32abd0bd6525d9b051645bb4f26ac5dc98a0dbf"
@@ -5022,15 +5028,15 @@ supports-color@^3.1.0, supports-color@^3.1.2:
   dependencies:
     has-flag "^1.0.0"
 
-svelte-cli@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/svelte-cli/-/svelte-cli-1.0.2.tgz#b62b68fc3ffee15e6e5f78361cfd7bcc171d51c6"
-  dependencies:
-    svelte "^1.0.0"
+svelte-loader@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/svelte-loader/-/svelte-loader-1.0.1.tgz#f77604bdad83e4d07b55cd0408de6cd4035db7a8"
 
-svelte@^1.0.0:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/svelte/-/svelte-1.0.5.tgz#3a31504d069e1f969de3d4a5dcc7ef5cb2b15336"
+svelte@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/svelte/-/svelte-1.2.0.tgz#08bcbd0ba9ef704c3ba4fe2bc1f430966066676b"
+  dependencies:
+    magic-string "^0.19.0"
 
 svg-tags@^1.0.0:
   version "1.0.0"
@@ -5356,6 +5362,10 @@ vinyl@^0.5.0:
     clone "^1.0.0"
     clone-stats "^0.0.1"
     replace-ext "0.0.1"
+
+vlq@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/vlq/-/vlq-0.2.1.tgz#14439d711891e682535467f8587c5630e4222a6c"
 
 vm-browserify@0.0.4:
   version "0.0.4"

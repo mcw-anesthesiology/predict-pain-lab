@@ -1,5 +1,5 @@
-<div class="details-container {{ activeClassName }}">
-	<div class="details">
+<div on:click="closeModal(event)" class="details-container {{ activeClassName }}">
+	<div on:click="preventCloseModal(event)" class="details">
 {{#if active}}
 		<span class="name">
 			{{name}}
@@ -8,7 +8,7 @@
 	{{/if}}
 		</span>
 		<img class="image" src="{{image}}" alt="" />
-		<div ref:bio class="bio"></div>
+		<div class="bio">{{{bio}}}</div>
 {{/if}}
 	</div>
 </div>
@@ -30,10 +30,6 @@
 		},
 
 		onrender(){
-			this.observe('bio', bio => {
-				this.refs.bio.innerHTML = bio;
-			}, { init: false, defer: true });
-
 			this.observe('active', active => {
 				const html = document.querySelector('html');
 				if(active)
@@ -41,6 +37,16 @@
 				else
 					html.classList.remove('locked');
 			}, { defer: true });
+		},
+
+		methods: {
+			preventCloseModal(event){
+				event.preventDefault();
+			},
+			closeModal(event){
+				if(!event.defaultPrevented)
+					this.set({ active: false });
+			}
 		}
 	}
 </script>
