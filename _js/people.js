@@ -12,6 +12,7 @@ peopleLinks.map(personLink => {
 	personLink.addEventListener('click', event => {
 		event.preventDefault();
 		let data = Object.assign({}, personLink.dataset, {active: true});
+		console.log(data);
 		if(data.titles)
 			data.titles = JSON.parse(data.titles);
 		window.history.pushState(data, '', personLink.href);
@@ -31,7 +32,8 @@ window.addEventListener('load', () => {
 		let personLink = document.querySelector(`.person > a[href="${window.location.search}"]`);
 		if(personLink){
 			let data = Object.assign({}, personLink.dataset, {active: true});
-			data.titles = JSON.parse(data.titles);
+			if(data.titles)
+				data.titles = JSON.parse(data.titles);
 			personDetails.set(data);
 		}
 	}
