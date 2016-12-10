@@ -19,7 +19,10 @@ peopleLinks.map(personLink => {
 });
 
 window.addEventListener('popstate', event => {
-	personDetails.set(event.state);
+	if(event.state)
+		personDetails.set(event.state);
+	else
+		personDetails.set({active: false});
 });
 
 window.addEventListener('load', () => {
