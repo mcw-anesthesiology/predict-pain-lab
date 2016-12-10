@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/jacobmischka/predict-pain-lab#readme",
   "devDependencies": {
-    "apply-loader": "^0.1.0",
+    "apply-loader": "git+https://github.com/jacobmischka/apply-loader.git",
     "babel-core": "^6.11.4",
     "babel-loader": "^6.2.4",
     "babel-plugin-add-module-exports": "^0.2.1",
