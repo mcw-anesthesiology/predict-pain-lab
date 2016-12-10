@@ -1,8 +1,34 @@
-import 'remodal';
-import 'remodal/dist/remodal.css';
-import 'remodal/dist/remodal-default-theme.css';
+import PersonDetails from './svelte-components/PersonDetails.html';
 
-// import { h, render } from 'preact';
-// import PersonDetails from './components/PersonDetails.js';
-//
-// render(<PersonDetails />, document.querySelector('#person-details'));
+let personDetails = new PersonDetails({
+	target: document.querySelector('body'),
+	data: {
+		active: false
+	}
+});
+
+const peopleLinks = Array.from(document.querySelectorAll('.person > a'));
+peopleLinks.map(personLink => {
+	personLink.addEventListener('click', event => {
+		event.preventDefault();
+		let data = Object.assign({}, personLink.dataset, {active: true});
+		data.titles = JSON.parse(data.titles);
+		window.history.pushState(data, '', personLink.href);
+		personDetails.set(data);
+	});
+});
+
+window.addEventListener('popstate', event => {
+	personDetails.set(event.state);
+});
+
+window.addEventListener('load', () => {
+	if(window.location.search && !personDetails.get('active')){
+		let personLink = document.querySelector(`.person > a[href="${window.location.search}"]`);
+		if(personLink){
+			let data = Object.assign({}, personLink.dataset, {active: true});
+			data.titles = JSON.parse(data.titles);
+			personDetails.set(data);
+		}
+	}
+});

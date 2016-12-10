@@ -24,3 +24,8 @@
 		}
 	}
 }
+
+html.locked {
+	overflow: hidden !important;
+	touch-action: none !important;
+}

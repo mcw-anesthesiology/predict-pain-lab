@@ -1,18 +1,20 @@
 /* eslint-env node */
 const gulp = require('gulp');
-const watch = require('gulp-watch');
-const postcss = require('gulp-postcss');
-const autoprefixer = require('autoprefixer');
-const scss = require('postcss-scss');
+const rename = require('gulp-rename');
 
-gulp.task('postcss', runPostcss);
+const nodeModules = './node_modules/';
 
-gulp.task('watch', function(){
-	return watch('./_sass/**/*.scss', runPostcss);
+gulp.task('import:css', () => {
+	let imports = [
+		'normalize.css/normalize.css'
+	];
+
+	imports = imports.map(file => nodeModules + file);
+
+	gulp.src(imports)
+		.pipe(rename(path => {
+			path.basename = '_' + path.basename;
+			path.extname = '.scss';
+		}))
+		.pipe(gulp.dest('./_sass/imports'));
 });
-
-function runPostcss(){
-	return gulp.src('./_sass/**/*.scss')
-		.pipe(postcss([autoprefixer({ cascade: false })], { syntax: scss }))
-		.pipe(gulp.dest('./_sass'));
-}

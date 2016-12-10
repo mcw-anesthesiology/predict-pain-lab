@@ -1,0 +1,73 @@
+<div ref:container on:click="closeModal(event)" class="details-container {{ activeClassName }}">
+	<div on:click="preventCloseModal(event)" class="details">
+		<button type="button" class="close" on:click="closeModal(event)"
+				title="Close person details">
+			×
+		</button>
+		<span class="name">
+			{{name}}
+	{{#if titles}}
+			<span class="titles">{{titles.join(', ')}}</span>
+	{{/if}}
+		</span>
+		<img class="image" src="{{image}}" alt="" />
+		<div class="bio">{{{bio}}}</div>
+	</div>
+</div>
+
+<script>
+	export default {
+		data(){
+			return {
+				active: false,
+				name: '',
+				titles: '',
+				image: '',
+				bio: ''
+			}
+		},
+
+		computed: {
+			activeClassName : active => active ? 'active' : ''
+		},
+
+		onrender(){
+			const closeModalWithEsc = event => {
+				console.log('close modal with esc');
+				if(event.which == 27) // Escape
+					this.fire('closeModal');
+			};
+
+			this.on('closeModal', () => {
+				this.set({ active: false });
+				let urlWithoutSearch = window.location.href
+					.replace(window.location.search, '');
+				window.history.pushState({active: false}, '', urlWithoutSearch);
+			});
+
+			this.observe('active', active => {
+				const html = document.querySelector('html');
+				if(active){
+					html.classList.add('locked');
+					this.refs.container.scrollTop = 0;
+					document.addEventListener('keyup', closeModalWithEsc);
+				}
+				else {
+					html.classList.remove('locked');
+					document.removeEventListener('keyup', closeModalWithEsc);
+				}
+			}, { defer: true });
+		},
+
+		methods: {
+			preventCloseModal(event){
+				event.preventDefault();
+			},
+			closeModal(event){
+				if(!event.defaultPrevented){
+					this.fire('closeModal');
+				}
+			}
+		}
+	}
+</script>

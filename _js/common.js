@@ -13,9 +13,10 @@ window.requestAnimationFrame(fixHeader);
 
 if(window.location.hash.length > 1){
 	let target = document.querySelector(window.location.hash);
-	window.requestAnimationFrame(() => {
-		window.scroll(0, target.offsetTop - headerHeight);
-	});
+	if(target)
+		window.requestAnimationFrame(() => {
+			window.scroll(0, target.offsetTop - headerHeight);
+		});
 }
 
 window.addEventListener('load', fixHeader);

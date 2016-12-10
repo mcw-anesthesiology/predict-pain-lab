@@ -2,19 +2,19 @@ $people-transition-duration: 0.2s;
 
 ul.people-group {
 	position: relative;
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
 	list-style: none;
 	margin: 0;
 
 	li {
 		position: relative;
-		-ms-flex-negative: 0;
 		flex-shrink: 0;
 		padding: 10px;
+
+		&:focus {
+			outline: none;
+		}
 	}
 
 	li.director {
@@ -31,10 +31,6 @@ ul.people-group {
 				max-width: 300px;
 				width: 100%;
 				height: auto;
-			}
-
-			figcaption {
-
 			}
 		}
 
@@ -53,9 +49,7 @@ ul.people-group {
 		width: 250px;
 		border: 1px $background-color solid;
 		border-bottom: 0;
-		-webkit-transition-property: border, background;
 		transition-property: border, background;
-		-webkit-transition-duration: $people-transition-duration;
 		transition-duration: $people-transition-duration;
 
 		figure {
@@ -66,7 +60,6 @@ ul.people-group {
 				width: 250px;
 				height: 300px;
 				margin: auto;
-				-o-object-fit: cover;
 				object-fit: cover;
 			}
 
@@ -115,25 +108,85 @@ ul.people-group {
 	}
 }
 
-.person-bio-modal {
-	display: none;
+.details-container {
+	visibility: hidden;
+	opacity: 0;
+	position: fixed;
+	z-index: 10000;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	backface-visibility: hidden;
+	overflow: auto;
+	background: $shadow-color;
+	padding: 50px 10px;
+	transition: visibility 0s 0.25s, opacity 0.075s 0s ease-out;
 
 	&.active {
-		display: block;
-		position: absolute;
-		top: 1em;
+		visibility: visible;
+		opacity: 1;
+		transition: opacity 0.05s ease-out;
+
+		.details {
+			transform: none;
+			transition: transform 0.05s ease-out;
+		}
+	}
+}
+
+.details {
+	box-sizing: border-box;
+	position: relative;
+	max-width: $small-desktop;
+	background: $background-color;
+	text-align: center;
+	margin: 0 auto;
+	padding: 1em 2em;
+	transform: scale(0.75);
+	transition: transform 0.05s ease-in;
+
+	@media (min-width: $small-desktop) {
+		padding: 1em 3em 2em;
 	}
 
-	.person-name {
+	@media (min-width: $medium-desktop) {
+		padding: 1em 4em 2em;
+	}
+
+	.close {
+		position: absolute;
+		right: 0;
+		top: 0;
+		cursor: pointer;
+		font-size: 1.25em;
+		background: none;
+		border: none;
+		outline: none;
+		color: rgba($text-color, $disabled-text);
+		padding: 0.25em;
+		margin: 0.25em;
+		line-height: 0.8;
+
+		&:hover {
+			color: rgba($text-color, $secondary-text);
+		}
+	}
+
+	.name {
+		display: block;
+		font-size: 3em;
+		font-family: $heading-font-family;
 		margin-top: 0;
 		color: rgba($primary-color, $primary-text);
 
-		.person-titles {
+		.titles {
+			font-size: 0.75em;
 			color: rgba($primary-color, $secondary-text);
 		}
 	}
 
-	img.person-image {
+	img.image {
 		max-width: 100%;
 		max-height: 400px;
 		margin-bottom: $spacing-unit;

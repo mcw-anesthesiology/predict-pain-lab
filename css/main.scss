@@ -10,7 +10,6 @@
 	src: url("/resources/black-medium-down-pointing-triangle.woff");
 }
 
-// Our variables
 $base-font-family: "Open Sans", Helvetica, Arial, sans-serif;
 $heading-font-family: "Cormorant", serif;
 $site-nav-font-family: "Mate SC", serif;
@@ -86,23 +85,12 @@ $large-desktop: 1200px;
 	transition: none !important;
 }
 
-
-// Use media queries like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
 @mixin media-query($device) {
     @media screen and (max-width: $device) {
         @content;
     }
 }
 
-
-
-// Import partials from `sass_dir` (defaults to `_sass`)
 @import
         "base",
         "layout/index",
