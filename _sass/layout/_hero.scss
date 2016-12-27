@@ -36,21 +36,24 @@
 		}
 
 		.lead {
+			font-family: $heading-font-family;
+			font-weight: $heading-font-weight;
+			font-variant: small-caps;
 			color: rgba($light-text-color, $primary-light-text);
 			text-shadow: 2px 2px 5px black;
-			font-size: 1.25em;
 			margin: 20% 0 0;
+			font-size: 1.5em;
 
 			@media (min-width: $extra-small-screen) {
-				font-size: 1.5em;
-			}
-
-			@media (min-width: $small-desktop) {
 				font-size: 1.75em;
 			}
 
+			@media (min-width: $small-desktop) {
+				font-size: 2.25em;
+			}
+
 			@media (min-width: $medium-desktop) {
-				font-size: 2em;
+				font-size: 2.5em;
 			}
 		}
 	}
