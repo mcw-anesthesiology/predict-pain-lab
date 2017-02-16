@@ -25,18 +25,18 @@ module.exports = {
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
-				loader: 'babel-loader'
+				use: 'babel-loader'
 			},
 			{
 				test: /\.html$/,
-				loaders: [
+				use: [
 					'babel-loader',
 					'svelte-loader'
 				]
 			},
 			{
 				test: /\.yaml$/,
-				loaders: [
+				use: [
 					'json-loader',
 					'yaml-loader'
 				]
@@ -44,11 +44,11 @@ module.exports = {
 			{
 				test: /\.svg/,
 				include: /_includes/,
-				loader: 'raw-loader'
+				use: 'raw-loader'
 			},
 			{
 				test: /\.css$/,
-				loaders: [
+				use: [
 					'style-loader',
 					'css-loader'
 				]
@@ -56,18 +56,18 @@ module.exports = {
 			{
 				test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
 				include: /node_modules/,
-				loader: 'file-loader'
+				use: 'file-loader'
 			},
 			{
 				test: path.resolve(__dirname, '_js/lib/modernizr.js'),
-				loaders: [
+				use: [
 					'imports-loader?this=>window',
 					'exports-loader?window.Modernizr'
 				]
 			},
 			{
 				test: /element-dataset/,
-				loader: 'apply-loader'
+				use: 'apply-loader'
 			}
 		]
 	},
