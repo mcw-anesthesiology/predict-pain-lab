@@ -24,7 +24,7 @@ layout: default
 	{% else %}
 		<img src="{{ page.post_image }}" alt="" />
 	{% endif %}
-	{% if page.post_image_caption or page.image_credit %}
+	{% if page.post_image_caption or page.image_credit or page.post_credit %}
 		<figcaption>
 		{% if page.post_image_caption %}
 			<p>

@@ -21,7 +21,7 @@
 	{% else %}
 		<img src="{{ include.post.post_image }}" alt="" />
 	{% endif %}
-	{% if include.post.post_image_caption or include.post.image_credit %}
+	{% if include.post.post_image_caption or include.post.image_credit or include.post.post_credit %}
 		<figcaption>
 		{% if include.post.post_image_caption %}
 			<p>
