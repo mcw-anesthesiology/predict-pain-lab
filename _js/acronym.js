@@ -1,5 +1,4 @@
 import Color from 'color';
-import { isInView } from './utils.js';
 import { ACCENT_COLOR, SECONDARY_TEXT } from './constants.js';
 
 const letters = [
@@ -17,7 +16,7 @@ const delayOffsetSeconds = 0.4;
 const smallTransitionDurationSeconds = 1;
 let letterElements = {};
 
-if(acronym && isInView(acronym)){
+if(acronym){
 	window.addEventListener('load', () => {
 		moveTermLetters();
 		window.requestAnimationFrame(moveTermLettersBack);
