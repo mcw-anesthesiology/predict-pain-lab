@@ -15,7 +15,7 @@ module.exports = {
 		people: './_js/people.js'
 	},
 	output: {
-		path: './resources/',
+		path: path.resolve(__dirname, 'resources'),
 		publicPath: '/resources/',
 		filename: '../js/[name].js' // I guess this works but it's gross
 	},
